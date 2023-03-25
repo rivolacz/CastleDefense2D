@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Environment
+  - Water
+  - UI
+  - 
+  - PlayerUnit
+  - PlayerBuilding
+  - PlayerWeapon
+  - PlayerProjectiles
+  - 
+  - 
+  - 
+  - EnemyUnit
+  - EnemyBuilding
+  - EnemyWeapon
+  - EnemyProjectiles
+  - 
+  - 
+  - AttackingArea
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Environment
+    uniqueID: 3824753723
+    locked: 0
+  - name: Buildings
+    uniqueID: 998878259
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 3574249519
+    locked: 0
+  - name: UI
+    uniqueID: 2018161347
+    locked: 0

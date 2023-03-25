@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/H533970/source/repos/Public/CastleDefense/.utmp/Debug/3p5g6v4w/arm64-v8a",
+  "command": "C:\\PROGRA~1\\Unity\\Hub\\Editor\\20232~1.0A6\\Editor\\Data\\PLAYBA~1\\ANDROI~1\\NDK\\TOOLCH~1\\llvm\\prebuilt\\WINDOW~1\\bin\\CLANG_~1.EXE --target=aarch64-none-linux-android22 --sysroot=\"C:/Program Files/Unity/Hub/Editor/2023.2.0a6/Editor/Data/PlaybackEngines/AndroidPlayer/NDK/toolchains/llvm/prebuilt/windows-x86_64/sysroot\" -DEXTERNAL_FRAME_PACING_CODE -Dswappywrapper_EXPORTS -isystem C:/Users/H533970/.gradle/caches/transforms-3/d7a4fef6c1de50f289bfe736463a11a6/transformed/games-frame-pacing-1.10.0/prefab/modules/swappy_static/include -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -fexceptions -frtti -stdlib=libc++ -Wall -Wextra -pedantic -Werror -g  -fno-limit-debug-info -fPIC -o FramePacing\\CMakeFiles\\swappywrapper.dir\\UnitySwappyWrapper.cpp.o -c C:\\Users\\H533970\\source\\repos\\Public\\CastleDefense\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\UnitySwappyWrapper.cpp",
+  "file": "C:\\Users\\H533970\\source\\repos\\Public\\CastleDefense\\Library\\Bee\\Android\\Prj\\IL2CPP\\Gradle\\unityLibrary\\src\\main\\cpp\\FramePacing\\UnitySwappyWrapper.cpp"
+}
+]
