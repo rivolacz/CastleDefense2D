@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pikeman
   m_EditorClassIdentifier: 
   Name: Pikeman
-  BaseMovementSpeed: 0
+  BaseMovementSpeed: 1
   MaxHealth: 100
   AttackDamage: 20
   AttackRange: 3

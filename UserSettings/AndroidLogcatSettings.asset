@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LVGAIRNFC6H6IJTO",
         "name": "com.ActiveGamesStudio.knightsKeepKingdom",
-        "processId": 29419,
+        "processId": 23217,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,18 @@
             "deviceId": "LVGAIRNFC6H6IJTO",
             "name": "com.ActiveGamesStudio.knightsKeepKingdom",
             "processId": 29419,
+            "exited": false
+        },
+        {
+            "deviceId": "LVGAIRNFC6H6IJTO",
+            "name": "com.ActiveGamesStudio.knightsKeepKingdom",
+            "processId": 31182,
+            "exited": false
+        },
+        {
+            "deviceId": "LVGAIRNFC6H6IJTO",
+            "name": "com.ActiveGamesStudio.knightsKeepKingdom",
+            "processId": 23217,
             "exited": false
         }
     ],

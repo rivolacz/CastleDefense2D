@@ -1,32 +1,19 @@
 ﻿Id;Value
-storyBegin;"The kingdom of Ardor has been at peace for many years, but one day, dark clouds gather on the horizon. The evil sorcerer Malakar has returned, and he is determined to conquer Ardor and enslave its people. With his army of undead soldiers and dark magic, Malakar begins to march towards the capital city, intent on destroying everything in his path.
-
-You are the commander of the city's defenses, responsible for protecting the people of Ardor and stopping Malakar's army from reaching the city gates. You must build and upgrade defensive structures, recruit and train soldiers, and strategically place your troops to defend against the enemy's attacks.
-
-As you progress through the game, you will face increasingly difficult challenges as Malakar's army grows in strength and numbers. You will need to adapt your defenses, unlocking new technologies and spells to fight back against the enemy's powerful magic and advanced siege weapons.
-
-But the fate of Ardor rests on more than just your defenses. You will need to gather intelligence, recruit allies, and launch counterattacks to weaken the enemy's forces and eventually defeat Malakar himself. Only then can you restore peace to the kingdom and vanquish the evil sorcerer once and for all."
-storyPlayerWins;"After a long and difficult battle, you and your army have finally defeated Malakar and his forces. The evil sorcerer lies defeated, and his army has been scattered to the winds.
-
-As you survey the aftermath of the battle, you see the people of Ardor emerging from their homes and shelters, cheering and celebrating their victory. The sun is shining once again, and the air is filled with the sound of music and laughter.
-
-In recognition of your bravery and leadership, the king of Ardor awards you with the highest honors, and the people of the kingdom hail you as a hero. The kingdom begins the work of rebuilding and recovering from the damage done by the war, but the future looks bright, and the people of Ardor are filled with hope once again.
-
-As for you, you know that your work is not done. There will always be new threats to Ardor, and new challenges to overcome. But for now, you can bask in the glory of victory, knowing that you have saved your kingdom and brought peace back to the land."
-storyPlayerLose;"Despite your best efforts, Malakar's forces were too powerful, and they breached the gates of the city. Your army fought valiantly, but it was no match for the relentless advance of the enemy.
-
-As the battle rages on, you see the city falling into chaos. Buildings are burning, people are fleeing in all directions, and the enemy soldiers are running rampant through the streets. You know that this is the end, and that there is no hope of victory.
-
-With a heavy heart, you order your troops to retreat, hoping to regroup and launch a counterattack later. But as you flee the city, you see the devastation left in the wake of Malakar's army. The people of Ardor are in disarray, and the kingdom is in ruins.
-
-In the days and weeks that follow, you try to rebuild your forces and launch a new offensive against the enemy. But it is too late. Malakar's army has already conquered most of the kingdom, and his grip on power is too strong to be broken.
-
-As the years go by, you hear rumors of rebellion and resistance, but they are quickly crushed by the power of the evil sorcerer. You live the rest of your days in shame and regret, haunted by the memory of your failure to protect the people of Ardor and defeat Malakar."
+storyBegin;The kingdom of Ardor has been at peace for many years, but one day, dark clouds gather on the horizon. The evil sorcerer Malakar has returned, and he is determined to conquer Ardor and enslave its people. With his army of undead soldiers and dark magic, Malakar begins to march towards the capital city, intent on destroying everything in his path.You are the commander of the city's defenses, responsible for protecting the people of Ardor and stopping Malakar's army from reaching the city gates. You must build and upgrade defensive structures, recruit and train soldiers, and strategically place your troops to defend against the enemy's attacks.As you progress through the game, you will face increasingly difficult challenges as Malakar's army grows in strength and numbers. You will need to adapt your defenses, unlocking new technologies to fight back against the enemy's powerful magic and advanced siege weapons.But the fate of Ardor rests on more than just your defenses. You will need to gather intelligence and launch counterattacks to weaken the enemy's forces and eventually defeat Malakar himself. Only then can you restore peace to the kingdom and vanquish the evil sorcerer once and for all.
+storyPlayerWins;After a long and difficult battle, you and your army have finally defeated Malakar and his forces. The evil sorcerer lies defeated, and his army has been scattered to the winds.As you survey the aftermath of the battle, you see the people of Ardor emerging from their homes and shelters, cheering and celebrating their victory. The sun is shining once again, and the air is filled with the sound of music and laughter.In recognition of your bravery and leadership, the king of Ardor awards you with the highest honors, and the people of the kingdom hail you as a hero. The kingdom begins the work of rebuilding and recovering from the damage done by the war, but the future looks bright, and the people of Ardor are filled with hope once again.As for you, you know that your work is not done. There will always be new threats to Ardor, and new challenges to overcome. But for now, you can bask in the glory of victory, knowing that you have saved your kingdom and brought peace back to the land.
+storyPlayerLose;Despite your best efforts, Malakar's forces were too powerful, and they breached the gates of the city. Your army fought valiantly, but it was no match for the relentless advance of the enemy.As the battle rages on, you see the city falling into chaos. Buildings are burning, people are fleeing in all directions, and the enemy soldiers are running rampant through the streets. You know that this is the end, and that there is no hope of victory.With a heavy heart, you order your troops to retreat, hoping to regroup and launch a counterattack later. But as you flee the city, you see the devastation left in the wake of Malakar's army. The people of Ardor are in disarray, and the kingdom is in ruins.In the days and weeks that follow, you try to rebuild your forces and launch a new offensive against the enemy. But it is too late. Malakar's army has already conquered most of the kingdom, and his grip on power is too strong to be broken.As the years go by, you hear rumors of rebellion and resistance, but they are quickly crushed by the power of the evil sorcerer. You live the rest of your days in shame and regret, haunted by the memory of your failure to protect the people of Ardor and defeat Malakar.
 cancel;Cancel
 continue;Continue
-;
-;
-;
-;
-;
-;
+accept;Accept
+newGame;New game
+start;Start
+load;Load
+changeLanguage;Change language
+exitGame;Exit game
+deleteConfirmation;Are you sure you want to delete this saved game?
+yes;Yes
+no;No
+pikeman;
+pikemanDescription;
+archer;
+archerDescription;

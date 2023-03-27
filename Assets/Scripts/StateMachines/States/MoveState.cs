@@ -97,6 +97,7 @@ namespace Project.StateMachines.States
             }
             else
             {
+                Debug.Log(directionToTarget.normalized);
                 stateMachine.MoveUnit(directionToTarget.normalized);
             }
         }

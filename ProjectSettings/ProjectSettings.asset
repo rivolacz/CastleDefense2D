@@ -55,7 +55,7 @@ PlayerSettings:
   numberOfMipsStrippedPerMipmapLimitGroup: {}
   m_StackTraceTypes: 020000000200000002000000020000000200000001000000
   iosShowActivityIndicatorOnLoading: -1
-  androidShowActivityIndicatorOnLoading: -1
+  androidShowActivityIndicatorOnLoading: 0
   iosUseCustomAppBackgroundBehavior: 0
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -134,7 +134,8 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -2401869428508068695, guid: d7f183cb9ce85e04b953f93b0962d20c, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -276,10 +277,77 @@ PlayerSettings:
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
   AndroidReportGooglePlayAppDependencies: 1
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 87f8c3419aaaaf749bceba7c7b3c819a, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 1
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 0
+      m_SubKind: 
     - m_Textures: []
       m_Width: 432
       m_Height: 432
@@ -309,66 +377,6 @@ PlayerSettings:
       m_Width: 81
       m_Height: 81
       m_Kind: 2
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 1
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 192
-      m_Height: 192
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 144
-      m_Height: 144
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 96
-      m_Height: 96
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 72
-      m_Height: 72
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 0
-      m_SubKind: 
-    - m_Textures: []
-      m_Width: 36
-      m_Height: 36
-      m_Kind: 0
       m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []

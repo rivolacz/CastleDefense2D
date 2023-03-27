@@ -24,6 +24,7 @@ namespace Project.Units
         {
             Vector2 currentPosition = transform.position;
             Vector2 destination = currentPosition + movementDirection * Time.fixedDeltaTime * unitStats.BaseMovementSpeed;
+            Debug.Log("Destination" + destination);
             rigidbody.MovePosition(destination);
             if (updateLookDirection)
             {

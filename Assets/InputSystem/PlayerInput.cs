@@ -250,6 +250,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""350333bb-15b8-43e1-9607-b7ddee62f70a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldFinger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9f3c9f80-9c27-4e3f-8136-700726e51720"",
                     ""path"": ""<Touchscreen>/Press"",
                     ""interactions"": ""MultiTap"",
@@ -330,17 +341,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""7abe295f-c608-46ba-9a49-57e88917a8bb"",
                     ""path"": ""<Touchscreen>/touch1/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""32b5df4f-faba-4633-9346-d4919c838dad"",
-                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

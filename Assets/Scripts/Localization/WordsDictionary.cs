@@ -3,28 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TMPro;
 using UnityEngine;
 
 namespace Project.Localization
 {
     public class WordsDictionary : MonoBehaviour
     {
-        public Language defaultLanguage;
         public static Language DefaultLanguage;
-        private static Dictionary<Language, Dictionary<string, string>> languagesData;
+        private static Dictionary<Language, Dictionary<string, string>> languagesData = new Dictionary<Language, Dictionary<string, string>>();
         private static Language currentLanguage;
         private static Dictionary<string, string> currentLanguageData;
 
         public delegate void ChangedLanguage();
         public static event ChangedLanguage OnChangedLanguage;
 
-        private void Awake()
-        {
-            DefaultLanguage = defaultLanguage;
-        }
-
         public static void SetNewLanguage(Language language)
         {
+            if (language == null) return;
             currentLanguage = language;
             if (languagesData.ContainsKey(language))
             {
@@ -33,6 +29,10 @@ namespace Project.Localization
             else
             {
                 var languageData = LanguageLoader.GetLanguageData(language.CSVFile);
+                if(languageData == null)
+                {
+                    Debug.LogError($"{language.Name} doesnt contain CSV file");
+                }
                 languagesData.Add(language, languageData);
                 currentLanguageData = languageData;
             }
@@ -41,14 +41,20 @@ namespace Project.Localization
 
         public static string GetLocalizedText(string key)
         {
-            if (currentLanguageData == null) {
-                SetNewLanguage(DefaultLanguage);
+            if (currentLanguageData == null) 
+            {
+                return string.Empty;
             }
             bool success = currentLanguageData.TryGetValue(key, out var text);
             if(!success) {
                 Debug.LogError($"Missing localized data for language: {currentLanguage.Name} and key: {key}");
             }
             return text;
+        }
+
+        public static TMP_FontAsset GetCurrentFont()
+        {
+            return currentLanguage.Font;
         }
     }
 }

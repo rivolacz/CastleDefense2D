@@ -13,20 +13,42 @@ namespace Project.Assets.Scripts.Localization
     {
         public static Dictionary<string, string> GetLanguageData(TextAsset languageFile)
         {
+            if (languageFile == null) return null;
             Dictionary<string, string> languageData = new Dictionary<string, string>();
             List<string> dataLines = languageFile.text.Split('\n').ToList();
             dataLines.RemoveAt(0);
             foreach (string line in dataLines)
             {
-                var data = line.Split(',');
+                var data = line.Split(",\"");
+                if (data.Length < 2) {
+                    data = line.Split(",");
+                    if (data.Length < 2) continue;
+                }
                 string key = data[0];
-                string value = data[1];
-                if (!string.IsNullOrEmpty(key))
+                string value = MergeLines(data);
+                if (!string.IsNullOrEmpty(key) && key != " ")
                 {
-                    languageData.Add(key, value);
+                    try
+                    {
+                        languageData.Add(key, value);
+                        Debug.Log($"{key} : {value}");
+                    }catch(Exception e)
+                    {
+                        Debug.Log(e);
+                    }
                 }
             }
             return languageData;
+        }
+
+        public static string MergeLines(string[] lines)
+        {
+            string line = "";
+            for (int i = 1; i < lines.Length; i++)
+            {
+                line += lines[i];
+            }
+            return line;
         }
     }
 }

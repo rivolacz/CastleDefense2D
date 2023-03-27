@@ -22,8 +22,7 @@ namespace Project.Localization
             if (text == null)
             {
                 text = GetComponent<TextMeshProUGUI>();
-            }
-            SetText();
+            }          
         }
 
         private void OnDestroy()
@@ -34,7 +33,10 @@ namespace Project.Localization
         public void SetText()
         {
             string localizedValue = WordsDictionary.GetLocalizedText(textKey);
+            if (text == null) return;
             text.text = localizedValue;
+            var font = WordsDictionary.GetCurrentFont();
+            text.font = font;
         }
     }
 }
