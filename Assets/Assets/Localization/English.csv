@@ -12,9 +12,16 @@ changeLanguage,Change language
 exitGame,Exit
 deleteConfirmation,Are you sure you want to delete this saved game?
 yes,Yes
-no,no
+no,No
 pikeman,Pikeman
 pikemanDescription,
 archer,Archer
 archerDescription,
 delete,Delete
+loading,Loading
+selectGame,Select game
+automaticallyLoadGame,Load selected slot automatically next time
+mainMenu,Main menu
+upgrades,Upgrades
+information,Information
+play,Play

@@ -305,12 +305,48 @@
             "id": "e982cca6-3eba-43c5-b257-f50d98e75cfa",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "SecondTouchPosition",
                     "type": "Value",
                     "id": "6637bad3-b682-49b6-9bcf-975c30162e92",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SecondTouchDelta",
+                    "type": "Value",
+                    "id": "e6ea192e-5f98-4503-84cc-161ce0421fe8",
                     "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "FirstTouchPosition",
+                    "type": "Value",
+                    "id": "2abdc597-5ee7-4e1a-8e2e-84edab03f89a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "FirstTouchDelta",
+                    "type": "Value",
+                    "id": "b28aceb0-2e86-4980-ab3d-0ce21799ca51",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TouchEnded",
+                    "type": "Value",
+                    "id": "82da0a2d-637d-4230-b0ab-13a3ad974a81",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
                     "initialStateCheck": true
                 }
             ],
@@ -318,11 +354,55 @@
                 {
                     "name": "",
                     "id": "7abe295f-c608-46ba-9a49-57e88917a8bb",
+                    "path": "<Touchscreen>/touch1/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondTouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd830fd8-5365-4e1a-9d4d-3761fdfcc120",
+                    "path": "<Touchscreen>/touch0/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstTouchPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0935cdc-b89a-4cb0-bc0d-90e7f68a437d",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchEnded",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0c536f3-8c57-41d2-8874-37f0bd17e3ef",
                     "path": "<Touchscreen>/touch1/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "SecondTouchDelta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7fff77c-1f45-4303-972f-5b0287571fd3",
+                    "path": "<Touchscreen>/touch0/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstTouchDelta",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

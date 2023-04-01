@@ -327,12 +327,48 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""e982cca6-3eba-43c5-b257-f50d98e75cfa"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""SecondTouchPosition"",
                     ""type"": ""Value"",
                     ""id"": ""6637bad3-b682-49b6-9bcf-975c30162e92"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SecondTouchDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""e6ea192e-5f98-4503-84cc-161ce0421fe8"",
                     ""expectedControlType"": ""Delta"",
                     ""processors"": """",
                     ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FirstTouchPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""2abdc597-5ee7-4e1a-8e2e-84edab03f89a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FirstTouchDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""b28aceb0-2e86-4980-ab3d-0ce21799ca51"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TouchEnded"",
+                    ""type"": ""Value"",
+                    ""id"": ""82da0a2d-637d-4230-b0ab-13a3ad974a81"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""initialStateCheck"": true
                 }
             ],
@@ -340,11 +376,55 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7abe295f-c608-46ba-9a49-57e88917a8bb"",
+                    ""path"": ""<Touchscreen>/touch1/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondTouchPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd830fd8-5365-4e1a-9d4d-3761fdfcc120"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstTouchPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0935cdc-b89a-4cb0-bc0d-90e7f68a437d"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TouchEnded"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0c536f3-8c57-41d2-8874-37f0bd17e3ef"",
                     ""path"": ""<Touchscreen>/touch1/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""SecondTouchDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7fff77c-1f45-4303-972f-5b0287571fd3"",
+                    ""path"": ""<Touchscreen>/touch0/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstTouchDelta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -372,7 +452,11 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Tap_TapPosition = m_Tap.FindAction("TapPosition", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
-        m_Camera_Move = m_Camera.FindAction("Move", throwIfNotFound: true);
+        m_Camera_SecondTouchPosition = m_Camera.FindAction("SecondTouchPosition", throwIfNotFound: true);
+        m_Camera_SecondTouchDelta = m_Camera.FindAction("SecondTouchDelta", throwIfNotFound: true);
+        m_Camera_FirstTouchPosition = m_Camera.FindAction("FirstTouchPosition", throwIfNotFound: true);
+        m_Camera_FirstTouchDelta = m_Camera.FindAction("FirstTouchDelta", throwIfNotFound: true);
+        m_Camera_TouchEnded = m_Camera.FindAction("TouchEnded", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -636,12 +720,20 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // Camera
     private readonly InputActionMap m_Camera;
     private List<ICameraActions> m_CameraActionsCallbackInterfaces = new List<ICameraActions>();
-    private readonly InputAction m_Camera_Move;
+    private readonly InputAction m_Camera_SecondTouchPosition;
+    private readonly InputAction m_Camera_SecondTouchDelta;
+    private readonly InputAction m_Camera_FirstTouchPosition;
+    private readonly InputAction m_Camera_FirstTouchDelta;
+    private readonly InputAction m_Camera_TouchEnded;
     public struct CameraActions
     {
         private @PlayerInput m_Wrapper;
         public CameraActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Camera_Move;
+        public InputAction @SecondTouchPosition => m_Wrapper.m_Camera_SecondTouchPosition;
+        public InputAction @SecondTouchDelta => m_Wrapper.m_Camera_SecondTouchDelta;
+        public InputAction @FirstTouchPosition => m_Wrapper.m_Camera_FirstTouchPosition;
+        public InputAction @FirstTouchDelta => m_Wrapper.m_Camera_FirstTouchDelta;
+        public InputAction @TouchEnded => m_Wrapper.m_Camera_TouchEnded;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -651,16 +743,40 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CameraActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CameraActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            @SecondTouchPosition.started += instance.OnSecondTouchPosition;
+            @SecondTouchPosition.performed += instance.OnSecondTouchPosition;
+            @SecondTouchPosition.canceled += instance.OnSecondTouchPosition;
+            @SecondTouchDelta.started += instance.OnSecondTouchDelta;
+            @SecondTouchDelta.performed += instance.OnSecondTouchDelta;
+            @SecondTouchDelta.canceled += instance.OnSecondTouchDelta;
+            @FirstTouchPosition.started += instance.OnFirstTouchPosition;
+            @FirstTouchPosition.performed += instance.OnFirstTouchPosition;
+            @FirstTouchPosition.canceled += instance.OnFirstTouchPosition;
+            @FirstTouchDelta.started += instance.OnFirstTouchDelta;
+            @FirstTouchDelta.performed += instance.OnFirstTouchDelta;
+            @FirstTouchDelta.canceled += instance.OnFirstTouchDelta;
+            @TouchEnded.started += instance.OnTouchEnded;
+            @TouchEnded.performed += instance.OnTouchEnded;
+            @TouchEnded.canceled += instance.OnTouchEnded;
         }
 
         private void UnregisterCallbacks(ICameraActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
+            @SecondTouchPosition.started -= instance.OnSecondTouchPosition;
+            @SecondTouchPosition.performed -= instance.OnSecondTouchPosition;
+            @SecondTouchPosition.canceled -= instance.OnSecondTouchPosition;
+            @SecondTouchDelta.started -= instance.OnSecondTouchDelta;
+            @SecondTouchDelta.performed -= instance.OnSecondTouchDelta;
+            @SecondTouchDelta.canceled -= instance.OnSecondTouchDelta;
+            @FirstTouchPosition.started -= instance.OnFirstTouchPosition;
+            @FirstTouchPosition.performed -= instance.OnFirstTouchPosition;
+            @FirstTouchPosition.canceled -= instance.OnFirstTouchPosition;
+            @FirstTouchDelta.started -= instance.OnFirstTouchDelta;
+            @FirstTouchDelta.performed -= instance.OnFirstTouchDelta;
+            @FirstTouchDelta.canceled -= instance.OnFirstTouchDelta;
+            @TouchEnded.started -= instance.OnTouchEnded;
+            @TouchEnded.performed -= instance.OnTouchEnded;
+            @TouchEnded.canceled -= instance.OnTouchEnded;
         }
 
         public void RemoveCallbacks(ICameraActions instance)
@@ -700,6 +816,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     }
     public interface ICameraActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnSecondTouchPosition(InputAction.CallbackContext context);
+        void OnSecondTouchDelta(InputAction.CallbackContext context);
+        void OnFirstTouchPosition(InputAction.CallbackContext context);
+        void OnFirstTouchDelta(InputAction.CallbackContext context);
+        void OnTouchEnded(InputAction.CallbackContext context);
     }
 }

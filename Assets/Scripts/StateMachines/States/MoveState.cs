@@ -46,7 +46,6 @@ namespace Project.StateMachines.States
         {
             wholePath.Clear();
             wholePath.Add(movePosition);
-            Debug.Log(movePosition.ToString());
             TargetPosition = movePosition;
             unitTransform = stateMachine.transform;
         }
@@ -54,7 +53,6 @@ namespace Project.StateMachines.States
         public override void Enter()
         {
             pathNodes = PathFinding.FindPath(unitTransform.position, TargetPosition);
-            Debug.Log("Enter move state" + pathNodes?.Count);
             if (pathNodes == null || pathNodes.Count < 1)
             {
                 movePartTarget = TargetPosition;
@@ -62,7 +60,6 @@ namespace Project.StateMachines.States
             else
             {
                 movePartTarget = pathNodes[currentNodeIndex].position;
-                Debug.Log(movePartTarget+"-----"+pathNodes.Count);
             }
         }
 
@@ -85,19 +82,15 @@ namespace Project.StateMachines.States
                 }
                 if (IsAtTarget())
                 {
-                    Debug.Log("is at target");
                     ChangePathSegment();
                 }
                 else
                 {
-                    Debug.Log("Increase node index");
-
                     IncreaseNodeIndex();
                 }
             }
             else
             {
-                Debug.Log(directionToTarget.normalized);
                 stateMachine.MoveUnit(directionToTarget.normalized);
             }
         }

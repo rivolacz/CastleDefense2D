@@ -7,7 +7,7 @@ namespace Project
     public class Castle : MonoBehaviour, IDamageable
     {
         [SerializeField]
-        private Canvas buyUnitCanvas;
+        public Canvas castleCanvas;
         [SerializeField]
         private CanvasManager canvasManager;
         private float health = 999999999999;
@@ -21,10 +21,9 @@ namespace Project
             }
         }
 
-        private void OnMouseUpAsButton()
+        public void CastleSelected()
         {
-            Debug.Log("Clicked");
-            canvasManager.ReenableCanvas(buyUnitCanvas);
+            canvasManager.ReenableCanvas(castleCanvas);
         }
 
     }

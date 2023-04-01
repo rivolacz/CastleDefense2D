@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Windows;
@@ -17,11 +16,16 @@ namespace Project
         public bool CanDeselectAllUnits { get; set; } = true;
 
         [SerializeField]
+        CanvasManager canvasManager;
+
+        [SerializeField]
         private Canvas selectedActionCanvas;
         [SerializeField]
         private RectTransform selectionArea;
         [SerializeField]
         private LayerMask selectableLayerMask;
+        [SerializeField]
+        private LayerMask castleLayerMask;
         private PlayerInput input;
         private Vector2 startUIPosition;
         private Vector3 startWorldPosition;
@@ -78,10 +82,8 @@ namespace Project
             Vector3 endPosition = Camera.main.ScreenToWorldPoint(touchPosition);
             startWorldPosition = Camera.main.ScreenToWorldPoint(startUIPosition);
             Collider2D[] colliders = Physics2D.OverlapAreaAll(startWorldPosition, endPosition, selectableLayerMask);
-            Debug.Log(colliders.Length);
             foreach(Collider2D collider in colliders)
             {
-                Debug.Log("SELECTING WITH BOX");
                 ISelectable selectable = collider.GetComponent<ISelectable>();
                 if (selectable == null) continue;
                 if(selectables.Contains(selectable)) continue;
@@ -94,22 +96,16 @@ namespace Project
         {
             unit.Select();
             selectables.Add(unit);
-            Debug.Log("Adding " + selectables.GetHashCode());
             if (!selectedActionCanvas.enabled)
             {
-                selectedActionCanvas.enabled = true;
+                canvasManager.EnableCanvas(selectedActionCanvas);
             }
         }
 
         private void DeselectUnit(ISelectable unit)
         {
             unit.Deselect();
-            Debug.Log("Before removing from list has " + selectables.Count);
             selectables.Remove(unit);
-            Debug.Log("Removing " + selectables.GetHashCode());
-
-            Debug.Log("After removing from list has " + selectables.Count);
-
             if (selectables.Count == 0)
             {
                 selectedActionCanvas.enabled = false;
@@ -132,7 +128,6 @@ namespace Project
             {
                 ISelectable selectable = collider.GetComponent<ISelectable>();
                 if (selectable == null) continue;
-                Debug.Log(selectable.ToString());
                 if (selectables.Contains(selectable))
                 {
                     DeselectUnit(selectable);
@@ -142,6 +137,10 @@ namespace Project
                     SelectUnit(selectable);
                 }
             }
+            colliders = Physics2D.OverlapPointAll(worldPoint, castleLayerMask);
+            if (colliders.Length == 0) return;
+            if (!colliders.First().TryGetComponent<Castle>(out var castle)) return;
+            castle.CastleSelected();
         }
 
         private void DeselectAllUnits()

@@ -18,13 +18,13 @@ pikemanDescription,
 archer,Lučištník
 archerDescription,
 delete,Smazat
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+loading,Načítání
+selectGame,Vyber hru
+automaticallyLoadGame,Příště automaticky načíst vybraný slot
+mainMenu,Menu
+upgrades,Vylepšení
+information,Information
+play,Hrát
  ,
  ,
  ,

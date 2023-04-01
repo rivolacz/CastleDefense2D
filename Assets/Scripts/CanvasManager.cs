@@ -11,7 +11,6 @@ namespace Project
 
         public void EnableCanvas(Canvas canvas)
         {
-            if (currentCanvas == canvas) return;
             Canvases.ForEach(canvas => canvas.enabled = false);
             canvas.enabled = true;
             currentCanvas = canvas;
@@ -19,15 +18,12 @@ namespace Project
 
         public void ReenableCanvas(Canvas canvas)
         {
-            if (currentCanvas == canvas)
+            if(currentCanvas != canvas)
             {
-                canvas.enabled = !canvas.enabled;
+                Canvases.ForEach(canvas => canvas.enabled = false);
             }
-            else
-            {
-                canvas.enabled = true;
-                currentCanvas = canvas;
-            }
+            canvas.enabled = !canvas.enabled;
+            currentCanvas = canvas;
         }
     }
 }

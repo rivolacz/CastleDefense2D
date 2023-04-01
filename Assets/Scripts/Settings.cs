@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Settings
 {
-    public static bool CameraMoving = false; 
+    public static bool CameraMoving { get; set; } = false;
 }

@@ -8,9 +8,8 @@ using UnityEngine;
 
 namespace Project.Localization
 {
-    public class WordsDictionary : MonoBehaviour
+    public static class WordsDictionary
     {
-        public static Language DefaultLanguage;
         private static Dictionary<Language, Dictionary<string, string>> languagesData = new Dictionary<Language, Dictionary<string, string>>();
         private static Language currentLanguage;
         private static Dictionary<string, string> currentLanguageData;
@@ -54,7 +53,7 @@ namespace Project.Localization
 
         public static TMP_FontAsset GetCurrentFont()
         {
-            return currentLanguage.Font;
+            return currentLanguage?.Font;
         }
     }
 }

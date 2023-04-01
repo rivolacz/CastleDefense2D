@@ -1,30 +1,30 @@
 ﻿Id,Value
-storyBegin,
-storyPlayerWins,
-storyPlayerLose,
-cancel,
-continue,
-accept,
-newGame,
-start,
-load,
-changeLanguage,
+storyBegin,"The kingdom of Ardor has been at peace for many years, but one day, dark clouds gather on the horizon. The evil sorcerer Malakar has returned, and he is determined to conquer Ardor and enslave its people. With his army of undead soldiers and dark magic, Malakar begins to march towards the capital city, intent on destroying everything in his path.You are the commander of the city's defenses, responsible for protecting the people of Ardor and stopping Malakar's army from reaching the city gates. You must build and upgrade defensive structures, recruit and train soldiers, and strategically place your troops to defend against the enemy's attacks.As you progress through the game, you will face increasingly difficult challenges as Malakar's army grows in strength and numbers. You will need to adapt your defenses, unlocking new technologies and spells to fight back against the enemy's powerful magic and advanced siege weapons.But the fate of Ardor rests on more than just your defenses. You will need to gather intelligence, recruit allies, and launch counterattacks to weaken the enemy's forces and eventually defeat Malakar himself. Only then can you restore peace to the kingdom and vanquish the evil sorcerer once and for all."
+storyPlayerWins,"Pitkän ja vaikean taistelun jälkeen sinä ja armeijasi olette vihdoin voittanut Malakarin ja hänen joukkonsa. Paha velho makaa voitettuna, ja hänen armeijansa on hajallaan tuuleen. Kun tarkastelet taistelun jälkiä, näet Ardorin kansan nousevan kodeistaan ja suojistaan, kannustamassa ja juhlimassa voittoaan. Aurinko paistaa jälleen, ja ilma on täynnä musiikin ja naurun ääntä. Tunnustuksena urheudestasi ja johtajuudestasi Ardorin kuningas palkitsee sinulle korkeimmat kunnianosoitukset, ja valtakunnan ihmiset tervehtivät sinua sankarina . Valtakunta aloittaa jälleenrakennustyön ja sodan aiheuttamista vahingoista toipumisen, mutta tulevaisuus näyttää valoisalta, ja Ardorin ihmiset ovat jälleen täynnä toivoa. Mitä tulee sinuun, tiedät, ettei työsi ole vielä tehty. Ardorille tulee aina uusia uhkia ja uusia haasteita voitettavana. Mutta toistaiseksi voit paistatella voiton kirkkaudessa tietäen, että olet pelastanut valtakuntasi ja tuonut rauhan takaisin maahan."
+storyPlayerLose,"Parhaista yrityksistäsi huolimatta Malakarin joukot olivat liian voimakkaita ja rikkoivat kaupungin portit. Armeijasi taisteli urhoollisesti, mutta se ei ollut vertaa vihollisen hellittämättömälle etenemiselle. Taistelun jatkuessa näet kaupungin joutuvan kaaokseen. Rakennukset palavat, ihmiset pakenevat joka suuntaan, ja vihollissotilaat riehuvat kaduilla. Tiedät, että tämä on loppu, eikä voitosta ole toivoa. Raskain sydämin käsket joukkosi vetäytymään toivoen, että voit ryhmitellä uudelleen ja käynnistää vastahyökkäyksen myöhemmin. Mutta kun pakenet kaupungista, näet Malakarin armeijan jälkeen jääneen tuhon. Ardorin ihmiset ovat sekasorron vallassa ja valtakunta raunioina. Seuraavina päivinä ja viikkoina yrität rakentaa uudelleen joukkosi ja käynnistää uuden hyökkäyksen vihollista vastaan. Mutta se on liian myöhäistä. Malakarin armeija on jo valloittanut suurimman osan valtakunnasta, ja hänen otteensa vallasta on liian vahva murrettavaksi. Vuosien kuluessa kuulet huhuja kapinasta ja vastarinnasta, mutta pahan noidan voima murskaa ne nopeasti. Elät loput päiväsi häpeässä ja katumuksessa, ja sinua ahdistaa muisto epäonnistumisestasi suojella Ardorin ihmisiä ja voittanut Malakarin."
+cancel,Peruuttaa
+continue,Jatkaa
+accept,Hyväksyä
+newGame,Uusi peli
+start,Alkaa
+load,Ladata
+changeLanguage,Vaihda kieltä
 exitGame,Poistu pelistä
 deleteConfirmation,Haluatko varmasti poistaa tämän tallennetun pelin?
-yes,
-no,
-pikeman,
+yes,Joo
+no,Ei
+pikeman,Pikiniekka
 pikemanDescription,
 archer,Jousimies
 archerDescription,
 delete,Poistaa
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+loading,Ladataan
+selectGame,Valitse peli
+automaticallyLoadGame,Lataa valittu paikka automaattisesti seuraavan kerran
+mainMenu,Päävalikko
+upgrades,Päivitykset
+information,Tiedot
+play,pelata
  ,
  ,
  ,

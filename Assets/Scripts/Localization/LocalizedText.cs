@@ -18,11 +18,12 @@ namespace Project.Localization
 
         private void Awake()
         {
-            WordsDictionary.OnChangedLanguage += SetText;
-            if (text == null)
-            {
-                text = GetComponent<TextMeshProUGUI>();
-            }          
+            WordsDictionary.OnChangedLanguage += SetText;        
+        }
+
+        private void OnEnable()
+        {
+            SetText();
         }
 
         private void OnDestroy()
@@ -33,10 +34,16 @@ namespace Project.Localization
         public void SetText()
         {
             string localizedValue = WordsDictionary.GetLocalizedText(textKey);
-            if (text == null) return;
+            if (text == null)
+            {
+                text = GetComponent<TextMeshProUGUI>();
+            }
             text.text = localizedValue;
             var font = WordsDictionary.GetCurrentFont();
-            text.font = font;
+            if (font != null)
+            {
+                text.font = font;
+            }
         }
     }
 }

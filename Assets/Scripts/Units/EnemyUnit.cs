@@ -41,7 +41,7 @@ namespace Project
             {
                 pathPositions.Add(node.position);
             }
-            Castle castle = FindObjectOfType<Castle>();
+            Castle castle = FindFirstObjectByType<Castle>();
             Transform castleTransform = castle.transform;
             StateMachine.ChangeState(new MoveState(pathPositions, StateMachine, castleTransform));
         }

@@ -1,6 +1,6 @@
 ﻿Id,Value
 storyBegin,"El reino de Ardor ha estado en paz durante muchos años, pero un día, nubes oscuras se juntan en el horizonte. El malvado hechicero Malakar ha regresado y está decidido a conquistar Ardor y esclavizar a su gente. Con su ejército de soldados muertos vivientes y magia oscura, Malakar comienza a marchar hacia la ciudad capital, con la intención de destruir todo a su paso. Eres el comandante de las defensas de la ciudad, responsable de proteger a la gente de Ardor y evitar que el ejército de Malakar llegue al puertas de la ciudad Debes construir y mejorar estructuras defensivas, reclutar y entrenar soldados, y ubicar estratégicamente tus tropas para defenderte de los ataques del enemigo. A medida que avanzas en el juego, enfrentarás desafíos cada vez más difíciles a medida que el ejército de Malakar crece en fuerza y número. Tendrás que adaptar tus defensas, desbloqueando nuevas tecnologías para luchar contra la poderosa magia y las armas de asedio avanzadas del enemigo. Pero el destino de Ardor depende de algo más que tus defensas. Tendrás que recopilar inteligencia y lanzar contraataques para debilitar las fuerzas enemigas y finalmente derrotar al mismo Malakar. Solo entonces podrás restaurar la paz en el reino y vencer al malvado hechicero de una vez por todas."
-storyPlayerWins,
+storyPlayerWins,"Después de una batalla larga y difícil, tú y tu ejército finalmente habéis derrotado a Malakar y sus fuerzas. El malvado hechicero yace derrotado, y su ejército ha sido dispersado por los vientos. Mientras examinas las secuelas de la batalla, ves a la gente de Ardor saliendo de sus hogares y refugios, vitoreando y celebrando su victoria. El sol vuelve a brillar y el aire se llena con el sonido de la música y las risas. En reconocimiento a tu valentía y liderazgo, el rey de Ardor te otorga los más altos honores y la gente del reino te aclama como un héroe. . El reino comienza el trabajo de reconstrucción y recuperación del daño causado por la guerra, pero el futuro parece brillante y la gente de Ardor está llena de esperanza una vez más. En cuanto a ti, sabes que tu trabajo no ha terminado. Siempre habrá nuevas amenazas para Ardor y nuevos desafíos que superar. Pero por ahora, puede disfrutar de la gloria de la victoria, sabiendo que ha salvado su reino y ha devuelto la paz a la tierra."
 storyPlayerLose,"A pesar de tus mejores esfuerzos, las fuerzas de Malakar eran demasiado poderosas y atravesaron las puertas de la ciudad. Tu ejército luchó valientemente, pero no fue rival para el implacable avance del enemigo. A medida que avanza la batalla, ves que la ciudad cae en el caos. Los edificios están ardiendo, la gente huye en todas direcciones y los soldados enemigos corren desenfrenados por las calles. Sabes que este es el final y que no hay esperanza de victoria. Con el corazón apesadumbrado, ordenas a tus tropas que se retiren, con la esperanza de reagruparse y lanzar un contraataque más tarde. Pero cuando huyes de la ciudad, ves la devastación que dejó el ejército de Malakar. La gente de Ardor está en desorden y el reino está en ruinas. En los días y semanas que siguen, intentas reconstruir tus fuerzas y lanzar una nueva ofensiva contra el enemigo. Pero es demasiado tarde. El ejército de Malakar ya ha conquistado la mayor parte del reino, y su control sobre el poder es demasiado fuerte para romperlo. A medida que pasan los años, escuchas rumores de rebelión y resistencia, pero el poder del malvado hechicero los aplasta rápidamente. Vives el resto de tus días avergonzado y arrepentido, atormentado por el recuerdo de tu fracaso para proteger a la gente de Ardor y derrotar a Malakar."
 cancel,Cancelar
 continue,Continuar
@@ -18,13 +18,13 @@ pikemanDescription,
 archer,Arquero
 archerDescription,
 delete,Borrar
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+loading,Cargando
+selectGame,Selecciona un juego
+automaticallyLoadGame,Cargar ranura seleccionada automáticamente la próxima vez
+mainMenu,Menú principal
+upgrades,Actualizaciones
+information,Información
+play,Jugar
  ,
  ,
  ,
