@@ -63,6 +63,7 @@ namespace Project
             {
                 movePosition = hit.point;
             }
+            Debug.Log("Start moving to "+ movePosition);
             SetMoveStateToUnits(movePosition);
             input.Tap.Disable();
             input.Tap.TapPosition.started -= _ => Move();

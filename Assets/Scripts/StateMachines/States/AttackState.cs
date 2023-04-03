@@ -1,3 +1,4 @@
+using Project.StateMachines.States;
 using Project.Units;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Project.StateMachines
         private void MoveToTarget()
         {
             Vector2 directionToTarget = GetDirectionToTarget();
-            if (directionToTarget.magnitude < unitStats.AttackRange * 2)
+            if (directionToTarget.magnitude < unitStats.AttackRange)
             {
                 UnitIsCloseToTarget();
                 return;
@@ -62,7 +63,6 @@ namespace Project.StateMachines
         private Vector3 GetClosestPointOnCollider()
         {
             Collider2D collider = attackTarget.GetComponent<Collider2D>();
-            Vector2 colliderClosestPoint= collider.ClosestPoint(stateMachine.transform.position);
             Vector3 closestPointOnCollider = collider.bounds.ClosestPoint(stateMachine.transform.position);
             Debug.DrawLine(stateMachine.transform.position, closestPointOnCollider, UnityEngine.Color.green,0.1f);
             return closestPointOnCollider;

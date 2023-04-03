@@ -1,3 +1,4 @@
+using FunkyCode;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,15 @@ namespace Project.Waves
 
         public List<SpawnPointManager> SpawnPointManagers;
         public List<WaveTimes> WaveTimes;
-        private WaveTimes currentWaveTime;    
-        private int waveIndex = 1;
+        public List<WavePathHolder> WavePathHolders;
 
+        [SerializeField]
+        private LightCycle lightCycle;
+
+        private WaveTimes currentWaveTime;
+        private int waveNumber = 1;
+        private int waveTimesIndex = 1;
+        private int wavePathHoldersIndex = 0;
 
         private void Start()
         {
@@ -28,19 +35,58 @@ namespace Project.Waves
 
         private void StartWave()
         {
+            CheckWaveUpdates();
             foreach (var spawnPoint in SpawnPointManagers) {
-                spawnPoint.SpawnWave(waveIndex);
+                spawnPoint.SpawnWave(waveNumber);
             }
-            waveIndex++;
+            waveNumber++;
         }
 
-        public IEnumerable NextWave()
+        private void CheckWaveUpdates()
+        {
+            CheckForWaveTimes();
+            CheckForNewPath();
+        }
+
+        private void CheckForWaveTimes()
+        {
+            if (waveTimesIndex + 1> WaveTimes.Count) return;
+            var waveTime = WaveTimes[waveTimesIndex];
+            if(waveTime.Wave >= waveNumber)
+            {
+                waveTimesIndex++;
+                currentWaveTime = waveTime;
+            }
+        }
+
+        private void CheckForNewPath()
+        {
+            if (wavePathHoldersIndex + 1 > WavePathHolders.Count) return;
+            var pathHolder = WavePathHolders[wavePathHoldersIndex];
+            Debug.Log(pathHolder.Wave + "   " + waveNumber);
+            if (pathHolder.Wave <= waveNumber)
+            {
+                wavePathHoldersIndex++;
+                pathHolder.PathToUnlock.SetActive(true);
+            }
+        }
+
+        public IEnumerator NextWave()
         {
             StartWave();
             OnDayStarted?.Invoke();
-            yield return currentWaveTime.WaveTimeLength;
+            float time = 0;
+            float waitTime = 0.2f;
+            while (time < currentWaveTime.WaveTimeLength)
+            {
+                yield return new WaitForSeconds(waitTime);
+                float portionOfDay = time / currentWaveTime.WaveTimeLength;
+                lightCycle.SetTime(portionOfDay);
+                time+= waitTime;
+            }
             OnNightStarted?.Invoke();
-            yield return currentWaveTime.NightTime;
+            lightCycle.SetTime(0);
+            yield return new WaitForSeconds(currentWaveTime.NightTime);
             StartCoroutine(nameof(NextWave));
         }
     }

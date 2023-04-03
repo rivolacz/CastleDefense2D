@@ -18,7 +18,6 @@ namespace Project.StateMachines
             unitMovement = GetComponent<UnitMovement>();
             IdleState = new IdleState(this);
             CurrentState = new IdleState(this);
-            AttackState = new AttackState(null, this);
             unitAnimatorValuesSetter = new UnitAnimatorValuesSetter(animator);
         }
 

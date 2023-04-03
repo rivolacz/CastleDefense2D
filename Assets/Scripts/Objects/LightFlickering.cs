@@ -15,6 +15,11 @@ public class LightFlickering : MonoBehaviour
 
     private IEnumerator flickerCoroutine;
 
+    private void Awake()
+    {
+        light = GetComponent<Light2D>();
+    }
+
     private void OnEnable()
     {
         flickerCoroutine = Flicker();

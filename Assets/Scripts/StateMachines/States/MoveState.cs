@@ -16,7 +16,8 @@ namespace Project.StateMachines.States
         private int currentPathIndex = 0;
         private int currentNodeIndex = 0;
         private Transform unitTransform;
-        private Transform castle;
+        private Transform attackTarget;
+        private BaseState stateAfterMovingToTarget;
 
         public MoveState(List<Vector3> pathPositions, StateMachine stateMachine) : base(stateMachine)
         {
@@ -25,21 +26,38 @@ namespace Project.StateMachines.States
             unitTransform = stateMachine.transform;
         }
 
-        public MoveState(List<Vector3> pathPositions, StateMachine stateMachine, Transform castle) : base(stateMachine)
+        public MoveState(List<Vector3> pathPositions, StateMachine stateMachine, Transform attackTarget) : base(stateMachine)
         {
             wholePath = pathPositions;
             TargetPosition = wholePath.First();
             unitTransform = stateMachine.transform;
-            this.castle = castle;
+            this.attackTarget = attackTarget;
         }
 
-        public MoveState(Vector3 movePosition, StateMachine stateMachine, Transform castle) : base(stateMachine)
+        public MoveState(List<Vector3> pathPositions, StateMachine stateMachine, BaseState stateAfterMovingToTarget) : base(stateMachine)
+        {
+            wholePath = pathPositions;
+            TargetPosition = wholePath.First();
+            unitTransform = stateMachine.transform;
+            this.stateAfterMovingToTarget = stateAfterMovingToTarget;
+        }
+
+        public MoveState(Vector3 pathPosition, StateMachine stateMachine, BaseState stateAfterMovingToTarget) : base(stateMachine)
+        {
+            movePartTarget = pathPosition;
+            wholePath.Add(pathPosition);
+            TargetPosition = movePartTarget;
+            unitTransform = stateMachine.transform;
+            this.stateAfterMovingToTarget = stateAfterMovingToTarget;
+        }
+
+        public MoveState(Vector3 movePosition, StateMachine stateMachine, Transform attackTarget) : base(stateMachine)
         {
             wholePath.Clear();
             wholePath.Add(movePosition);
-            TargetPosition = wholePath.First();
+            TargetPosition = movePosition;
             unitTransform = stateMachine.transform;
-            this.castle = castle;
+            this.attackTarget = attackTarget;
         }
 
         public MoveState(Vector3 movePosition, StateMachine stateMachine) : base(stateMachine)
@@ -52,6 +70,11 @@ namespace Project.StateMachines.States
 
         public override void Enter()
         {
+            if(Vector3.Distance(TargetPosition, unitTransform.position) < 3)
+            {
+                movePartTarget = TargetPosition;
+                return;
+            }
             pathNodes = PathFinding.FindPath(unitTransform.position, TargetPosition);
             if (pathNodes == null || pathNodes.Count < 1)
             {
@@ -70,10 +93,15 @@ namespace Project.StateMachines.States
             {
                 if (IsAtEndOfPath())
                 {
-                    if (castle != null)
+                    if(stateAfterMovingToTarget != null)
                     {
-                        Transform castleTransform = castle.transform;
-                        stateMachine.ChangeState(new AttackState(castleTransform, stateMachine));
+                        Debug.Log(stateAfterMovingToTarget.GetType());
+                        stateMachine.ChangeState(stateAfterMovingToTarget);
+                    }
+                    if (attackTarget != null)
+                    {
+                        Transform attackTransform = attackTarget.transform;
+                        stateMachine.ChangeState(new AttackState(attackTransform, stateMachine));
                     }
                     else
                     {

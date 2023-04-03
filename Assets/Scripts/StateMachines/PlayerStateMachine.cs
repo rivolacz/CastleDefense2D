@@ -17,14 +17,7 @@ namespace Project.StateMachines
             unitMovement = GetComponent<UnitMovement>();
             IdleState = new IdleState(this);
             CurrentState = IdleState;
-            AttackState = new AttackState(null, this);
             unitAnimatorValuesSetter = new UnitAnimatorValuesSetter(animator);
-
-        }
-
-        private void Start()
-        {
-            
         }
     }
 }

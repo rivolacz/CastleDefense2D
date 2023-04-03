@@ -4,11 +4,10 @@ using UnityEngine;
 
 namespace Project.Waves
 {
-    [CreateAssetMenu(fileName = "New wave", menuName = "ScriptableObjects/Wave")]
-    public class Wave : ScriptableObject
+    [System.Serializable]
+    public class Wave
     {
         public int WaveNumber;
-        public List<UnitsOnSpawnpoint> unitsInWave;
-        public float TimeBetweenWaves = 5f;
+        public List<SpawningUnits> unitsInWave;
     }
 }

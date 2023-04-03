@@ -41,7 +41,7 @@ namespace Project.Units
             weaponCollider.Overlap(contactFilter2D, allColliders);
             foreach(Collider2D collider in allColliders)
             {
-                //Debug.Log($"{collider.gameObject.name} is in {collider.gameObject.layer}");
+                Debug.Log($"{collider.gameObject.name} is in {collider.gameObject.layer}");
                 IDamageable damagable =  collider.GetComponent<IDamageable>();
                 damagable?.Damage(unitStats.AttackDamage);
             }
@@ -72,7 +72,7 @@ namespace Project.Units
                 placementAroundTarget = null;
                 placementPosition = null;
             }
-            
+            Destroy(gameObject);          
         }
     }
 }

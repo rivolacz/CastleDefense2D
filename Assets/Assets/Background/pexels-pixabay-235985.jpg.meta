@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pexels-pixabay-235985_0: 7358655024737975014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

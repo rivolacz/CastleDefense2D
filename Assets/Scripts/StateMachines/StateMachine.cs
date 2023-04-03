@@ -26,10 +26,6 @@ namespace Project.StateMachines
             CurrentState = new IdleState(this);
         }
 
-        private void Start()
-        {
-        }
-
         public void FixedUpdate()
         {
             CurrentState?.StateUpdate();  

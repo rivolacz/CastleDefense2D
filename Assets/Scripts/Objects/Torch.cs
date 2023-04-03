@@ -3,8 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Torch : MonoBehaviour
 {
+    private readonly int isDayHash = Animator.StringToHash("isDay");
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void OnEnable()
     {
         WaveManager.OnDayStarted += DayStarted;
@@ -19,11 +28,11 @@ public class Torch : MonoBehaviour
 
     public void DayStarted()
     {
-
+        animator.SetBool(isDayHash, true);
     }
 
     public void NightStarted()
     {
-
+        animator.SetBool(isDayHash, false);
     }
 }
