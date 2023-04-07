@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d494a9aad33cb49bf6e1a6bc96f7cb, type: 3}
+  m_Name: ArcherTurret
+  m_EditorClassIdentifier: 
+  BuildingIcon: {fileID: 21300000, guid: b2cadf2264bcbe344a38196ce565b123, type: 3}
+  BuildingPrefab: {fileID: 2914392684154747881, guid: 328adaa3609b5b84d86aa985554a1030, type: 3}
+  BuildingCost: 50

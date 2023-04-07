@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using static Project.Waves.WaveManager;
 
 namespace Project.Waves
@@ -67,7 +68,15 @@ namespace Project.Waves
             if (pathHolder.Wave <= waveNumber)
             {
                 wavePathHoldersIndex++;
-                pathHolder.PathToUnlock.SetActive(true);
+                TilemapRenderer renderer = pathHolder.PathToUnlock.GetComponent<TilemapRenderer>();
+                if (renderer != null)
+                {
+                    renderer.enabled = true;
+                }
+                else
+                {
+                    print("Renderer is null");
+                }
             }
         }
 

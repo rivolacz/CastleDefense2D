@@ -97,7 +97,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""42164c30-70b0-4f1c-8ac4-3231f5afaba5"",
-                    ""path"": ""<Mouse>/position"",
+                    ""path"": ""<Pointer>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

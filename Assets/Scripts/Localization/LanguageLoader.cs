@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Assets.Scripts.Localization
+namespace Project.Localization
 {
     public static class LanguageLoader
     {

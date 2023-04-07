@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Project
 {
-    [CreateAssetMenu(fileName = "New units info", menuName = "ScriptableObjects/Spawning units info")]
+    [CreateAssetMenu(fileName = "New building", menuName = "ScriptableObjects/Building")]
     public class Building : ScriptableObject
     {
         public Sprite BuildingIcon;
         public GameObject BuildingPrefab;
-        public float BuildingCost = 1563;
+        public float BuildingCost;
     }
 }

@@ -8,7 +8,7 @@ public class SceneChanger : MonoBehaviour
     public int PlaySceneIndex;
     private AsyncOperation loadSceneOperation;
 
-    private void Awake()
+    private void Start()
     {
         loadSceneOperation = SceneManager.LoadSceneAsync(PlaySceneIndex);
         loadSceneOperation.allowSceneActivation = false;

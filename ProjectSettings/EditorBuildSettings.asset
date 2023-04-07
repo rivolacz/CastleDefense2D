@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d8961b7c87e189e49b0018c29027b255
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
     path: Assets/Scenes/PlayerMenu.unity
     guid: ae53453c2b8a52b4cbc9ff80793ddb20
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 1cb38ee2afbd54c4c9d3e8e39eccfaf3, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d7f183cb9ce85e04b953f93b0962d20c, type: 2}

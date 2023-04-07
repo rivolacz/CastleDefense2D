@@ -18,7 +18,7 @@ namespace Project.StateMachines.States
         private Transform unitTransform;
         private Transform attackTarget;
         private BaseState stateAfterMovingToTarget;
-
+        private float offsetToTarget = 0;
         public MoveState(List<Vector3> pathPositions, StateMachine stateMachine) : base(stateMachine)
         {
             wholePath = pathPositions;
@@ -34,15 +34,16 @@ namespace Project.StateMachines.States
             this.attackTarget = attackTarget;
         }
 
-        public MoveState(List<Vector3> pathPositions, StateMachine stateMachine, BaseState stateAfterMovingToTarget) : base(stateMachine)
+        public MoveState(List<Vector3> pathPositions, StateMachine stateMachine, float offsetToTarget, BaseState stateAfterMovingToTarget) : base(stateMachine)
         {
             wholePath = pathPositions;
             TargetPosition = wholePath.First();
             unitTransform = stateMachine.transform;
+            this.offsetToTarget = offsetToTarget;
             this.stateAfterMovingToTarget = stateAfterMovingToTarget;
         }
 
-        public MoveState(Vector3 pathPosition, StateMachine stateMachine, BaseState stateAfterMovingToTarget) : base(stateMachine)
+        public MoveState(Vector3 pathPosition, StateMachine stateMachine, float offsetToTarget, BaseState stateAfterMovingToTarget) : base(stateMachine)
         {
             movePartTarget = pathPosition;
             wholePath.Add(pathPosition);
@@ -78,6 +79,7 @@ namespace Project.StateMachines.States
             pathNodes = PathFinding.FindPath(unitTransform.position, TargetPosition);
             if (pathNodes == null || pathNodes.Count < 1)
             {
+                Debug.Log("Moving straight to target");
                 movePartTarget = TargetPosition;
             }
             else
@@ -89,16 +91,17 @@ namespace Project.StateMachines.States
         public override void StateUpdate()
         {
             Vector2 directionToTarget = GetDirectionToTarget();
-            if (directionToTarget.magnitude < .5f)
+            if (directionToTarget.magnitude < .5f + offsetToTarget)
             {
                 if (IsAtEndOfPath())
                 {
+                    Debug.Log("Is at end");
                     if(stateAfterMovingToTarget != null)
                     {
-                        Debug.Log(stateAfterMovingToTarget.GetType());
+                        Debug.Log("Next state is " + stateAfterMovingToTarget.GetType());
                         stateMachine.ChangeState(stateAfterMovingToTarget);
                     }
-                    if (attackTarget != null)
+                    else if (attackTarget != null)
                     {
                         Transform attackTransform = attackTarget.transform;
                         stateMachine.ChangeState(new AttackState(attackTransform, stateMachine));
@@ -140,7 +143,7 @@ namespace Project.StateMachines.States
             Vector3 endPosition = wholePath.Last();
             Vector3 currentPosition = stateMachine.transform.position;
             float distance = (endPosition - currentPosition).magnitude;
-            return distance < 3f;
+            return distance < 3f + offsetToTarget;
         }
 
         private void IncreaseNodeIndex()

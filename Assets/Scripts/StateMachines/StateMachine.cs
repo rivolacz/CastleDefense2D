@@ -28,13 +28,20 @@ namespace Project.StateMachines
 
         public void FixedUpdate()
         {
-            CurrentState?.StateUpdate();  
+            if(CurrentState == null)
+            {
+                Debug.LogWarning("CURRENT STATE IS NULL");
+                return;
+            }
+            CurrentState.StateUpdate();  
         }
 
         public void ChangeState(BaseState newState)
         {
             CurrentState.Exit();
             CurrentState = newState;
+            Debug.Log("Changed state to" + CurrentState.GetType());
+
             CurrentState.Enter();
         }
 

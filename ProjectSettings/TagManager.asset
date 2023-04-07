@@ -35,8 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Path
+  - Light
   m_SortingLayers:
   - name: Environment
     uniqueID: 3824753723

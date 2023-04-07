@@ -31,7 +31,6 @@ namespace Project
         private void Update()
         {
             if (targetToMove == null) return;
-            //Move();
         }
 
         public void SetPath(List<Transform> path)
@@ -44,7 +43,6 @@ namespace Project
             pathPositions.RemoveAt(0);
             Castle castle = path.Last().GetComponent<Castle>();
             Transform castleTransform = castle.transform;
-            Debug.Log("Setting move state");
             StateMachine.ChangeState(new MoveState(pathPositions, StateMachine, castleTransform));
         }
     }

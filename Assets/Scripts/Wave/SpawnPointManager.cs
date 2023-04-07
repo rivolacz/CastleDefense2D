@@ -21,7 +21,7 @@ namespace Project
         public void SpawnWave(int waveNumber)
         {
             var wavesInThisRound = Waves.FindAll(wave => wave.WaveNumber == waveNumber);
-            if (wavesInThisRound == null) return;
+            if (wavesInThisRound.Count == 0) return;
             foreach (var wave in wavesInThisRound) {
                 StartSpawningEnemies(wave);
             }

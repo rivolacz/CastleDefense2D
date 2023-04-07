@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Profiling;
 using UnityEngine.Tilemaps;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Project
 {
@@ -22,11 +23,10 @@ namespace Project
         {
             tilemap = map;
             obstacleMask = layerMask;
-            Profiler.maxUsedMemory = 2_000_000_000;
             BuildNodes();
         }
 
-        void BuildNodes()
+        private static void BuildNodes()
         {
             InitNodes();
             FillNodesWithNeighbours();
@@ -37,6 +37,7 @@ namespace Project
         private static void InitNodes()
         {
             var bounds = tilemap.cellBounds;
+            pathNodes.Clear();
             for (int x = bounds.xMin; x < bounds.xMax; x++)
             {
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
@@ -57,10 +58,7 @@ namespace Project
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
                 {
                     var position = new Vector2Int(x, y);
-                    if (!pathNodes[position].isObstacle)
-                    {
-                        pathNodes[position].neighbors = GetNeighbors(x, y);
-                    }
+                    pathNodes[position].neighbors = GetNeighbors(x, y);
                 }
             }
         }
@@ -85,7 +83,7 @@ namespace Project
             var position = new Vector2Int(x, y);
             if (!pathNodes.ContainsKey(position)) return;
             var node = pathNodes[position];
-            if (node != null && !node.isObstacle)
+            if (node != null)
             {
                 neighbors.Add(node);
             }
@@ -118,9 +116,14 @@ namespace Project
 
             Node startNode = pathNodes[start];
             Node endNode = pathNodes[end];
-            if(endNode.isObstacle)
+            if (endNode.isObstacle)
             {
-                return new List<Node>();
+                Debug.LogWarning("End node is obstacle");
+                Node nearestNode = FindNearestUnobstructedNode(endNode);
+                if (nearestNode == null)
+                {
+                    return new List<Node>();
+                }       
             }
             openList.Add(startNode);
 
@@ -218,6 +221,38 @@ namespace Project
             Vector2Int newPosition = (Vector2Int)tilemap.WorldToCell(obstaclePosition);
             if (!pathNodes.ContainsKey(newPosition)) return;
             pathNodes[newPosition].isObstacle = false;
+        }
+
+        public static void RefreshTiles()
+        {
+            BuildNodes();
+        }
+
+        public static Node FindNearestUnobstructedNode(Node startNode)
+        {
+            Queue<Node> queue = new Queue<Node>();
+            HashSet<Node> visited = new HashSet<Node>();
+            queue.Enqueue(startNode);
+            visited.Add(startNode);
+            while (queue.Count > 0)
+            {
+                Node currentNode = queue.Dequeue();
+
+                if (!currentNode.isObstacle)
+                {
+                    return currentNode;
+                }
+                foreach (Node neighbor in currentNode.neighbors)
+                {
+                    if (!visited.Contains(neighbor))
+                    {
+                        queue.Enqueue(neighbor);
+                        visited.Add(neighbor);
+                    }
+                }
+            }
+            // No unobstructed nodes found
+            return null;
         }
     }
 }

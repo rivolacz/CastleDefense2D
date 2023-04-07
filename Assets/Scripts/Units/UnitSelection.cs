@@ -16,11 +16,6 @@ namespace Project
         public bool CanDeselectAllUnits { get; set; } = true;
 
         [SerializeField]
-        CanvasManager canvasManager;
-
-        [SerializeField]
-        private Canvas selectedActionCanvas;
-        [SerializeField]
         private RectTransform selectionArea;
         [SerializeField]
         private LayerMask selectableLayerMask;
@@ -96,20 +91,12 @@ namespace Project
         {
             unit.Select();
             selectables.Add(unit);
-            if (!selectedActionCanvas.enabled)
-            {
-                canvasManager.EnableCanvas(selectedActionCanvas);
-            }
         }
 
         private void DeselectUnit(ISelectable unit)
         {
             unit.Deselect();
             selectables.Remove(unit);
-            if (selectables.Count == 0)
-            {
-                selectedActionCanvas.enabled = false;
-            }
         }
 
         private void ChangeSelectionBoxSize(Vector2 toPosition)
@@ -148,7 +135,6 @@ namespace Project
             if (!CanDeselectAllUnits || selecting) return;
             selectables.ForEach(selectable => selectable.Deselect());
             selectables.Clear();
-            selectedActionCanvas.enabled = false;
         }
     }
 }

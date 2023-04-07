@@ -34,20 +34,23 @@ namespace Project
         {
             if (collision == null) return;
             var damageble = collision.GetComponent<IDamageable>();
-            if (damageble == null) return;
+            if (damageble == null)
+            {
+                Debug.Log("Damagable is null" + collision.GetType());
+                return;
+            }
             damageble.Damage(damage);
+            Debug.Log(collision.transform.name, collision.gameObject);
             transform.SetParent(collision.transform);
             transform.localPosition = Vector3.zero;
             target = null;
+            GetComponent<Collider2D>().enabled = false;
         }
 
         public void SetRotationFromDirection(Vector2 direction)
         {
-            Debug.Log(transform.rotation);
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.identity * Quaternion.Euler(0f, 0f, angle);
-            Debug.Log("Setting Z rotation to " + angle);
-            Debug.Log(transform.rotation);
         }
     }
 }

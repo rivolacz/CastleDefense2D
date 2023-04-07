@@ -1,4 +1,4 @@
-﻿using Project.Assets.Scripts.Localization;
+﻿using Project.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -7,15 +7,10 @@ namespace Project
 {
     public class Builder : Units.PlayerUnit
     {
-        private void Start()
+        public void BuildBuilding(ConstructionSite building, Vector3 position)
         {
-            
-            BuildBuilding(new Building(), new Vector3(10,10,0));
-        }
-
-        public void BuildBuilding(Building building, Vector3 position)
-        {
-            StateMachine.ChangeState(new MoveState(position,StateMachine, new BuildingState(building, position, StateMachine)));
+            Debug.Log("Builder starting build");
+            StateMachine.ChangeState(new MoveState(position,StateMachine, 4f, new BuildingState(building, position, StateMachine)));
         }
     }
 }

@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[System.Serializable]
-public class GameData
+public class GameData : MonoBehaviour 
 {
-    public float OffGameCurrency; //Rename
-    public TimeSpan PlayedTime;
-    
+    public float startingCoins;
+    public static float Coins { get; private set; }
+
+    private void Awake()
+    {
+        Coins = startingCoins;
+    }
+
+    public static bool CanAfford(float coins)
+    {
+        return Coins >= coins;
+    }
+
+    public static void Buy(float coins)
+    {
+        Coins -= coins;
+    }
 }

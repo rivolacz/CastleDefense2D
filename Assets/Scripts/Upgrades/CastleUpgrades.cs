@@ -5,5 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class CastleUpgrades
 {
-    public int BonusHealth;
+    public float BonusHealth = 100;
+    public bool BonusHealthBought = false;
+    public bool CastleCanShootArrows = false;
+    public bool CastleCanShootArrowsBought = false;
 }

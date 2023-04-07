@@ -13,9 +13,9 @@ namespace Project.Units
     {
         public UnitStats unitStats;
         [SerializeField]
-        private ContactFilter2D contactFilter2D;
+        protected ContactFilter2D contactFilter2D;
         [SerializeField]
-        private BoxCollider2D weaponCollider;
+        protected BoxCollider2D weaponCollider;
 
 
         public float currentHealth = 100;
@@ -59,7 +59,7 @@ namespace Project.Units
         public void AssignPlacementToTarget(PlacementAroundTarget placementAroundTarget, Transform position)
         {
             this.placementAroundTarget = placementAroundTarget;
-            this.placementPosition = position;
+            placementPosition = position;
             Debug.Log($"Assigned position from {transform.position} to target" + position.position);
             Castle castle = FindAnyObjectByType<Castle>();
             StateMachine.ChangeState(new MoveState(placementPosition.position, StateMachine, castle.transform));
