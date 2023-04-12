@@ -14,6 +14,5 @@ namespace Project.Units
         public float AttackRange;
         public int BuyCost;
         public int FoodUpkeep;
-
     }
 }

@@ -15,7 +15,7 @@ namespace Project
         [SerializeField]
         private GameObject buildingConfirmation;
         [SerializeField]
-        private Image image;
+        private Image buyingImage;
         [SerializeField]
         private TMP_Text buildingCostText;
         [SerializeField]
@@ -41,6 +41,7 @@ namespace Project
         private void Update()
         {
             if (!alreadyBuilding || buildingObject == null) return;
+            UpdateGraphics();
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 Vector2 tapPosition = input.Player.FirstTouchPosition.ReadValue<Vector2>();
@@ -48,7 +49,6 @@ namespace Project
                 buildingObject.transform.position = buildingPosition;
             }
             boxCollider.Overlap(contactFilter, colliders);
-            UpdateGraphics();
             if (colliders.Count > 0)
             {
                 constructionSite.SetColorToBlueprint(Color.red);
@@ -63,19 +63,21 @@ namespace Project
         {
             if (GameData.CanAfford(buildingCost))
             {
-                image.sprite = blackTick;
+                buyingImage.sprite = blackTick;
             }
             else
             {
-                image.sprite = redTick;
+                buyingImage.sprite = redTick;
             }
         }
 
         public void StartBuilding(Building building)
         {
             if (alreadyBuilding) return;
+            Settings.PlayerIsBuilding = true;
             alreadyBuilding = true;
             buildingConfirmation.SetActive(true);
+            UpdateGraphics();
             Vector2 middleOfTheScreen = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height) / 2;
             buildingPosition = Camera.main.ScreenToWorldPoint(middleOfTheScreen);
             buildingObject = Instantiate(building.BuildingPrefab, buildingPosition, Quaternion.identity);
@@ -100,6 +102,7 @@ namespace Project
         public void CancelBuilding()
         {
             alreadyBuilding = false;
+            Settings.PlayerIsBuilding = true;
             Destroy(buildingObject);
         }
 
@@ -107,7 +110,11 @@ namespace Project
         {
             if (GameData.CanAfford(buildingCost))
             {
+                boxCollider.Overlap(contactFilter, colliders);
+                if (colliders.Count > 0) return;
                 GameData.Buy(buildingCost);
+                Settings.PlayerIsBuilding = true;
+
                 alreadyBuilding = false;
                 constructionSite.SetColorToBlueprint(Color.white);
                 constructionSite.StartBuilding(buildingToBeBuild);

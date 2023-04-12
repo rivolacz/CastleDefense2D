@@ -7,6 +7,7 @@ using System.Linq;
 using UnityEngine.Windows;
 using System.Reflection;
 using UnityEngine.InputSystem;
+using TMPro;
 
 namespace Project
 {
@@ -21,6 +22,9 @@ namespace Project
         private LayerMask selectableLayerMask;
         [SerializeField]
         private LayerMask castleLayerMask;
+        [SerializeField]
+        private TMP_Text selectedCountText;
+
         private PlayerInput input;
         private Vector2 startUIPosition;
         private Vector3 startWorldPosition;
@@ -55,7 +59,7 @@ namespace Project
 
         public void StartHolding(InputAction.CallbackContext context)
         {
-            if (Settings.CameraMoving) {
+            if (Settings.CameraMoving || Settings.PlayerIsBuilding || Settings.PlayerIsCasting) {
                 return;
             }
             selecting = true;
@@ -91,12 +95,14 @@ namespace Project
         {
             unit.Select();
             selectables.Add(unit);
+            selectedCountText.text = selectables.Count.ToString();
         }
 
         private void DeselectUnit(ISelectable unit)
         {
             unit.Deselect();
             selectables.Remove(unit);
+            selectedCountText.text = selectables.Count.ToString();
         }
 
         private void ChangeSelectionBoxSize(Vector2 toPosition)

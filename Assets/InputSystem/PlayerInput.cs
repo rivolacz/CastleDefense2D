@@ -284,6 +284,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Tap"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TapPosition-toDelete1"",
+                    ""type"": ""Value"",
+                    ""id"": ""25ff4b1c-cc06-442e-9435-1b50b5d16b2e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -317,6 +326,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TapPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceb6ce26-c7dd-4569-be6e-d3d2651966bb"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TapPosition-toDelete1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""566b4de7-8bea-4b89-8809-a3f630b4d78a"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TapPosition-toDelete1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -450,6 +481,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Tap
         m_Tap = asset.FindActionMap("Tap", throwIfNotFound: true);
         m_Tap_TapPosition = m_Tap.FindAction("TapPosition", throwIfNotFound: true);
+        m_Tap_TapPositiontoDelete1 = m_Tap.FindAction("TapPosition-toDelete1", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_SecondTouchPosition = m_Camera.FindAction("SecondTouchPosition", throwIfNotFound: true);
@@ -675,11 +707,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Tap;
     private List<ITapActions> m_TapActionsCallbackInterfaces = new List<ITapActions>();
     private readonly InputAction m_Tap_TapPosition;
+    private readonly InputAction m_Tap_TapPositiontoDelete1;
     public struct TapActions
     {
         private @PlayerInput m_Wrapper;
         public TapActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @TapPosition => m_Wrapper.m_Tap_TapPosition;
+        public InputAction @TapPositiontoDelete1 => m_Wrapper.m_Tap_TapPositiontoDelete1;
         public InputActionMap Get() { return m_Wrapper.m_Tap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -692,6 +726,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @TapPosition.started += instance.OnTapPosition;
             @TapPosition.performed += instance.OnTapPosition;
             @TapPosition.canceled += instance.OnTapPosition;
+            @TapPositiontoDelete1.started += instance.OnTapPositiontoDelete1;
+            @TapPositiontoDelete1.performed += instance.OnTapPositiontoDelete1;
+            @TapPositiontoDelete1.canceled += instance.OnTapPositiontoDelete1;
         }
 
         private void UnregisterCallbacks(ITapActions instance)
@@ -699,6 +736,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @TapPosition.started -= instance.OnTapPosition;
             @TapPosition.performed -= instance.OnTapPosition;
             @TapPosition.canceled -= instance.OnTapPosition;
+            @TapPositiontoDelete1.started -= instance.OnTapPositiontoDelete1;
+            @TapPositiontoDelete1.performed -= instance.OnTapPositiontoDelete1;
+            @TapPositiontoDelete1.canceled -= instance.OnTapPositiontoDelete1;
         }
 
         public void RemoveCallbacks(ITapActions instance)
@@ -813,6 +853,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface ITapActions
     {
         void OnTapPosition(InputAction.CallbackContext context);
+        void OnTapPositiontoDelete1(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {

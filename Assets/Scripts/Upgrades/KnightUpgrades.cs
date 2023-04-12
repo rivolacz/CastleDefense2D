@@ -9,6 +9,7 @@ namespace Project.Upgrades
     [Serializable]
     public class KnightUpgrades
     {
+        public bool KnightResearched = false;
         public float MovementSpeedBonus = 1;
         public bool MovementSpeedBonusBought = false;
         public float AttackSpeedBonus = .5f;

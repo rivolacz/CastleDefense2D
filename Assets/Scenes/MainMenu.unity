@@ -255,7 +255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: delete
-  changeFont: 1
 --- !u!114 &51122378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: continue
-  changeFont: 1
 --- !u!1 &281290581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: changeLanguage
-  changeFont: 1
 --- !u!114 &390293566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2194,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: deleteConfirmation
-  changeFont: 1
 --- !u!114 &594700607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,7 +2781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: newGame
-  changeFont: 1
 --- !u!114 &757083066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3379,7 +3374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: loading
-  changeFont: 0
 --- !u!1 &888622950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,7 +4001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: selectGame
-  changeFont: 1
 --- !u!1 &1089277509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,7 +4150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: automaticallyLoadGame
-  changeFont: 1
 --- !u!1 &1100267685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,7 +4202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: exitGame
-  changeFont: 1
 --- !u!114 &1100267688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4515,7 +4506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: newGame
-  changeFont: 1
 --- !u!114 &1283411597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5121,7 +5111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: storyBegin
-  changeFont: 1
 --- !u!114 &1478260429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5271,7 +5260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: newGame
-  changeFont: 1
 --- !u!114 &1479541816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5518,7 +5506,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: accept
-  changeFont: 1
 --- !u!1 &1605518596
 GameObject:
   m_ObjectHideFlags: 0
@@ -5668,7 +5655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: cancel
-  changeFont: 1
 --- !u!1 &1623367722
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,7 +6757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textKey: start
-  changeFont: 1
 --- !u!114 &2063581357
 MonoBehaviour:
   m_ObjectHideFlags: 0

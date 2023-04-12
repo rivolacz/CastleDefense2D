@@ -19,6 +19,8 @@ namespace Project.StateMachines.States
         private Transform attackTarget;
         private BaseState stateAfterMovingToTarget;
         private float offsetToTarget = 0;
+        private bool usePathfinding = true;
+
         public MoveState(List<Vector3> pathPositions, StateMachine stateMachine) : base(stateMachine)
         {
             wholePath = pathPositions;
@@ -67,6 +69,15 @@ namespace Project.StateMachines.States
             wholePath.Add(movePosition);
             TargetPosition = movePosition;
             unitTransform = stateMachine.transform;
+        }
+
+        public MoveState(Vector3 movePosition,bool usePathfinding, StateMachine stateMachine) : base(stateMachine)
+        {
+            wholePath.Clear();
+            wholePath.Add(movePosition);
+            TargetPosition = movePosition;
+            unitTransform = stateMachine.transform;
+            this.usePathfinding = usePathfinding;
         }
 
         public override void Enter()
@@ -143,7 +154,7 @@ namespace Project.StateMachines.States
             Vector3 endPosition = wholePath.Last();
             Vector3 currentPosition = stateMachine.transform.position;
             float distance = (endPosition - currentPosition).magnitude;
-            return distance < 3f + offsetToTarget;
+            return distance < 1f + offsetToTarget;
         }
 
         private void IncreaseNodeIndex()

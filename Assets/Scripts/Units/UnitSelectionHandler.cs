@@ -1,14 +1,10 @@
 using Project.StateMachines;
 using Project.StateMachines.States;
 using Project.Units;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
-using UnityEngine.UIElements;
 using UnityEngine.Windows;
-using static UnityEditor.PlayerSettings;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 
 namespace Project
@@ -24,6 +20,7 @@ namespace Project
         private PlayerInput input;
         private Camera cam;
         private Vector2 worldTapPosition;
+        private bool assigningAction = false;
         private void Awake()
         {
             input = new PlayerInput();
@@ -38,22 +35,19 @@ namespace Project
         {
             Vector2 tapPosition = input.Player.FirstTouchPosition.ReadValue<Vector2>();
             Vector2 newworldTapPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.nearClipPlane));
-            Ray ray = Camera.main.ScreenPointToRay(tapPosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000, playerBuildingLayerMask))
-            {
-                var pos = hit.point;
-                Debug.Log("Ray:" + pos + " --------");
-            }
-            else if (tapPosition != Vector2.zero && newworldTapPosition != worldTapPosition)
-            {
-                Debug.Log($"Tap { tapPosition} --- {worldTapPosition}");
-            }
             worldTapPosition = newworldTapPosition;
         }
 
         public void AttackButton()
         {
-            if (unitSelection.GetSelectables().Count == 0) return;
+            if (unitSelection.GetSelectables().Count == 0)
+            {
+                assigningAction = false;
+                return;
+            }
+            if (assigningAction) return;
+            assigningAction = true;
+            Debug.Log("ATTACK BUTTON");
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
             input.Tap.TapPosition.started += _ => Attack();
@@ -61,7 +55,14 @@ namespace Project
 
         public void MoveButton()
         {
-            if (unitSelection.GetSelectables().Count == 0) return;
+            if (unitSelection.GetSelectables().Count == 0)
+            {
+                assigningAction = false;
+                return;
+            }
+            if (assigningAction) return;
+            assigningAction = true;
+            Debug.Log("MOVE BUTTON");
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
             input.Tap.TapPosition.started += _ => Move();
@@ -70,7 +71,12 @@ namespace Project
 
         public void BuildButton()
         {
-            if (unitSelection.GetSelectables().Count == 0) return;
+            if (unitSelection.GetSelectables().Count == 0) {
+                assigningAction = false;
+                return;
+            }
+            assigningAction = true;
+            Debug.Log("BUILD BUTTON");
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
             input.Tap.TapPosition.started += _ => Build();
@@ -78,34 +84,36 @@ namespace Project
 
         public void Attack()
         {
+            Debug.Log("ATTACK");
             Vector2 tapPosition = input.Player.FirstTouchPosition.ReadValue<Vector2>();
             var attackPosition = TapPositionToWorldPosition(tapPosition,enemyLayerMask);
             Transform attackTarget = EnemyFinder.GetEnemyTransform(enemyLayerMask, attackPosition);
             SetAttackStateToUnits(attackTarget);
             unitSelection.CanDeselectAllUnits = true;
+            assigningAction = false;
             input.Tap.TapPosition.started -= _ => Attack();
         }
 
         public void Move()
         {
-            Vector2 tapPosition = input.Tap.TapPosition.ReadValue<Vector2>();
-            Vector3 tapPositionWithZCoordinate = new Vector3(tapPosition.x, tapPosition.y, cam.transform.position.z);
-            Vector2 movePosition = Camera.main.ScreenToWorldPoint(tapPositionWithZCoordinate);
+            Debug.Log("MOVE");
+            Vector2 movePosition = WorldPosition();
             SetMoveStateToUnits(movePosition);
+            assigningAction = false;
             input.Tap.TapPosition.started -= _ => Move();
             unitSelection.CanDeselectAllUnits = true;
         }
 
         public void Build()
         {
-            Vector2 buildPosition = worldTapPosition;
+            Vector2 buildPosition = WorldPosition();
+            Debug.Log("BUILD" + buildPosition);
             var colliders = Physics2D.OverlapCircleAll(buildPosition,5, playerBuildingLayerMask);
             if(colliders.Length == 0)
             {
                 Debug.Log("DIDNT COLLIDE");
-                //colliders = Physics2D.OverlapCircleAll(buildPosition, 5);
             }
-            Debug.Log(buildPosition + "has " + colliders.Length);
+            Debug.Log(buildPosition + " has " + colliders.Length);
             ConstructionSite constructionSite = null;
             foreach (var collider in colliders)
             {
@@ -119,6 +127,7 @@ namespace Project
             if (constructionSite == null) return;
             Debug.Log("Found construction site");
             SetBuildStateToUnits(constructionSite, buildPosition);
+            assigningAction = false;
             unitSelection.CanDeselectAllUnits = true;
             input.Tap.TapPosition.started -= _ => Build();
         }
@@ -171,6 +180,13 @@ namespace Project
             }
             Debug.Log($"Didnt hit {buildPosition} --- {worldPos}");
             return buildPosition;
+        }
+
+        private Vector3 WorldPosition()
+        {
+            Vector2 tapPosition = input.Player.FirstTouchPosition.ReadValue<Vector2>();
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.nearClipPlane));
+            return worldPosition;
         }
     }
 }

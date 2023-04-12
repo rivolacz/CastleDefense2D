@@ -700,6 +700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 06c82cc0c4c4d8141a64bd86e2e7bf3f, type: 2}
   transformToRotate: {fileID: 1544728000636961959}
+  rotateExactlyToLookDirection: 0
 --- !u!114 &1031160123140346702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,23 +714,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: 06c82cc0c4c4d8141a64bd86e2e7bf3f, type: 2}
-  contactFilter2D:
-    useTriggers: 1
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 49152
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  weaponCollider: {fileID: 7310148830740507904}
   currentHealth: 100
   StateMachine: {fileID: 0}
+  healthBar: {fileID: 0}
   selectionObject: {fileID: 7098111194507396928}
 --- !u!114 &5555811803352865871
 MonoBehaviour:

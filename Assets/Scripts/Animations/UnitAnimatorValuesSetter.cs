@@ -12,7 +12,7 @@ namespace Project
         private readonly int movementY;
         private readonly int attackTrigger;
         public bool canAttack = true;
-
+        private float animatorSpeedWithBonuses = 1;
         public UnitAnimatorValuesSetter() { }
 
         public UnitAnimatorValuesSetter(Animator animator)
@@ -41,6 +41,23 @@ namespace Project
         public void AttackChangeBool(bool attack)
         {
             canAttack = attack;
+        }
+
+        public void SetAnimatorSpeed(float speed)
+        {
+            animatorSpeedWithBonuses = speed;
+            animator.speed = speed;
+        }
+
+        public void UnitStartedToBeSlowedDown(float ammountOfSlow)
+        {
+            float animatorSpeed = animatorSpeedWithBonuses - ammountOfSlow;
+            animator.speed = animatorSpeed;
+        }
+
+        public void UnitStoppedBeingSlowedDown()
+        {
+            animator.speed = animatorSpeedWithBonuses;
         }
     }
 }

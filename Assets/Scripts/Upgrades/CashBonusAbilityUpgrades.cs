@@ -9,7 +9,7 @@ namespace Project.Upgrades
         public bool CashBonusBought = false;
         public float CashBonus2 = .5f;
         public bool CashBonus2Bought = false;
-        public float EffectLengthBonus = 3f;
+        public float EffectLengthBonus = 5f;
         public bool EffectLengthBonusBought = false;
     }
 }

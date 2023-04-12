@@ -73,10 +73,6 @@ namespace Project.Waves
                 {
                     renderer.enabled = true;
                 }
-                else
-                {
-                    print("Renderer is null");
-                }
             }
         }
 

@@ -6,14 +6,5 @@ namespace Project.Units
 {
     public class RangedPlayerUnit : PlayerUnit
     {
-        public override void Attack()
-        {
-            Shoot();
-        }
-
-        private void Shoot()
-        {
-            Debug.Log("Shoot");
-        }
     }
 }

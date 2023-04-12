@@ -47,6 +47,7 @@ namespace Project.Localization
             bool success = currentLanguageData.TryGetValue(key, out var text);
             if(!success) {
                 Debug.LogError($"Missing localized data for language: {currentLanguage.Name} and key: {key}");
+                return string.Empty;
             }
             return text;
         }

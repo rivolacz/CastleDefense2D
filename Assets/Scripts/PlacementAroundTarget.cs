@@ -31,7 +31,8 @@ namespace Project
         public void AddToTaken(Unit unit)
         {
             var closestPosition = GetAvailablePosition(unit.transform.position);
-            PathFinding.AddObstacle(closestPosition.position);
+            //PathFinding.AddObstacle(closestPosition.position);
+            Debug.Log($"Assigning {unit.name} position {closestPosition}", gameObject);
             takenPositions.Add(closestPosition);
             unit.AssignPlacementToTarget(this, closestPosition);
         }
@@ -56,7 +57,6 @@ namespace Project
             if(collision == null) return;
             if(!IsLayerInLayerMask(collision.gameObject.layer)) return;
             if(!collision.TryGetComponent(out Unit unit)) return;
-
             if (CanAssignPosition())
             {
                 AddToTaken(unit);

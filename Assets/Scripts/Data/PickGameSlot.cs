@@ -59,9 +59,9 @@ public class PickGameSlot : MonoBehaviour
     public void CheckForSaves()
     {
         if (loading) return;
-        string directoryPath1 = Application.persistentDataPath + "/Save1";
-        string directoryPath2 = Application.persistentDataPath + "/Save2";
-        string directoryPath3 = Application.persistentDataPath + "/Save3";
+        string directoryPath1 = Application.persistentDataPath + "/save1";
+        string directoryPath2 = Application.persistentDataPath + "/save2";
+        string directoryPath3 = Application.persistentDataPath + "/save3";
         CheckForSave(directoryPath1, firstSaveText,firstDeleteButton);
         CheckForSave(directoryPath2, secondSaveText, secondDeleteButton);
         CheckForSave(directoryPath3, thirdSaveText, thirdDeleteButton);
@@ -73,12 +73,17 @@ public class PickGameSlot : MonoBehaviour
         {
             deleteButton.SetActive(true);
             var lastModifiedDate = Directory.GetLastWriteTime(fileName);
+            Debug.Log(fileName + " FOUND " + lastModifiedDate);
+            saveText.GetComponent<LocalizedText>().ShouldLocalize(false);
             saveText.text = lastModifiedDate.ToString();
+            Debug.Log(saveText.text);
         }
         else
         {
+            Debug.Log(fileName + " NOT FOUND ");
             deleteButton.SetActive(false);
             var localizedText = saveText.gameObject.GetComponent<LocalizedText>();
+            localizedText.ShouldLocalize(true);
             localizedText.SetText();
         }
     }
@@ -96,6 +101,10 @@ public class PickGameSlot : MonoBehaviour
         string filePath = $"{Application.persistentDataPath}/{directoryToDelete}";
         if (Directory.Exists(filePath))
         {
+            var files = Directory.GetFiles(filePath);
+            foreach (string file in files) {
+                File.Delete(file);
+            }
             Directory.Delete(filePath);
         }
         CheckForSaves();
@@ -115,6 +124,7 @@ public class PickGameSlot : MonoBehaviour
         }
         else
         {
+            Debug.Log("Creating directory" + filename);
             Directory.CreateDirectory(filename);
             storyCanvas.enabled = true;
             loadSceneOperation = SceneManager.LoadSceneAsync(1);

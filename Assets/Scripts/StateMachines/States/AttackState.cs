@@ -11,12 +11,21 @@ namespace Project.StateMachines
     {
         private Transform attackTarget;
         private UnitStats unitStats;
+        private float offsetY;
 
         public AttackState(Transform target, StateMachine stateMachine) : base(stateMachine)
         {
             attackTarget = target;
             this.stateMachine = stateMachine;
             unitStats = stateMachine?.unitStats;
+        }
+
+        public AttackState(Transform target, float offsetY, StateMachine stateMachine) : base(stateMachine)
+        {
+            attackTarget = target;
+            this.stateMachine = stateMachine;
+            unitStats = stateMachine?.unitStats;
+            this.offsetY = offsetY;
         }
 
         public override void StateUpdate() 
@@ -31,15 +40,12 @@ namespace Project.StateMachines
         private void MoveToTarget()
         {
             Vector2 directionToTarget = GetDirectionToTarget();
-            if (directionToTarget.magnitude < unitStats.AttackRange)
+            if (directionToTarget.magnitude < unitStats.AttackRange * 2)
             {
                 UnitIsCloseToTarget();
                 return;
             }
-            else
-            {
-                stateMachine.MoveUnit(directionToTarget);
-            }
+            stateMachine.MoveUnit(directionToTarget);
         }
 
         private void UnitIsCloseToTarget()
@@ -51,13 +57,11 @@ namespace Project.StateMachines
                 stateMachine.unitAnimatorValuesSetter.SetAttackTrigger();
                 if (directionToCollider.magnitude < unitStats.AttackRange / 2)
                 {
-                    stateMachine.MoveUnit(Vector2.zero);
                     stateMachine.Look(directionToCollider);
                     return;
                 }
             }
             stateMachine.MoveUnit(directionToCollider, true);
-
         }
 
         private Vector3 GetClosestPointOnCollider()
@@ -70,13 +74,22 @@ namespace Project.StateMachines
 
         private Vector2 GetDirectionToTarget()
         {
-            Vector2 direction =  attackTarget.position - stateMachine.transform.position;
+            Vector3 attackPosition = attackTarget.position;
+            if(offsetY != 0)
+            {
+                attackPosition.y += offsetY;
+            }
+            Vector2 direction = attackPosition - stateMachine.transform.position;
             return direction;
         }
 
         private Vector2 GetDirectionToCollider()
         {
             Vector3 closestPointOnCollider = GetClosestPointOnCollider();
+            if(offsetY != 0)
+            {
+                closestPointOnCollider.y += offsetY;
+            }
             Vector2 direction = closestPointOnCollider - stateMachine.transform.position;
             return direction;
         }

@@ -19,7 +19,6 @@ namespace Project.StateMachines
         public override void StateUpdate()
         {
             stateMachine.MoveUnit(Vector2.zero);
-
         }
     }
 }

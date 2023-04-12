@@ -17,6 +17,7 @@ namespace Project.StateMachines
         public BaseState CurrentState;
         protected Animator animator;
         protected UnitMovement unitMovement;
+        private float movementSpeedBonus = 0;
 
         private void Awake()
         {
@@ -40,14 +41,12 @@ namespace Project.StateMachines
         {
             CurrentState.Exit();
             CurrentState = newState;
-            Debug.Log("Changed state to" + CurrentState.GetType());
-
             CurrentState.Enter();
         }
 
         public void MoveUnit(Vector2 moveDirection, bool updateLookDirection = true)
         {
-            unitMovement.Move(moveDirection.normalized, updateLookDirection);
+            unitMovement.Move(moveDirection.normalized, updateLookDirection, movementSpeedBonus);
             if (unitAnimatorValuesSetter != null)
             {
                 unitAnimatorValuesSetter?.SetMovementValues(moveDirection);
@@ -78,6 +77,11 @@ namespace Project.StateMachines
         {
             if (CurrentState is not IMovable movable) return;
             movable.RefreshPath();
+        }
+
+        public void SetMovementSpeedBonus(float movementSpeedBonus)
+        {
+            this.movementSpeedBonus = movementSpeedBonus;
         }
     }
 }

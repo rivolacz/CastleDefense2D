@@ -2,6 +2,7 @@ using Project.Waves;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Project
@@ -10,12 +11,17 @@ namespace Project
     {
         public List<Wave> Waves;
         public List<Transform> UnitPath;
+        public Transform castleTransform;
 
         private IEnumerator coroutine;
         private Transform unitSpawnPosition;
         private void Awake()
         {
             unitSpawnPosition = UnitPath[0];
+            if(castleTransform == null)
+            {
+                castleTransform = UnitPath.Last();
+            }
         }
 
         public void SpawnWave(int waveNumber)
@@ -43,6 +49,13 @@ namespace Project
             {
                 GameObject unit = Instantiate(units.UnitPrefab, unitSpawnPosition.position, Quaternion.identity);
                 EnemyUnit enemy = unit.GetComponent<EnemyUnit>();
+                if (enemy == null) {
+                    continue;
+                }
+                if(enemy is EnemyAirBaloon)
+                {
+                    continue;
+                }
                 enemy.SetPath(UnitPath);
                 yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
             }

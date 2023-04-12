@@ -15,9 +15,11 @@ namespace Project.Localization
         private string textKey = "FillMeUp";
 
         TextMeshProUGUI text;
+        private bool localize = true;
 
         private void Awake()
         {
+            textKey = textKey.Trim();
             WordsDictionary.OnChangedLanguage += SetText;        
         }
 
@@ -33,17 +35,30 @@ namespace Project.Localization
 
         public void SetText()
         {
+            if (!localize) return;
             string localizedValue = WordsDictionary.GetLocalizedText(textKey);
             if (text == null)
             {
                 text = GetComponent<TextMeshProUGUI>();
             }
+            if (string.IsNullOrEmpty(localizedValue)) return;
             text.text = localizedValue;
             var font = WordsDictionary.GetCurrentFont();
             if (font != null)
             {
                 text.font = font;
             }
+        }
+
+        public void ChangeKey(string key)
+        {
+            textKey = key;
+            SetText();
+        }
+
+        public void ShouldLocalize(bool localize)
+        {
+            this.localize = localize;
         }
     }
 }

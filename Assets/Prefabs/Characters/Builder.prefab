@@ -626,23 +626,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: fec95517709bde648a552223f7bfb554, type: 2}
-  contactFilter2D:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  weaponCollider: {fileID: 0}
   currentHealth: 100
   StateMachine: {fileID: 6417324946712347227}
+  healthBar: {fileID: 0}
   selectionObject: {fileID: 2976727150696094605}
 --- !u!50 &7556990322232216997
 Rigidbody2D:
@@ -685,6 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitStats: {fileID: 11400000, guid: fec95517709bde648a552223f7bfb554, type: 2}
   transformToRotate: {fileID: 608781088036881492}
+  rotateExactlyToLookDirection: 0
 --- !u!1 &5622485367363513174
 GameObject:
   m_ObjectHideFlags: 0

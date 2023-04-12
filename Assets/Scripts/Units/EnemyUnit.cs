@@ -10,7 +10,7 @@ namespace Project
 {
     [RequireComponent(typeof(EnemyStateMachine))]
     [RequireComponent(typeof(UnitMovement))]
-    public class EnemyUnit : Unit
+    public class EnemyUnit : AttackUnit
     {
         [SerializeField]
         private LayerMask enemyLayerMask;
@@ -44,6 +44,11 @@ namespace Project
             Castle castle = path.Last().GetComponent<Castle>();
             Transform castleTransform = castle.transform;
             StateMachine.ChangeState(new MoveState(pathPositions, StateMachine, castleTransform));
+        }
+
+        public void SetStraightPath(Transform castle, float offsetY)
+        {
+            StateMachine.ChangeState(new AttackState(castle, offsetY, StateMachine));
         }
     }
 }

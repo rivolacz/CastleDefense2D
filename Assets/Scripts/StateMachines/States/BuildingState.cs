@@ -16,6 +16,7 @@ namespace Project
         {
             constructionSite = building;
             BuildingPosition = position;
+            builderUpgrades = UpgradesManager.Upgrades.BuilderUpgrades;
         }
 
         public override void Enter()
@@ -25,7 +26,16 @@ namespace Project
 
         public override void StateUpdate()
         {
-            bool finished = constructionSite.ProgressWithBuild(Time.deltaTime);
+            float buildSpeed = 1;
+            if (builderUpgrades.BuildingSpeedMultiplierBought)
+            {
+                buildSpeed *= builderUpgrades.BuildingSpeedMultiplier;
+            }
+            if (builderUpgrades.InstantlyBuildBuildingsBought)
+            {
+                buildSpeed = 99999999;
+            }
+            bool finished = constructionSite.ProgressWithBuild(Time.deltaTime * buildSpeed);
             if(finished)
             {
                 stateMachine.ChangeState(new IdleState(stateMachine));

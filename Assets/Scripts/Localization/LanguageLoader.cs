@@ -30,8 +30,11 @@ namespace Project.Localization
                 {
                     try
                     {
+                        if (value[value.Length-1] == '\"')
+                        {
+                            value = value.Remove(value.Length-1);
+                        }
                         languageData.Add(key, value);
-                        Debug.Log($"{key} : {value}");
                     }catch(Exception e)
                     {
                         Debug.Log(e);
