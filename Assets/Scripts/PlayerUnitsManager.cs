@@ -19,11 +19,5 @@ namespace Project
         {
             AllPlayerUnits.Remove(unit);
         }
-
-        public int GetUnitsFoodUpkeep()
-        {
-            int upkeep = AllPlayerUnits.Sum(unit => unit.unitStats.FoodUpkeep);
-            return upkeep;
-        }
     }
 }

@@ -21,7 +21,8 @@ namespace Project
         private Transform targetToMove;
         private Vector3 targetPosition;
         private UnitMovement unitMovement;
-
+        private PlacementAroundTarget placementAroundTarget = null;
+        private Transform placementPosition = null;
         private void Awake()
         {
             unitMovement = GetComponent<UnitMovement>();
@@ -49,6 +50,41 @@ namespace Project
         public void SetStraightPath(Transform castle, float offsetY)
         {
             StateMachine.ChangeState(new AttackState(castle, offsetY, StateMachine));
+        }
+
+        public override void Damage(float damage)
+        {
+            currentHealth -= damage;
+            if (healthBar != null)
+            {
+                healthBar.gameObject.SetActive(true);
+                healthBar.FillProgressBar(currentHealth / unitStats.MaxHealth);
+            }
+            if (currentHealth < 0)
+            {
+                Die();
+            }
+        }
+
+        public override void Die()
+        {
+            if (placementAroundTarget != null)
+            {
+                placementAroundTarget.RemoveFromTaken(placementPosition);
+                placementAroundTarget = null;
+                placementPosition = null;
+            }
+            GameData.GetCoins(unitStats.RewardForKilling * GameData.CashMultiplierFromAbility);
+            Destroy(gameObject);
+        }
+
+        public void AssignPlacementToTarget(PlacementAroundTarget placementAroundTarget, Transform position)
+        {
+            this.placementAroundTarget = placementAroundTarget;
+            placementPosition = position;
+            //Debug.Log($"Assigned position from {transform.position} to target" + position.position);
+            Castle castle = FindAnyObjectByType<Castle>();
+            StateMachine.ChangeState(new MoveState(placementPosition.position, StateMachine, castle.transform));
         }
     }
 }

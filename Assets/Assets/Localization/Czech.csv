@@ -14,7 +14,7 @@ deleteConfirmation,Opravdu chcete smazat tuto uloženou hru?
 yes,Ano
 no,Ne
 pikeman,Kopiník
-pikemanDescription,
+pikemanDescription,"Kopiníci jsou páteří obrany hradu a pevně stojí proti náporu nepřátelských sil. Oděni v těžké zbroji a s dlouhými kopími tvoří neprolomitelnou obrannou zeď, která odolá i tomu nejodhodlanějšímu útoku. Jejich disciplína a výcvik se projevují v přesných formacích a neochvějném odhodlání. Drží linii proti nepřátelskému útoku, jejich dlouhá kopí vyrážejí ve shodě a vytvářejí ocelovou bariéru, kterou žádný útočník neprorazí. Jakmile se nepřátelské síly přiblíží, kopiníci zůstanou neochvějní a jejich štíty vytvoří neproniknutelnou obrannou zeď. Jsou strážci hradní brány, připraveni odrazit každého vetřelce, který se odváží zpochybnit jejich autoritu. Navzdory těžké zbroji a těžkopádným zbraním se kopiníci pohybují překvapivě hbitě, jejich hbitá práce nohou jim umožňuje vyhýbat se a proplétat se útokem nepřítele. Skvěle využívají svá kopí, která zasahují se smrtící přesností a udržují nepřítele na uzdě. V krizových situacích jsou kopiníci první, kdo reaguje, a spěchají do první linie, aby se s nepřítelem střetli tváří v tvář. Jsou to neopěvovaní hrdinové obrany hradu, kteří jsou tváří v tvář nebezpečí neochvějní a nezlomní. S každým úderem a zákrokem vytvářejí kopiníci ocelovou zeď, kterou nepřítel nemůže prolomit. Stojí vysoko a hrdě, jejich ostrá kopí se lesknou ve slunečním světle a jsou symbolem síly a odolnosti hradu. nakonec jsou to kopiníci, kdo drží půdu dole, zatímco lučištníci shora sypou šípy. Jsou první obrannou linií a neustoupí, dokud nepadne poslední útočník."
 archer,Lučištník
 archerDescription,
 delete,Smazat
@@ -23,49 +23,49 @@ selectGame,Vyber hru
 automaticallyLoadGame,Příště automaticky načíst vybraný slot
 mainMenu,Menu
 upgrades,Vylepšení
-information,Information
+information,Informace
 play,Hrát
-fireballAbilityName,
-fireballAbilityDescription,
-coinAbilityName,
-coinAbilityDescription,
-poisonAbilityName,
-poisonDescription,
-timewarpAbilityName,
-timewarpAbilityDescription,
-unitRageAbilityName,
-unitRageAbilityDescription,
-turretsUpgradesTitle,
-castleUpgradesTitle,
-unitsUpgradesTitle,
-abilitiesUpgradesTitle,
-close,
-unitAttackSpeedUpgradeDescription,
-unitHealthBonusUpgradeDescription,
-unitMovementSpeedUpgradeDescription,
-turretsAttackRangeUpgradeDescription,
-unitBuildingSpeedUpgradeDescription,
-unitInstantlyBuildBuildingUpgradeDescription,
-cashBonusAbilityBonusUpgradeDescription,
-poisonAbilityLengthUpgradeDescription,
-castleBonusHealthUpgradeDescription,
-castleShootingUpgradeDescription,
-fireballAbilityInstantlyKillUpgradeDescription,
-buy,
-bought,
-abilityManaCostReductionUpgradeDescription,
-abilityDamageIncreaseUpgradeDescription,
-cashBonusLongerEffectUpgradeDescription,
-poisonAbilityDamagePerSecondUpgradeDecription,
-poisonAbilityRangeUpgradeDescription,
-timeWarpAbilitySlowDownBonusUpgradeDescription,
-timeWarpAbilitySlowAttackSpeedUpgradeDescription,
-timeWarpFreezingEnemiesUpgradeDescription,
-timeWarpEffectLength,
-turretsBonusHealthUpgradeDescription,
-turretsAttackSpeedUpgradeDescription,
+fireballAbilityName,Kosmický Úder
+fireballAbilityDescription,"Schopnost Kosmický útok je silný útok, na určenou část země"
+coinAbilityName,Přízeň štěstěny
+coinAbilityDescription,"Schopnost Přízeň štěsteny je mocné vylepšení, které může v krátké době výrazně zvýšit hráčovo bohatství. Po aktivaci schopnost spustí vlnu štěstí, která dává bonus ke zlaťákům ze zabitých nepřátel."
+poisonAbilityName,Jedový vír
+poisonAbilityDescription,"Schopnost Jedový vír je silný útok, který vytvoří jedovatý oblak a poškodí všechny nepřátele v jeho dosahu. Po aktivaci vychází ze země temný oblak, který se šíří směrem ven a pohlcuje všechny nepřátele v dosahu. Jedovatý vír způsobuje v průběhu času nepřetržité poškození. Celkově je schopnost Jedový vír díky plošnému účinku cenným nástrojem pro hráče, kteří chtějí oslabit obranu nepřítele a získat v bitvě převahu. Při pečlivém používání se může ukázat jako útok, který změní průběh bitvy ve prospěch hráče."
+timewarpAbilityName,Časová deformace
+timewarpAbilityDescription,"Schopnost Časová deformace je mocná  schopnost, která zpomaluje čas všem nepřátelům, kteří se ocitnou v jejím dosahu. Po aktivaci hráč vytvoří časové pole, které způsobí, že se nepřátelé pohybují a útočí sníženou rychlostí, což usnadňuje vyhýbání se útokům nebo zahájení protiútoku. Doba trvání této schopnosti je však omezená, takže hráči musí co nejlépe využít čas strávený v časovém poli, než pole zmizí."
  ,
  ,
+turretsUpgradesTitle,Věže
+castleUpgradesTitle,Hrad
+unitsUpgradesTitle,Jednotky
+abilitiesUpgradesTitle,Schopnosti
+close,Zavřít
+unitAttackSpeedUpgradeDescription,"Toto vylepšení zvyšuje rychlost útoku hráčových jednotek, což jim umožňuje rychleji útočit a rychleji způsobovat poškození. Po zakoupení se hráčovým jednotkám viditelně zvýší rychlost útoku, takže budou v boji efektivnější."
+unitAttackDamageUpgradeDescription,"S tímto vylepšením budou vaše jednotky způsobovat nepřátelským jednotkám větší poškození, takže budou v bitvě ještě hrozivější."
+unitHealthBonusUpgradeDescription,"Toto vylepšení zvyšuje maximální zdraví hráčových jednotek, což jim umožňuje vydržet větší poškození, než budou poraženy. Investicí do tohoto vylepšení mohou hráči výrazně zlepšit schopnost přežití svých jednotek, což jim umožní odolávat útokům nepřátelských jednotek po delší dobu."
+unitMovementSpeedUpgradeDescription,"Toto vylepšení zvyšuje rychlost pohybu hráčových jednotek, což jim umožňuje rychleji a efektivněji procházet bojištěm. Po zakoupení se hráčovým jednotkám viditelně zvýší rychlost pohybu"
+turretsAttackRangeUpgradeDescription,"Toto vylepšení zvyšuje dosah útoku věží, což jim umožňuje zasahovat nepřátele z větší vzdálenosti. Po zakoupení věže se viditelně zvýší jejich dosah, díky čemuž budou moci účinněji zasahovat cíle z bezpečné vzdálenosti."
+unitBuildingSpeedUpgradeDescription,"Toto vylepšení zvyšuje rychlost, s jakou jsou stavěny věže hráče, což mu umožní rychle opevnit základnu proti nepřátelským útokům. Po zakoupení budou hráčovy věže stavěny rychleji, čímž se zkrátí doba potřebná k vytvoření silného obranného perimetru."
+unitInstantlyBuildBuildingUpgradeDescription,"Toto vylepšení umožní hráčovým jednotkám okamžitě stavět budovy, čímž se výrazně zkrátí čas potřebný k vybudování silné základny. Po zakoupení získají hráčovy jednotky schopnost rychle stavět budovy bez nutnosti delší doby výstavby."
+cashBonusAbilityBonusUpgradeDescription,"Toto vylepšení zvyšuje schopnost hráče získat peněžní bonus tím, že zvyšuje částku bonusu udělovanou za každou zabitou nepřátelskou jednotku. Po zakoupení získá hráč větší bonusovou částku za každou poraženou nepřátelskou jednotku."
+poisonAbilityLengthUpgradeDescription,"Toto vylepšení prodlužuje dobu trvání plošného efektu jedu, takže může způsobovat poškození po delší dobu. Prodloužená délka účinku může hráči pomoci ovládnout bojiště a efektivněji likvidovat nepřátelské jednotky."
+castleBonusHealthUpgradeDescription,"Toto vylepšení zvyšuje zdraví vašeho hradu, takže je odolnější vůči útokům nepřátel. Jelikož je váš hrad srdcem vaší obrany, je důležité udržovat ho v dobré kondici a toto vylepšení je ideální způsob, jak toho dosáhnout. Se silnějším a odolnějším hradem můžete odolat i těm nejneúprosnějším nepřátelským útokům a vyjít z nich vítězně. Upgradujte nyní a dodejte svému hradu zdraví, které potřebuje k přežití!"
+castleShootingUpgradeDescription,"S tímto vylepšením bude váš hrad vybaven výkonným vystřelovačem šípů, který dokáže na nepřátele seslat smrtící salvy šípů. Toto vylepšení výrazně zlepší vaši obranu a umožní vám udržet nepřítele na uzdě z bezpečné vzdálenosti."
+fireballAbilityInstantlyKillUpgradeDescription,"Díky tomuto vylepšení nyní schopnost Kosmicý útok okamžitě zabije jakoukoli nepřátelskou jednotku, která se ocitne v dosahu jejího výbuchu, bez ohledu na její zdraví. Použijte ji k snadnému vyčištění velkých skupin nepřátel nebo k rychlé likvidaci vysoce prioritních cílů."
+buy,Koupit
+ ,
+abilityManaCostReductionUpgradeDescription,"Toto vylepšení snižuje množství many potřebné k použití této schopnosti, což umožňuje její častější používání v bitvě. Díky vylepšení Snížení spotřeby many můžete častěji využívat své schopnosti a zvrátit průběh bitvy ve svůj prospěch. Pořiďte si toto vylepšení hned a staňte se nezastavitelnou silou na bojišti!"
+abilityDamageIncreaseUpgradeDescription,"Toto vylepšení zvyšuje poškození schopnosti, takže jsou silnější a ničivější pro vaše nepřátele."
+cashBonusLongerEffectUpgradeDescription,"Díky tomuto vylepšení trvá účinek schopnosti Přízeň štěstěny déle, takže máte více času na využití peněz navíc z poražených nepřátel. S vylepšením schopnosti budete moci nashromáždit více peněz."
+poisonAbilityDamagePerSecondUpgradeDecription,"Díky tomuto vylepšení nyní schopnost Jedovatý vír způsobuje ještě větší poškození za sekundu všem nepřátelům, kteří se ocitnou v jejím toxickém okruhu. Jed bude ubírat zdraví nepřátel mnohem rychleji, což z něj dělá ještě smrtonosnější a účinnější nástroj k obraně hradu."
+poisonAbilityRangeUpgradeDescription,"S tímto vylepšením se výrazně zvýší dosah plošného účinku jedu, což hráči umožní rozšířit jedovatý oblak na větší plochu a zasáhnout více nepřátel. Jedná se o nezbytné vylepšení pro hráče, kteří chtějí ovládnout nepřátelské síly svým smrtícím jedem."
+timeWarpAbilitySlowDownBonusUpgradeDescription,"Schopnost Time Warp zpomaluje rychlost pohybu všech nepřátelských jednotek v oblasti svého působení, což vašim obranným strukturám usnadňuje jejich likvidaci. Bonus ke zpomalení pohybu se výrazně zvýší. Díky této schopnosti můžete strategicky zpomalit postup nepřítele a získat více času na posílení obrany nebo zahájení protiútoku."
+timeWarpAbilitySlowAttackSpeedUpgradeDescription,"Vylepšete si schopnost Časová deformace, která způsobí, že se nepřátelům, kteří se ocitnou v jejím dosahu, zpomalí rychlost útoku. Díky tomuto vylepšení se nepřátelé budou snažit útočit tak rychle, jako by útočili normálně, což dá vaší obraně větší šanci na jejich odražení. Toto vylepšení je ideální pro hráče, kteří chtějí používat schopnost Časová deformace jako obranný prostředek, protože vám umožní strategicky zpomalit nepřátelské útoky a získat více času pro vaše věže, aby vykonaly svou práci."
+timeWarpFreezingEnemiesUpgradeDescription,S vylepšením Absolutní nula schopnost Časová deformace zmrazí nepřátele na místě a zcela zastaví jejich pohyb a rychlost útoku. Toto vylepšení výrazně zvyšuje obranné schopnosti hráčových jednotek a poskytuje jim drahocenný časový prostor pro změnu pozice a přípravu na přicházející vlnu nepřátel.
+timeWarpEffectLength,"Schopnost Časová deformace lze vylepšit, aby se její časový vliv rozšířil na delší dobu. S tímto vylepšením se nepřátelé, kteří se ocitnou v časové deformaci, ocitnou v pasti na delší dobu."
+turretsBonusHealthUpgradeDescription,"Toto vylepšení posiluje věž, zvyšuje její zdraví a zvyšuje její odolnost vůči nepřátelským útokům. Díky dodatečnému pancéřování a silnějším materiálům vydrží vaše opevněná věž více úderů a zůstane déle v boji. Toto vylepšení je ideální pro ochranu kritických pozic nebo udržení linie proti velkým nepřátelským silám."
+turretsAttackSpeedUpgradeDescription,"Toto vylepšení zvyšuje dosah útoku věží, což jim umožňuje zasahovat nepřátele z větší vzdálenosti. Po zakoupení věže se viditelně zvýší jejich dosah, díky čemuž budou moci účinněji zasahovat cíle z bezpečné vzdálenosti."
+selectedUnits,Vybrané jednotky
  ,
  ,
  ,

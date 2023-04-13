@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyAirBalloon
   m_EditorClassIdentifier: 
   Name: AirBalloon
-  BaseMovementSpeed: 3
-  MaxHealth: 100
-  AttackDamage: 0
+  BaseMovementSpeed: 0.7
+  MaxHealth: 400
+  AttackDamage: 60
   AttackRange: 10
   BuyCost: 0
-  FoodUpkeep: 0
+  RewardForKilling: 15

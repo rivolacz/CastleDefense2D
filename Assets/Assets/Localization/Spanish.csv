@@ -14,7 +14,7 @@ deleteConfirmation,¿Seguro que quieres eliminar este juego guardado?
 yes,Sí
 no,No
 pikeman,Piquero
-pikemanDescription,
+pikemanDescription,"Los piqueros son la espina dorsal de la defensa del castillo, manteniéndose firmes ante el ataque de las fuerzas enemigas. Ataviados con pesadas armaduras y empuñando largas lanzas, forman un muro de defensa inquebrantable que puede resistir incluso el asalto más decidido. Su disciplina y entrenamiento son evidentes en sus formaciones precisas y su resolución inquebrantable. Mantienen la línea frente a la embestida enemiga, sus largas lanzas empujando al unísono para crear una barrera de acero que ningún invasor puede penetrar. A medida que las fuerzas enemigas se acercan, los piqueros se mantienen firmes, con sus escudos formando un muro impenetrable de defensa. Son los guardianes de las puertas del castillo, listos para repeler a cualquier intruso que se atreva a desafiar su autoridad. A pesar de su pesada armadura y sus pesadas armas, los piqueros se mueven con sorprendente agilidad, su ágil juego de pies les permite esquivar y sortear los ataques enemigos. Utilizan sus lanzas con gran eficacia, golpeando con precisión mortal y manteniendo a raya al enemigo. En tiempos de crisis, los piqueros son los primeros en responder, corriendo al frente para enfrentarse al enemigo. Son los héroes anónimos de la defensa del castillo, firmes e inquebrantables ante el peligro. Con cada estocada y parada, los piqueros crean un muro de acero que el enemigo no puede atravesar. Se mantienen erguidos y orgullosos, con sus afiladas lanzas brillando a la luz del sol, símbolo de la fuerza y la resistencia del castillo.Al final, son los piqueros quienes sostienen el suelo mientras los arqueros lanzan una lluvia de flechas desde arriba. Son la primera línea de defensa, y no retrocederán hasta que haya caído el último invasor."
 archer,Arquero
 archerDescription,
 delete,Borrar
@@ -25,47 +25,47 @@ mainMenu,Menú principal
 upgrades,Actualizaciones
 information,Información
 play,Jugar
-fireballAbilityName,
-fireballAbilityDescription,
-coinAbilityName,
-coinAbilityDescription,
-poisonAbilityName,
-poisonDescription,
-timewarpAbilityName,
-timewarpAbilityDescription,
-unitRageAbilityName,
-unitRageAbilityDescription,
-turretsUpgradesTitle,
-castleUpgradesTitle,
-unitsUpgradesTitle,
-abilitiesUpgradesTitle,
-close,
-unitAttackSpeedUpgradeDescription,
-unitHealthBonusUpgradeDescription,
-unitMovementSpeedUpgradeDescription,
-turretsAttackRangeUpgradeDescription,
-unitBuildingSpeedUpgradeDescription,
-unitInstantlyBuildBuildingUpgradeDescription,
-cashBonusAbilityBonusUpgradeDescription,
-poisonAbilityLengthUpgradeDescription,
-castleBonusHealthUpgradeDescription,
-castleShootingUpgradeDescription,
-fireballAbilityInstantlyKillUpgradeDescription,
-buy,
-bought,
-abilityManaCostReductionUpgradeDescription,
-abilityDamageIncreaseUpgradeDescription,
-cashBonusLongerEffectUpgradeDescription,
-poisonAbilityDamagePerSecondUpgradeDecription,
-poisonAbilityRangeUpgradeDescription,
-timeWarpAbilitySlowDownBonusUpgradeDescription,
-timeWarpAbilitySlowAttackSpeedUpgradeDescription,
-timeWarpFreezingEnemiesUpgradeDescription,
-timeWarpEffectLength,
-turretsBonusHealthUpgradeDescription,
-turretsAttackSpeedUpgradeDescription,
+fireballAbilityName,Explosión pirotécnica
+fireballAbilityDescription,La habilidad Piroblasto es un poderoso ataque que desata una abrasadora bola de llamas que incinera a los enemigos a su paso.
+coinAbilityName,Favor de la fortuna
+coinAbilityDescription,"La habilidad Bonificación de monedas es un potente potenciador que puede aumentar significativamente la riqueza del jugador en poco tiempo. Cuando se activa, la habilidad desencadena una oleada de buena fortuna, que otorga bonificaciones de los enemigos eliminados."
+poisonAbilityName,Vórtice de veneno
+poisonAbilityDescription,"La habilidad Vórtice venenoso es un poderoso ataque que crea una nociva nube de veneno que daña a todos los enemigos atrapados en su radio de acción. Cuando se activa, una nube oscura emana del lanzador y se extiende hacia el exterior para engullir a todos los enemigos dentro de su alcance. La nube venenosa inflige daño continuo a lo largo del tiempo, debilitando las defensas del enemigo y dejándolo vulnerable a los ataques. A medida que la nube persiste, el daño que inflige se intensifica, lo que la convierte en un ataque especialmente potente contra grandes grupos de enemigos. La nube de veneno también puede dañar a los aliados que se encuentren en su radio de acción, por lo que los jugadores deben usar esta habilidad con cuidado para no dañar a sus propias tropas sin querer.En general, la habilidad Efecto de área de veneno es una herramienta valiosa para los jugadores que buscan debilitar las defensas del enemigo y ganar ventaja en la batalla. Si se usa con cuidado, puede ser un ataque que cambie el curso de la batalla a favor del jugador."
+timewarpAbilityName,Deformación temporal
+timewarpAbilityDescription,"La habilidad Deformación temporal es una poderosa habilidad de control que ralentiza el tiempo para todos los enemigos atrapados en su radio. Cuando se activa, el jugador crea un campo temporal que hace que los enemigos se muevan y ataquen a una velocidad reducida, lo que facilita esquivar los ataques o lanzar un contraataque.A medida que el campo temporal persiste, los enemigos siguen moviéndose más lentamente, lo que permite al jugador aprovecharse de su lentitud. Sin embargo, la duración de la habilidad es limitada, por lo que los jugadores deben aprovechar al máximo su tiempo dentro del campo antes de que se desvanezca."
  ,
  ,
+turretsUpgradesTitle,Torretas
+castleUpgradesTitle,Castillo
+unitsUpgradesTitle,Unidades
+abilitiesUpgradesTitle,Habilidades
+close,Cerrar
+unitAttackSpeedUpgradeDescription,"Esta mejora aumenta la velocidad de ataque de las unidades del jugador, lo que les permite atacar más rápido e infligir más daño. Cuando se adquiere, las unidades del jugador aumentan visiblemente su velocidad de ataque, lo que las hace más eficaces en combate."
+unitAttackDamageUpgradeDescription,"Con esta mejora, tus unidades infligirán más daño a las unidades enemigas, lo que las hará aún más formidables en la batalla."
+unitHealthBonusUpgradeDescription,"Esta mejora aumenta la salud máxima de las unidades del jugador, lo que les permite soportar más daño antes de ser derrotadas. Al invertir en esta mejora, los jugadores pueden mejorar enormemente la capacidad de supervivencia de sus unidades, lo que les permite resistir los ataques de las unidades enemigas durante más tiempo."
+unitMovementSpeedUpgradeDescription,"Esta mejora aumenta la velocidad de movimiento de las unidades del jugador, permitiéndoles atravesar el campo de batalla con mayor rapidez y eficacia. Cuando se adquiere, las unidades del jugador aumentan visiblemente su velocidad de movimiento."
+turretsAttackRangeUpgradeDescription,"Esta mejora aumenta el alcance de ataque de la torreta, lo que les permite atacar a los enemigos desde una distancia mayor. Con esta mejora, las unidades del jugador aumentarán visiblemente su velocidad de ataque, lo que las hará más eficaces en combate."
+unitBuildingSpeedUpgradeDescription,"Esta mejora aumenta la velocidad a la que se construyen las torretas del jugador, permitiéndole fortificar rápidamente su base contra los ataques enemigos. Cuando se adquiere, las torretas del jugador se construyen más rápido, reduciendo el tiempo necesario para establecer un perímetro defensivo fuerte."
+unitInstantlyBuildBuildingUpgradeDescription,"Esta mejora permite a las unidades del jugador construir edificios al instante, lo que reduce enormemente el tiempo necesario para establecer una base fuerte. Cuando se adquiere, las unidades del jugador adquieren la capacidad de construir edificios rápidamente sin necesidad de un tiempo de construcción prolongado."
+cashBonusAbilityBonusUpgradeDescription,"Esta mejora mejora la capacidad de bonificación en efectivo del jugador al aumentar la cantidad de bonificación concedida por cada unidad enemiga eliminada. Al comprarla, el jugador recibirá una mayor cantidad de bonificación por cada unidad enemiga que derrote."
+poisonAbilityLengthUpgradeDescription,"Esta mejora amplía la duración del efecto de área de veneno, lo que permite infligir daño durante más tiempo. La mayor duración del efecto puede ayudar a los jugadores a controlar el campo de batalla y acabar con las unidades enemigas con mayor eficacia."
+castleBonusHealthUpgradeDescription,"Esta mejora aumenta la salud de tu castillo, haciéndolo más resistente a los ataques enemigos. Como tu castillo es el corazón de tu defensa, es importante mantenerlo en buena forma, y esta mejora es la forma perfecta de hacerlo. Con un castillo más fuerte y duradero, podrás resistir incluso las embestidas enemigas más implacables y salir victorioso. Mejora ahora tu castillo para darle la salud que necesita para sobrevivir."
+castleShootingUpgradeDescription,"Con esta mejora, tu castillo estará equipado con un potente lanzador de flechas que puede descargar mortíferas andanadas de flechas sobre tus enemigos. Esta mejora mejorará enormemente tu defensa, permitiéndote mantener a raya al enemigo desde una distancia segura."
+fireballAbilityInstantlyKillUpgradeDescription,"Con esta mejora, la habilidad Bola de fuego incinerará al instante a cualquier unidad enemiga que se encuentre en su radio de explosión, independientemente de su salud. Esta mejora aumenta enormemente el poder destructivo de la habilidad Bola de fuego, haciéndola aún más letal contra las tropas enemigas. Úsala para eliminar grandes grupos de enemigos con facilidad o para acabar rápidamente con objetivos prioritarios."
+buy,Comprar
+ ,
+abilityManaCostReductionUpgradeDescription,"Esta mejora reduce la cantidad de maná necesaria para usar esta habilidad, lo que permite usarla con más frecuencia en batalla. Con la mejora Reducción del uso de maná, podrás liberar tus habilidades más a menudo y decantar la batalla a tu favor. Consigue la mejora ahora y conviértete en una fuerza imparable en el campo de batalla."
+abilityDamageIncreaseUpgradeDescription,"Esta mejora aumenta el daño de las habilidades, haciéndolas más potentes y devastadoras para tus enemigos."
+cashBonusLongerEffectUpgradeDescription,"Con esta mejora, el efecto de la habilidad Bonificación de dinero dura más, lo que te da más tiempo para aprovechar el dinero extra de tus enemigos derrotados. Con la mejora Efecto prolongado, podrás amasar una fortuna y crear una fortaleza impenetrable que tus enemigos nunca podrán atravesar. ¿A qué estás esperando? ¡Mejora ahora y recoge los frutos de la victoria!"
+poisonAbilityDamagePerSecondUpgradeDecription,"Con esta mejora, la habilidad Efecto de área de veneno inflige aún más daño por segundo a todos los enemigos atrapados en su radio tóxico. El veneno consumirá la salud de tus enemigos a un ritmo mucho más rápido, lo que la convierte en una herramienta aún más letal y eficaz para defender tu castillo. Con la mejora Mayor daño por segundo, tus enemigos se acobardarán ante la sola idea de cruzarse en tu camino. ¿A qué esperas? Mejora ahora y observa cómo tus enemigos se desmoronan bajo tu veneno."
+poisonAbilityRangeUpgradeDescription,"Con esta mejora, el alcance del efecto de área de Veneno aumenta considerablemente, lo que permite al jugador extender la nube tóxica por un área mayor y afectar a más enemigos. Los enemigos envenenados sufrirán daño con el tiempo, lo que facilitará que las unidades del jugador acaben con ellos. El mayor alcance también significa que el jugador puede cubrir más terreno y proteger una zona más amplia del campo de batalla. Es una mejora esencial para los jugadores que quieran dominar a las fuerzas enemigas con su veneno mortal."
+timeWarpAbilitySlowDownBonusUpgradeDescription,"La habilidad Deformación temporal ralentiza la velocidad de movimiento de todas las unidades enemigas dentro de su área de efecto, lo que facilita que tus estructuras defensivas las derriben. La bonificación de ralentización del movimiento aumentará considerablemente, lo que dificultará enormemente al enemigo la navegación y la coordinación eficaz de su ataque. Con esta habilidad, podrás ralentizar estratégicamente el avance enemigo y ganar más tiempo para reforzar tus defensas o lanzar un contraataque."
+timeWarpAbilitySlowAttackSpeedUpgradeDescription,"Mejora tu habilidad Deformación temporal para que los enemigos atrapados en su radio vean ralentizada su velocidad de ataque. Con esta mejora, a los enemigos les costará atacar tan rápido como lo harían normalmente, lo que dará a tus defensas una mejor oportunidad de rechazarlos. Esta mejora es perfecta para los jugadores que quieran usar la habilidad Deformación temporal como medida defensiva, ya que permite ralentizar estratégicamente los ataques enemigos y ganar más tiempo para que tus torretas hagan su trabajo."
+timeWarpFreezingEnemiesUpgradeDescription,"Con la mejora Cero absoluto, la habilidad Deformación temporal congelará a los enemigos, deteniendo por completo sus movimientos y velocidad de ataque. Esta mejora aumenta enormemente las capacidades defensivas de las unidades del jugador, dándoles un valioso margen de tiempo para reposicionarse y prepararse para la oleada de enemigos que se aproxima."
+timeWarpEffectLength,"La habilidad Deformación temporal puede mejorarse para extender su influencia temporal a un periodo mayor. Con esta mejora, los enemigos atrapados en la distorsión temporal quedarán atrapados durante más tiempo."
+turretsBonusHealthUpgradeDescription,"Esta mejora refuerza tu torreta, aumentando su salud y haciéndola más resistente a los ataques enemigos. Con un blindaje adicional y materiales más resistentes, tu torreta fortificada puede soportar más castigo y permanecer más tiempo en combate. Esta mejora es perfecta para proteger posiciones críticas o mantener la línea contra grandes fuerzas enemigas."
+turretsAttackSpeedUpgradeDescription,"Esta mejora aumenta la cadencia de tiro de la torreta. Con una maquinaria mejorada y un mejor entrenamiento, la torreta es capaz de desatar una andanada más rápida y mortífera sobre las unidades enemigas. Esta mejora es esencial para los jugadores que buscan contener oleadas más grandes de enemigos y defender su castillo con más potencia de fuego."
+selectedUnits,Unidades seleccionadas
  ,
  ,
  ,

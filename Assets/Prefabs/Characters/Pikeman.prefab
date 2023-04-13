@@ -730,7 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07016a99d33ccf540805a467b02bc70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
   unitStats: {fileID: 11400000, guid: 06c82cc0c4c4d8141a64bd86e2e7bf3f, type: 2}
+  AttackRangeBonus: 0
 --- !u!1 &3119771228718469218
 GameObject:
   m_ObjectHideFlags: 0

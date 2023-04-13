@@ -12,11 +12,7 @@ namespace Project.Units
         public StateMachine StateMachine;
 
         [SerializeField]
-        private ProgressBar healthBar;
-
-        private PlacementAroundTarget placementAroundTarget = null;
-        private Transform placementPosition = null;
-
+        protected ProgressBar healthBar;
 
 
         private void Awake()
@@ -37,28 +33,15 @@ namespace Project.Units
                 healthBar.gameObject.SetActive(true);
                 healthBar.FillProgressBar(currentHealth / unitStats.MaxHealth);
             }
-            Debug.Log($"{transform.name} took {damage} damage and has now {currentHealth}HP");
             if (currentHealth < 0) {
                 Die();
             }
         }
 
-        public void AssignPlacementToTarget(PlacementAroundTarget placementAroundTarget, Transform position)
-        {
-            this.placementAroundTarget = placementAroundTarget;
-            placementPosition = position;
-            //Debug.Log($"Assigned position from {transform.position} to target" + position.position);
-            Castle castle = FindAnyObjectByType<Castle>();
-            StateMachine.ChangeState(new MoveState(placementPosition.position, StateMachine, castle.transform));
-        }
+        
 
-        private void Die()
+        public virtual void Die()
         {
-            if (placementAroundTarget != null) {
-                placementAroundTarget.RemoveFromTaken(placementPosition);
-                placementAroundTarget = null;
-                placementPosition = null;
-            }
             Destroy(gameObject);          
         }
     }

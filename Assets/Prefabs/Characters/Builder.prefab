@@ -612,7 +612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07016a99d33ccf540805a467b02bc70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
   unitStats: {fileID: 11400000, guid: fec95517709bde648a552223f7bfb554, type: 2}
+  AttackRangeBonus: 0
 --- !u!114 &7069511306602069119
 MonoBehaviour:
   m_ObjectHideFlags: 0

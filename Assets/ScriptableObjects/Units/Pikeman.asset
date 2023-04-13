@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Pikeman
   BaseMovementSpeed: 1
-  MaxHealth: 100
-  AttackDamage: 20
+  MaxHealth: 60
+  AttackDamage: 6
   AttackRange: 3
   BuyCost: 10
-  FoodUpkeep: 1
+  RewardForKilling: 3

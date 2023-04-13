@@ -11,7 +11,7 @@ namespace Project.Upgrades
         public bool AttackSpeedSlowDownBonusBought = false;
         public bool FreezeEnemies = false;
         public bool FreezeEnemiesBought = false;
-        public float EffectLengthBonus = 5f;
-        public bool EffectLengthBonusBought = false;
+        public float EffectDurationBonus = 5f;
+        public bool EffectDurationBonusBought = false;
     }
 }

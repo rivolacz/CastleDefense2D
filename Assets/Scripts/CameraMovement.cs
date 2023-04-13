@@ -10,8 +10,8 @@ public class CameraMovement : MonoBehaviour
     public CinemachineVirtualCamera cameraTransform;
     [SerializeField]
     private CinemachineConfiner2D confiner;
-    private const float ZoomingSpeed = 10f;
-    private const float CameraMovementSpeed = 10f;
+    private const float ZoomingSpeed = 5f;
+    private const float CameraMovementSpeed = 5f;
     private bool doubleTouchActivated = false;
     PlayerInput input;
     Vector2 firstTouchDelta;

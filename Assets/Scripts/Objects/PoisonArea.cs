@@ -11,7 +11,6 @@ namespace Project
         private Vector2 target;
         private float range;
         private float damagePerSecond;
-        private float effectDuration;
 
 
         private void Update()
@@ -29,8 +28,8 @@ namespace Project
             this.target = target;
             this.range = range;
             this.damagePerSecond = damagePerSecond;
-            this.effectDuration = effectDuration;
             transform.position = target;
+            transform.localScale = new Vector3(range, range, 1);
             Destroy(gameObject, effectDuration);
         }
     }

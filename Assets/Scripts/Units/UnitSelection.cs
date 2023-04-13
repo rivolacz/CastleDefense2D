@@ -130,10 +130,6 @@ namespace Project
                     SelectUnit(selectable);
                 }
             }
-            colliders = Physics2D.OverlapPointAll(worldPoint, castleLayerMask);
-            if (colliders.Length == 0) return;
-            if (!colliders.First().TryGetComponent<Castle>(out var castle)) return;
-            castle.CastleSelected();
         }
 
         private void DeselectAllUnits()

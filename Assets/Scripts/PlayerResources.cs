@@ -30,7 +30,6 @@ namespace Project
         public static bool CanBuyUnit(Unit unit)
         {
             if (!CanBuyForAmount(unit.unitStats.BuyCost)) return false;
-            if (FoodProduction <= unit.unitStats.FoodUpkeep) return false;
             return true;
         }
     }

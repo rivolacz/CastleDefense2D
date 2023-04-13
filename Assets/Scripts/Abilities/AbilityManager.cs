@@ -156,7 +156,7 @@ namespace Project.Abilities
         {
             if (Settings.PlayerIsCasting || currentMana < timeWarpAbility.GetManaCost()) return;
             ConfirmationPopUp();
-            abilityToCast = poisonAbility;
+            abilityToCast = timeWarpAbility;
             costText.text = abilityToCast.GetManaCost().ToString();
         }
 

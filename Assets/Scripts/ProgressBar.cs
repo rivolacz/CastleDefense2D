@@ -17,5 +17,10 @@ namespace Project
                 fillBarImage.fillAmount = percentage;
             }
         }
+
+        public void ChangeColor(Color color)
+        {
+            fillBarImage.color = color;
+        }
     }
 }

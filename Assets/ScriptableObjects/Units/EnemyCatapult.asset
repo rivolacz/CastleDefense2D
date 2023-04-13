@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EnemyCatapult
   m_EditorClassIdentifier: 
   Name: Catapult
-  BaseMovementSpeed: 1
+  BaseMovementSpeed: 0.5
   MaxHealth: 200
-  AttackDamage: 0
-  AttackRange: 10
+  AttackDamage: 40
+  AttackRange: 20
   BuyCost: 0
-  FoodUpkeep: 0
+  RewardForKilling: 7

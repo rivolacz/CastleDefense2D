@@ -13,6 +13,6 @@ namespace Project.Units
         public float AttackDamage;
         public float AttackRange;
         public int BuyCost;
-        public int FoodUpkeep;
+        public float RewardForKilling;
     }
 }

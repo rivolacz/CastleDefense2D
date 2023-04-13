@@ -13,7 +13,7 @@ namespace Project
         private CinemachineImpulseSource impulseSource;
         [SerializeField]
         private LayerMask layerMask;
-        float speed = 25;
+        float speed = 30;
         [SerializeField]
         private Sprite impactSprite;
 
@@ -23,7 +23,7 @@ namespace Project
         private float damage;
         private float fadeAwayTime = 10;
         private bool impacted = false;
-        private float force = 5;
+        private float force = 2500;
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,7 +34,7 @@ namespace Project
             if (target == null ||impacted) return;
             transform.Translate(Vector3.Normalize((Vector3)target - transform.position) * speed* Time.deltaTime);
             float distance = Vector3.Distance(transform.position, target);
-            if(distance < .5f)
+            if(distance < .3f)
             {
                 Impact();
             }
@@ -47,7 +47,7 @@ namespace Project
             StartCoroutine(StartFadingAway());
             impacted = true;
             transform.position = target;
-            transform.localScale = Vector3.one;
+            transform.localScale = Vector3.one * 3;
             impulseSource.GenerateImpulse();
         }
 
@@ -64,12 +64,15 @@ namespace Project
             Collider2D[] colliders = Physics2D.OverlapCircleAll(target, range, layerMask);
             foreach (Collider2D collider in colliders)
             {
-                if (!collider.TryGetComponent<IDamageable>(out var damageable)) return;
+                if (!collider.TryGetComponent<IDamageable>(out var damageable)) continue;
+                Debug.Log(collider.name);
                 Vector2 direction = collider.transform.position - transform.position;
                 float distance = direction.magnitude;
                 damageable.Damage(damage);
-                if (!collider.TryGetComponent<Rigidbody2D>(out var rb)) return;
-                rb.AddForce(direction.normalized * force * (1 - distance / range), ForceMode2D.Impulse);
+                if (!collider.TryGetComponent<Rigidbody2D>(out var rb)) continue;
+                Vector2 forceVector = direction.normalized * force * (1 - distance / range);
+                Debug.Log(forceVector);
+                rb.AddForce(forceVector, ForceMode2D.Force);
             }
         }
 

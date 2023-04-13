@@ -11,7 +11,6 @@ namespace Project.StateMachines
     {
         public BaseState AttackState;
         public BaseState IdleState;
-
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -19,11 +18,8 @@ namespace Project.StateMachines
             IdleState = new IdleState(this);
             CurrentState = new IdleState(this);
             unitAnimatorValuesSetter = new UnitAnimatorValuesSetter(animator);
-        }
-
-        private void Start()
-        {
             unitAnimatorValuesSetter.canAttack = true;
         }
+
     }
 }

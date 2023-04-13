@@ -28,7 +28,7 @@ namespace Project
             return closestTransform;
         }
 
-        public void AddToTaken(Unit unit)
+        public void AddToTaken(EnemyUnit unit)
         {
             var closestPosition = GetAvailablePosition(unit.transform.position);
             //PathFinding.AddObstacle(closestPosition.position);
@@ -56,7 +56,8 @@ namespace Project
         {
             if(collision == null) return;
             if(!IsLayerInLayerMask(collision.gameObject.layer)) return;
-            if(!collision.TryGetComponent(out Unit unit)) return;
+            if(!collision.TryGetComponent(out EnemyUnit unit)) return;
+            if (unit is EnemyCatapult) return;
             if (CanAssignPosition())
             {
                 AddToTaken(unit);
@@ -73,7 +74,7 @@ namespace Project
             return !takenPositionsFull;
         }
 
-        private void AddUnitToQueue(Unit unit)
+        private void AddUnitToQueue(EnemyUnit unit)
         {
             if(unitsWaitingForPosition.Contains(unit)) return;
             unitsWaitingForPosition.Add(unit);

@@ -4,6 +4,7 @@ using Project.Units;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UI;
 using UnityEngine.Windows;
 
 
@@ -16,6 +17,15 @@ namespace Project
         private LayerMask enemyLayerMask;
         [SerializeField]
         private LayerMask playerBuildingLayerMask;
+
+        [SerializeField]
+        private Button attackButton;
+        [SerializeField]
+        private Button moveButton;
+        [SerializeField]
+        private Button constructionButton;
+
+
         private UnitSelection unitSelection;
         private PlayerInput input;
         private Camera cam;
@@ -40,14 +50,8 @@ namespace Project
 
         public void AttackButton()
         {
-            if (unitSelection.GetSelectables().Count == 0)
-            {
-                assigningAction = false;
-                return;
-            }
-            if (assigningAction) return;
-            assigningAction = true;
-            Debug.Log("ATTACK BUTTON");
+            ResetAllButtons();
+            attackButton.transform.localScale = Vector3.one;
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
             input.Tap.TapPosition.started += _ => Attack();
@@ -55,13 +59,8 @@ namespace Project
 
         public void MoveButton()
         {
-            if (unitSelection.GetSelectables().Count == 0)
-            {
-                assigningAction = false;
-                return;
-            }
-            if (assigningAction) return;
-            assigningAction = true;
+            ResetAllButtons();
+            moveButton.transform.localScale = Vector3.one;
             Debug.Log("MOVE BUTTON");
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
@@ -71,12 +70,8 @@ namespace Project
 
         public void BuildButton()
         {
-            if (unitSelection.GetSelectables().Count == 0) {
-                assigningAction = false;
-                return;
-            }
-            assigningAction = true;
-            Debug.Log("BUILD BUTTON");
+            ResetAllButtons();
+            constructionButton.transform.localScale = Vector3.one;
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
             input.Tap.TapPosition.started += _ => Build();
@@ -187,6 +182,13 @@ namespace Project
             Vector2 tapPosition = input.Player.FirstTouchPosition.ReadValue<Vector2>();
             Vector2 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(tapPosition.x, tapPosition.y, Camera.main.nearClipPlane));
             return worldPosition;
+        }
+
+        private void ResetAllButtons()
+        {
+            attackButton.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            moveButton.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            constructionButton.transform.localScale = new Vector3(0.5f, 0.5f, 1);
         }
     }
 }

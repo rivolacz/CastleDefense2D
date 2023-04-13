@@ -11,6 +11,8 @@ namespace Project.StateMachines
 
     public class StateMachine : MonoBehaviour
     {
+        [HideInInspector]
+        public Transform Target;
         public UnitAnimatorValuesSetter unitAnimatorValuesSetter;
         public UnitStats unitStats;
 
@@ -18,6 +20,9 @@ namespace Project.StateMachines
         protected Animator animator;
         protected UnitMovement unitMovement;
         private float movementSpeedBonus = 0;
+        public float AttackRangeBonus;
+        private float slowDown = 0;
+        private float attackRangeBonus;
 
         private void Awake()
         {
@@ -46,7 +51,7 @@ namespace Project.StateMachines
 
         public void MoveUnit(Vector2 moveDirection, bool updateLookDirection = true)
         {
-            unitMovement.Move(moveDirection.normalized, updateLookDirection, movementSpeedBonus);
+            unitMovement.Move(moveDirection.normalized, updateLookDirection, movementSpeedBonus - slowDown);
             if (unitAnimatorValuesSetter != null)
             {
                 unitAnimatorValuesSetter?.SetMovementValues(moveDirection);
@@ -56,6 +61,11 @@ namespace Project.StateMachines
         public void Look(Vector2 lookDirection)
         {
             unitMovement.Look(lookDirection.normalized);
+        }
+
+        public void Rotate(Vector2 lookDirection)
+        {
+            unitMovement.RotateExactlyToLookDirection(lookDirection.normalized);
         }
 
         public void CanAttack()
@@ -82,6 +92,26 @@ namespace Project.StateMachines
         public void SetMovementSpeedBonus(float movementSpeedBonus)
         {
             this.movementSpeedBonus = movementSpeedBonus;
+        }
+
+        public void SetAttackRangeBonus(float attackRangeBonus)
+        {
+            this.attackRangeBonus = attackRangeBonus;
+        }
+
+        public void SlowDownUnit(float amount)
+        {
+            slowDown = amount;
+        }
+
+        public void CancelSlow()
+        {
+            slowDown = 0;
+        }
+
+        public void SetTarget(Transform target)
+        {
+            this.Target = target;
         }
     }
 }

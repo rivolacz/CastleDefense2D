@@ -1,9 +1,10 @@
 using Project.Waves;
-using System;
+using Project.StateMachines.States;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Project
 {
@@ -13,6 +14,8 @@ namespace Project
         public List<Transform> UnitPath;
         public Transform castleTransform;
 
+        [SerializeField]
+        private LayerMask playerBuildingLayerMask;
         private IEnumerator coroutine;
         private Transform unitSpawnPosition;
         private void Awake()
@@ -52,12 +55,24 @@ namespace Project
                 if (enemy == null) {
                     continue;
                 }
-                if(enemy is EnemyAirBaloon)
+                if (enemy is EnemyAirBaloon)
                 {
-                    continue;
+                    yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
                 }
-                enemy.SetPath(UnitPath);
-                yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
+                else if (enemy is EnemyCatapult)
+                {
+                    var catapult = enemy as EnemyCatapult;
+                    List<Vector3> positions = UnitPath.Select(t => t.position).ToList();
+                    DemolitionState demolitionState = new DemolitionState(positions, playerBuildingLayerMask, catapult.StateMachine);
+                    Debug.Log("Catapult setting to demoliton");
+                    catapult.ChangeState(demolitionState);
+                    yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
+                }
+                else
+                {
+                    enemy.SetPath(UnitPath);
+                    yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
+                }
             }
         }
     }

@@ -25,6 +25,7 @@ namespace Project.Units
         public void Move(Vector2 movementDirection, bool updateLookDirection, float movementSpeedBonus)
         {
             Vector2 currentPosition = transform.position;
+            if (unitStats.BaseMovementSpeed + movementSpeedBonus < 0) return;
             Vector2 destination = currentPosition + movementDirection * Time.fixedDeltaTime * (unitStats.BaseMovementSpeed + movementSpeedBonus);
             rigidbody.MovePosition(destination);
             if (updateLookDirection)
@@ -53,9 +54,8 @@ namespace Project.Units
         public void RotateExactlyToLookDirection(Vector2 lookDirection)
         {
             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
             var rotation = Quaternion.Euler(0f, 0f, angle);
-            transformToRotate.localRotation = Quaternion.Slerp(transformToRotate.localRotation, rotation, Time.deltaTime);
+            transformToRotate.rotation = rotation;
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Project.Upgrades.UI
             CheckForUpgrade(currentMoney, TimeWarpAbilityUpgrades.MovementSlowDownBonusBought, movementSlowDownCost, movementSlowDownCostText, movementSlowDownButtonGameObject);
             CheckForUpgrade(currentMoney, TimeWarpAbilityUpgrades.AttackSpeedSlowDownBonusBought, attackSpeedSlowDownCost, attackSpeedSlowDownCostText, attackSpeedSlowDownButtonGameObject);
             CheckForUpgrade(currentMoney, TimeWarpAbilityUpgrades.FreezeEnemiesBought, freezeEnemiesCost, freezeEnemiesCostText, freezeEnemiesButtonGameObject);
-            CheckForUpgrade(currentMoney, TimeWarpAbilityUpgrades.EffectLengthBonusBought, effectLengthCost, effectLengthCostText, effectLengthButtonGameObject);
+            CheckForUpgrade(currentMoney, TimeWarpAbilityUpgrades.EffectDurationBonusBought, effectLengthCost, effectLengthCostText, effectLengthButtonGameObject);
         }
 
         public void BuyMovementSlowDownBonus()
@@ -95,7 +95,7 @@ namespace Project.Upgrades.UI
             bool bought = UpgradesManager.Buy(effectLengthCost);
             if (bought)
             {
-                TimeWarpAbilityUpgrades.EffectLengthBonusBought = true;
+                TimeWarpAbilityUpgrades.EffectDurationBonusBought = true;
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

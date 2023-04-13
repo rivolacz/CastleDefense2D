@@ -17,7 +17,7 @@ namespace Project.Abilities
         private GameObject poisonPrefab;
 
         private Vector2 target;
-        public const float baseRange = 5;
+        public const float baseRange = 10;
         public const float baseDamagePerSecond = 3;
         public const float baseEffectDuration = 10;
         private PoisonAbilityUpgrades PoisonAbilityUpgrades
