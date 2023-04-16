@@ -1,3 +1,4 @@
+using Project.Units;
 using Project.Upgrades;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,28 +8,31 @@ using UnityEngine.UIElements;
 
 namespace Project
 {
-    public class ArcherTurret : MonoBehaviour 
+    public class ArcherTurret : MonoBehaviour , IDamageable
     {
         ArcherTurretUpgrades ArcherTurretUpgrades;
         public float Range;
         [SerializeField]
         private float AttackRate;
         [SerializeField]
-        private float Damage;
+        private float damage;
         [SerializeField]
         private GameObject ArrowPrefab;
         [SerializeField]
         private LayerMask enemyLayerMask;
+        [SerializeField]
+        private ProgressBar healthBar;
 
         private float AttackSpeedReduction = 0;
-        private float AttackDamageBouns = 0;
         private float AttackRangeBonus = 0;
         private float HealthBonus = 0;
+        private float MaxHealth = 250;
+        private float CurrentHealth = 250;
         public void Attack(Transform target)
         {
             GameObject arrow = Instantiate(ArrowPrefab, transform.position, Quaternion.identity);
    
-            arrow.GetComponent<Projectile>().SetTargetAndDamage(target, Damage);
+            arrow.GetComponent<Projectile>().SetTargetAndDamage(target, damage);
         }
 
         private void OnEnable()
@@ -52,6 +56,8 @@ namespace Project
             {
                 AttackRangeBonus = ArcherTurretUpgrades.AttackRangeBonus;
             }
+            MaxHealth = MaxHealth + HealthBonus;
+            CurrentHealth = MaxHealth;
         }
 
         private void OnDisable()
@@ -70,6 +76,20 @@ namespace Project
             }
             yield return new WaitForSeconds(AttackRate - AttackSpeedReduction);
             StartCoroutine(AttackCoroutine()); 
+        }
+
+        public void Damage(float damage)
+        {
+            CurrentHealth -= damage;
+            if (healthBar != null)
+            {
+                healthBar.gameObject.SetActive(true);
+                healthBar.FillProgressBar(CurrentHealth / MaxHealth);
+            }
+            if (CurrentHealth < 0)
+            {
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 }

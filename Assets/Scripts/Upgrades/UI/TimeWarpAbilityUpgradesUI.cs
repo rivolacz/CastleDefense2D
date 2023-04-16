@@ -47,7 +47,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (TimeWarpAbilityUpgrades == null) return;
             UpdateMoneyText();
 
@@ -63,6 +63,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 TimeWarpAbilityUpgrades.MovementSlowDownBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("TimeWarp-movementSlowDown");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -74,6 +75,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 TimeWarpAbilityUpgrades.AttackSpeedSlowDownBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("TimeWarp-attackSlowDown");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -96,6 +98,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 TimeWarpAbilityUpgrades.EffectDurationBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("TimeWarp-effectLength");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

@@ -42,7 +42,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (PikemanUpgrades == null) return;
             UpdateMoneyText();
             CheckForUpgrade(currentMoney, PikemanUpgrades.AttackDamageBonusBought, attackDamageCost, attackDamageCostText, attackDamageButtonGameObject);
@@ -56,6 +56,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PikemanUpgrades.AttackDamageBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Pikeman-attackDamage");
                 UpgradesManager.SaveUpgrades();
                 CheckBoughtUpgrades();
             }
@@ -67,6 +68,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PikemanUpgrades.MovementSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Pikeman-movementSpeed");
                 UpgradesManager.SaveUpgrades();
                 CheckBoughtUpgrades();
             }
@@ -78,6 +80,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PikemanUpgrades.AttackSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Pikeman-attackSpeed");
                 UpgradesManager.SaveUpgrades();
                 CheckBoughtUpgrades();
             }

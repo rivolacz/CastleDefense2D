@@ -11,13 +11,16 @@ namespace Project
 
         public void Awake()
         {
-            if (Application.isEditor)
+            if (!Application.isEditor)
             {
                 Destroy(gameObject);
             }
-            Language language = new Language();
-            language.CSVFile = defaultLanguage;
-            WordsDictionary.SetNewLanguage(language);
+            else
+            {
+                Language language = new Language();
+                language.CSVFile = defaultLanguage;
+                WordsDictionary.SetNewLanguage(language);
+            }
         }
     }
 }

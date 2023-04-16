@@ -46,7 +46,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (BuilderUpgrades == null) return;
             UpdateMoneyText();
             CheckForUpgrade(currentMoney, BuilderUpgrades.MovementSpeedBonusBought, movementSpeedCost, movementSpeedCostText, movementSpeedButtonGameObject);
@@ -60,6 +60,8 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 UpgradesManager.Upgrades.BuilderUpgrades.MovementSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Builder-movementSpeed");
+
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -71,6 +73,8 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 UpgradesManager.Upgrades.BuilderUpgrades.BuildingSpeedMultiplierBought = true;
+                UpgradesManager.SendDataToAnalytics("Builder-buildingSpeed");
+
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -82,6 +86,8 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 UpgradesManager.Upgrades.BuilderUpgrades.InstantlyBuildBuildingsBought = true;
+                UpgradesManager.SendDataToAnalytics("Builder-instantlyBuild");
+
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

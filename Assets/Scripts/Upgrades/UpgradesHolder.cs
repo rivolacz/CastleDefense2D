@@ -1,10 +1,9 @@
-using Project.Assets.Scripts.Upgrades;
 using Project.Upgrades;
 
 [System.Serializable]
 public class UpgradesHolder
 {
-    public float Money;
+    public float Coins;
     public int Retries;
     public CastleUpgrades CastleUpgrades = new();
 

@@ -82,6 +82,7 @@ namespace Project.StateMachines.States
 
         public override void Enter()
         {
+            Debug.Log("Move state" + Vector3.Distance(TargetPosition, unitTransform.position), stateMachine.gameObject);
             if(Vector3.Distance(TargetPosition, unitTransform.position) < 3)
             {
                 movePartTarget = TargetPosition;
@@ -95,6 +96,7 @@ namespace Project.StateMachines.States
             }
             else
             {
+                Debug.Log("Using pathfinding " + pathNodes.Count);
                 movePartTarget = pathNodes[currentNodeIndex].position;
             }
         }

@@ -28,5 +28,13 @@ namespace Project
             rock.SetTargetAndDamage(stateMachine.Target, unitStats.AttackDamage);
         }
 
+
+        private void OnDestroy()
+        {
+            if(rock != null)
+            {
+                Destroy(rock.gameObject);
+            }
+        }
     }
 }

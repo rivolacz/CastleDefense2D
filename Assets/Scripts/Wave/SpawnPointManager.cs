@@ -70,7 +70,7 @@ namespace Project
                 }
                 else
                 {
-                    enemy.SetPath(UnitPath);
+                    enemy.SetPath(UnitPath, castleTransform);
                     yield return new WaitForSeconds(units.TimeBetweenUnitSpawns);
                 }
             }

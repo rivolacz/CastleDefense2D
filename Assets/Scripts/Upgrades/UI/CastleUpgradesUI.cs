@@ -39,7 +39,7 @@ namespace Project.Upgrades
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if(CastleUpgrades == null)return;
             UpdateMoneyText();
 
@@ -53,6 +53,7 @@ namespace Project.Upgrades
             if (bought)
             {
                 CastleUpgrades.BonusHealthBought = true;
+                UpgradesManager.SendDataToAnalytics("Castle-health");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -60,10 +61,11 @@ namespace Project.Upgrades
 
         public void BuyShootingArrows()
         {
-            bool bought = UpgradesManager.Buy(bonusHealthCost);
+            bool bought = UpgradesManager.Buy(shootingArrowsCost);
             if (bought)
             {
                 CastleUpgrades.CastleCanShootArrows = true;
+                UpgradesManager.SendDataToAnalytics("Castle-shootingArrows");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

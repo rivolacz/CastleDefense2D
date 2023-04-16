@@ -65,15 +65,15 @@ timeWarpEffectLength
 turretsBonusHealthUpgradeDescription
 turretsAttackSpeedUpgradeDescription
 selectedUnits
- 
- 
- 
- 
- 
- 
- 
- 
- 
+researchUnit
+day
+gameOver
+tutorialInfo
+holdingFinger
+zoomIn
+zoomOut
+askForTutorial
+moveCamera
  
  
  

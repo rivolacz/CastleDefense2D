@@ -66,15 +66,15 @@ timeWarpEffectLength,"Schopnost Časová deformace lze vylepšit, aby se její �
 turretsBonusHealthUpgradeDescription,"Toto vylepšení posiluje věž, zvyšuje její zdraví a zvyšuje její odolnost vůči nepřátelským útokům. Díky dodatečnému pancéřování a silnějším materiálům vydrží vaše opevněná věž více úderů a zůstane déle v boji. Toto vylepšení je ideální pro ochranu kritických pozic nebo udržení linie proti velkým nepřátelským silám."
 turretsAttackSpeedUpgradeDescription,"Toto vylepšení zvyšuje dosah útoku věží, což jim umožňuje zasahovat nepřátele z větší vzdálenosti. Po zakoupení věže se viditelně zvýší jejich dosah, díky čemuž budou moci účinněji zasahovat cíle z bezpečné vzdálenosti."
 selectedUnits,Vybrané jednotky
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+researchUnit,Vyzkoumat jednotku
+day,DEN
+gameOver,Konec hry
+tutorialInfo,"Vítejte v království Knights Keep Kingdom, napínavé hře, kde hrajete za udatného obránce hradu! Vaším úkolem je chránit svůj hrad před vlnami přicházejících nepřátel po dobu 50 dní. Máte na to, abyste zadrželi neúnavné útočníky a zvítězili? <br>Pro začátek si projdeme základy. Váš hrad se nachází ve středu herní obrazovky a nepřátelé se budou blížit ze všech stran. Vaším úkolem je naverbovat armádu a postavit obranné věže, abyste je udrželi na uzdě a zabránili jim v prolomení vašich zdí. <br>Tyto struktury můžete umístit kliknutím na jejich ikony v nabídce stavění na levé straně obrazovky a přetažením na požadované místo. Poté musíte přiřadit stavitele, aby postavil věž.<br>Jak budete postupovat dny, budete vydělávat zlato za porážku nepřátel. Toto zlato můžete použít k najmutí více vojáků a věží, které budou bojovat po vašem boku. Sledujte své rezervy zlata a utrácejte rozumně, protože k přežití budete muset vyvážit útok a obranu.<br>Kromě své statické obrany budete mít také přístup ke speciálním schopnostem a kouzlům, které mohou zvrátit vývoj. bitvy. Pokud dokážete přežít všech 50 dní, ukážete se jako skutečný hrdina a obránce říše. Ale pozor, cesta před námi bude dlouhá a nebezpečná. Jste připraveni na výzvu? Pojďme to zjistit!"
+holdingFinger,"Když začnete držet prst a poté začnete prstem pohybovat, vytvoříte oblast výběru pro vaše jednotky. A když prst pustíte, budou vybrány všechny vaše jednotky."
+zoomIn,Přiblíží zobrazení
+zoomOut,Oddálí zobrazení
+askForTutorial,"Vypadá to, že jste tu poprvé! Přejete si vidět tutoriál?"
+moveCamera,Po mapě se můžete pohybovat dvěma prsty
  ,
  ,
  ,

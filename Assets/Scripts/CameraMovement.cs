@@ -106,7 +106,7 @@ public class CameraMovement : MonoBehaviour
             var average = GetDeltasAverage(firstTouchDelta, secondTouchDelta);
             average *= CameraMovementSpeed * Time.deltaTime;
             Vector3 currentPosition = cameraTransform.transform.position;
-            Vector3 newPosition = currentPosition + new Vector3(average.x, average.y, 0f);
+            Vector3 newPosition = currentPosition - new Vector3(average.x, average.y, 0f);
             MoveCamera(newPosition);       
         }
         else if(angle > 150)

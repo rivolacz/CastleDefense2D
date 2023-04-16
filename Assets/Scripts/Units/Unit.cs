@@ -10,7 +10,7 @@ namespace Project.Units
         public float currentHealth = 100;
         protected Vector2Int positionOnGrid = Vector2Int.zero;
         public StateMachine StateMachine;
-
+        protected float healthBonus = 0;
         [SerializeField]
         protected ProgressBar healthBar;
 
@@ -18,6 +18,7 @@ namespace Project.Units
         private void Awake()
         {
             StateMachine = GetComponent<StateMachine>();
+            currentHealth = unitStats.MaxHealth;
         }
 
         public void ChangeState(BaseState newState)
@@ -28,6 +29,7 @@ namespace Project.Units
         public virtual void Damage(float damage)
         {
             currentHealth -= damage;
+            Debug.Log($"{transform.name} took {damage}");
             if (healthBar != null)
             {
                 healthBar.gameObject.SetActive(true);
@@ -38,7 +40,12 @@ namespace Project.Units
             }
         }
 
-        
+        public void SetHealthBonus(float bonus)
+        {
+            healthBonus = bonus;
+            currentHealth = unitStats.MaxHealth + bonus;
+
+        }
 
         public virtual void Die()
         {

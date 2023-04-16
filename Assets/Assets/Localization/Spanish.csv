@@ -66,15 +66,15 @@ timeWarpEffectLength,"La habilidad Deformación temporal puede mejorarse para ex
 turretsBonusHealthUpgradeDescription,"Esta mejora refuerza tu torreta, aumentando su salud y haciéndola más resistente a los ataques enemigos. Con un blindaje adicional y materiales más resistentes, tu torreta fortificada puede soportar más castigo y permanecer más tiempo en combate. Esta mejora es perfecta para proteger posiciones críticas o mantener la línea contra grandes fuerzas enemigas."
 turretsAttackSpeedUpgradeDescription,"Esta mejora aumenta la cadencia de tiro de la torreta. Con una maquinaria mejorada y un mejor entrenamiento, la torreta es capaz de desatar una andanada más rápida y mortífera sobre las unidades enemigas. Esta mejora es esencial para los jugadores que buscan contener oleadas más grandes de enemigos y defender su castillo con más potencia de fuego."
 selectedUnits,Unidades seleccionadas
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+researchUnit,investiga la unidad
+day,DÍA
+gameOver,Juego terminado
+tutorialInfo,"¡Bienvenido a Knights Keep Kingdom, un juego emocionante en el que juegas como un valiente defensor del castillo! Tu tarea es proteger tu castillo de las oleadas de enemigos entrantes durante 50 días seguidos. ¿Tienes lo que se necesita para mantener a raya a los implacables atacantes y salir victorioso? <br>Para comenzar, repasemos los conceptos básicos. Tu castillo está ubicado en el centro de la pantalla del juego y los enemigos se acercarán por todos lados. Tu trabajo es reclutar un ejército y construir torretas defensivas para mantenerlos a raya y evitar que rompan tus muros. <br>Puede colocar estas estructuras haciendo clic en sus íconos en el menú de construcción en el lado izquierdo de la pantalla y luego arrastrándolos a la ubicación deseada. Luego, debes asignar al constructor para que construya la torreta.<br>A medida que avances a lo largo de los días, ganarás oro por derrotar enemigos y completar niveles. Puedes usar este oro para contratar más tropas y torretas para que luchen a tu lado. Vigila tus reservas de oro y gasta con prudencia, ya que necesitarás equilibrar ataque y defensa para sobrevivir.<br>Además de tus defensas estáticas, también tendrás acceso a habilidades especiales y hechizos que pueden cambiar el rumbo de batalla Si puedes sobrevivir los 50 días, emergerás como un verdadero héroe y defensor del reino. Pero tenga cuidado, el camino por delante será largo y peligroso. ¿Estás preparado para el reto? ¡Vamos a averiguar!"
+holdingFinger,"Cuando comience a sostener el dedo y luego comience a moverse con el dedo, creará un área de selección para sus unidades. Y cuando suelte el dedo, se seleccionarán todas sus unidades."
+zoomIn,Acercar la vista
+zoomOut,Alejar vista
+askForTutorial,¡Parece que estás aquí por primera vez! ¿Quieres ver el tutorial?
+moveCamera,Puedes moverte por el mapa con dos dedos
  ,
  ,
  ,

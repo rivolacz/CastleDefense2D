@@ -6,19 +6,31 @@ using UnityEngine;
 namespace Project.Units
 {
     [RequireComponent(typeof(PlayerStateMachine))]
-    public class PlayerUnit : Unit, ISelectable
+    public class PlayerUnit : AttackUnit, ISelectable
     {
         [SerializeField]
         private SpriteRenderer selectionObject;
 
         public void Select()
         {
-            selectionObject.enabled = true;
+            if (selectionObject != null)
+            {
+                selectionObject.enabled = true;
+            }
         }
 
         public void Deselect()
         {
-            selectionObject.enabled = false;
+            if (selectionObject != null)
+            {
+                selectionObject.enabled = false;
+            }
+        }
+
+        public override void Die()
+        {
+            FindAnyObjectByType<UnitSelection>().DeselectUnit(this);
+            base.Die();
         }
     }
 }

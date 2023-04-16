@@ -540,7 +540,7 @@ Transform:
   m_Children:
   - {fileID: 608781088036881492}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2593095318925060616
 CircleCollider2D:
@@ -631,6 +631,21 @@ MonoBehaviour:
   currentHealth: 100
   StateMachine: {fileID: 6417324946712347227}
   healthBar: {fileID: 0}
+  contactFilter2D:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  weaponCollider: {fileID: 0}
   selectionObject: {fileID: 2976727150696094605}
 --- !u!50 &7556990322232216997
 Rigidbody2D:
@@ -648,7 +663,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ac8bde0095bcbae449c5919dbcea8c1a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

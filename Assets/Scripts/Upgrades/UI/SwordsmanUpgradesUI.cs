@@ -1,5 +1,6 @@
-﻿using Project.Assets.Scripts.Upgrades;
+﻿using Project.Upgrades;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,14 +36,41 @@ namespace Project.Upgrades.UI
         [SerializeField] private GameObject healthButtonGameObject;
         private float healthCost = 100;
 
+        [SerializeField] private TMP_Text researchCostText;
+        [SerializeField] private GameObject researchButtonGameObject;
+        private float researchCost = 100;
+        [SerializeField] private ProgressBar researchBar;
+        [SerializeField] private GameObject unitUpgradesLockGameObject;
+
+        private TimeSpan researchTime = new TimeSpan(0, 5, 0);
+        private DateTime startResearchTime;
+        private bool isResearching = false;
+
         private void OnEnable()
         {
             CheckBoughtUpgrades();
+            if (!swordsmanUpgrades.Researched)
+            {
+                if (swordsmanUpgrades.ResearchStartTime != DateTime.MinValue)
+                {
+                    startResearchTime = swordsmanUpgrades.ResearchStartTime;
+                    isResearching = true;
+                    researchButtonGameObject.SetActive(false);
+                    unitUpgradesLockGameObject.SetActive(true);
+                    StartCoroutine(UpdateTimer());
+
+                }
+                else
+                {
+                    researchCostText.text = researchCost.ToString();
+                    unitUpgradesLockGameObject.SetActive(true);
+                }
+            }
         }
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
 
             CheckForUpgrade(currentMoney, swordsmanUpgrades.MovementSpeedBonusBought, movementSpeedCost, movementSpeedCostText, movementSpeedButtonGameObject);
             CheckForUpgrade(currentMoney, swordsmanUpgrades.AttackSpeedBonusBought, attackSpeedCost, attackSpeedCostText, attackSpeedButtonGameObject);
@@ -56,6 +84,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 swordsmanUpgrades.MovementSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Swordsman-movementSpeed");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -67,6 +96,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 swordsmanUpgrades.AttackSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Swordsman-attackSpeed");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -78,6 +108,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 swordsmanUpgrades.AttackDamageBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Swordsman-attackDamage");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -89,9 +120,49 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 swordsmanUpgrades.HealthBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Swordsman-health");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
+        }
+
+        public void StartResearch()
+        {
+            bool bought = UpgradesManager.Buy(researchCost);
+            if (bought)
+            {
+                swordsmanUpgrades.ResearchStartTime = DateTime.Now;
+                startResearchTime = DateTime.Now;
+                UpgradesManager.SaveUpgrades();
+                isResearching = true;
+                UpgradesManager.SendDataToAnalytics("Swordsman-research");
+                researchButtonGameObject.SetActive(false);
+                StartCoroutine(UpdateTimer());
+            }
+        }
+
+        public IEnumerator UpdateTimer()
+        {
+            Debug.Log("Timer");
+            researchBar.gameObject.SetActive(true);
+            while (isResearching)
+            {
+                double timePassed = (DateTime.Now - startResearchTime).TotalSeconds;
+                double remainingTime = researchTime.TotalSeconds - timePassed;
+                Debug.Log(remainingTime);
+                if (remainingTime <= 0)
+                {
+                    isResearching = false;
+                    swordsmanUpgrades.Researched = true;
+                    unitUpgradesLockGameObject.SetActive(false);
+                }
+                else
+                {
+                    float percentage = (float)(timePassed / researchTime.TotalSeconds);
+                    researchBar.FillProgressBar(percentage);
+                }
+                yield return new WaitForSeconds(1);
+            }
         }
     }
 }

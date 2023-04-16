@@ -19,6 +19,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void LoadPlayerMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void LoadGame()
     {
         loadSceneOperation.allowSceneActivation = true;

@@ -102,8 +102,11 @@ namespace Project
         public void CancelBuilding()
         {
             alreadyBuilding = false;
-            Settings.PlayerIsBuilding = true;
-            Destroy(buildingObject);
+            Settings.PlayerIsBuilding = false;
+            if(buildingObject != null)
+            {
+                Destroy(buildingObject);
+            }
         }
 
         public void FinishBuilding()
@@ -113,7 +116,7 @@ namespace Project
                 boxCollider.Overlap(contactFilter, colliders);
                 if (colliders.Count > 0) return;
                 GameData.Buy(buildingCost);
-                Settings.PlayerIsBuilding = true;
+                Settings.PlayerIsBuilding = false;
 
                 alreadyBuilding = false;
                 constructionSite.SetColorToBlueprint(Color.white);
@@ -121,7 +124,7 @@ namespace Project
                 boxCollider.isTrigger = false;
                 buildingConfirmation.SetActive(false);
                 rangeVisualizer.gameObject.SetActive(false);
-                //PathFinding.RefreshTiles();
+                buildingObject = null;
             }
         }
     }

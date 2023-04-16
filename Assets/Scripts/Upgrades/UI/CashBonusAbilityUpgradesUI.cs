@@ -43,7 +43,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (CashBonusAbilityUpgrades == null) return;
             UpdateMoneyText();
 
@@ -58,6 +58,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 CashBonusAbilityUpgrades.CashBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("CashBonus-cashBonus");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -69,6 +70,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 CashBonusAbilityUpgrades.CashBonus2Bought = true;
+                UpgradesManager.SendDataToAnalytics("CashBonus-cashBonus2");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -80,6 +82,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 CashBonusAbilityUpgrades.EffectLengthBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("CashBonus-effectLength");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

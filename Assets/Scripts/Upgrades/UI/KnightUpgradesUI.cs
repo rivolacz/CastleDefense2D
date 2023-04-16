@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,30 +31,40 @@ namespace Project.Upgrades.UI
         [SerializeField] private GameObject attackDamageButtonGameObject;
         private float attackDamageCost = 100;
 
+        [SerializeField] private TMP_Text researchCostText;
+        [SerializeField] private GameObject researchButtonGameObject;
+        private float researchCost = 250;
+        [SerializeField] private ProgressBar researchBar;
         [SerializeField] private GameObject unitUpgradesLockGameObject;
 
+        private TimeSpan researchTime = new TimeSpan(0, 5,0);
+        private DateTime startResearchTime;
+        private bool isResearching = false;
         private void OnEnable()
         {
             CheckBoughtUpgrades();
-        }
+            if (!KnightUpgrades.KnightResearched)
+            {
+                if (KnightUpgrades.KnightResearchStartTime != DateTime.MinValue)
+                {
+                    startResearchTime = KnightUpgrades.KnightResearchStartTime;
+                    isResearching = true;
+                    researchButtonGameObject.SetActive(false);
+                    StartCoroutine(UpdateTimer());
 
-        private void Start()
-        {
-            CheckBoughtUpgrades();
+                }
+                else
+                {
+                    researchCostText.text = researchCost.ToString();
+                    unitUpgradesLockGameObject.SetActive(true);
+                }
+            }
         }
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (KnightUpgrades == null) return;
-            if (KnightUpgrades.KnightResearched)
-            {
-                unitUpgradesLockGameObject.SetActive(false);
-            }
-            else
-            {
-                unitUpgradesLockGameObject.SetActive(true);
-            }
             UpdateMoneyText();
             CheckForUpgrade(currentMoney, KnightUpgrades.AttackDamageBonusBought, attackDamageCost, attackDamageCostText, attackDamageButtonGameObject);
             CheckForUpgrade(currentMoney, KnightUpgrades.MovementSpeedBonusBought, movementSpeedCost, movementSpeedCostText, movementSpeedButtonGameObject);
@@ -66,8 +77,9 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 KnightUpgrades.MovementSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Knight-movementSpeed");
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
 
@@ -77,8 +89,9 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 KnightUpgrades.AttackSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Knight-attackSpeed");
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
 
@@ -88,9 +101,48 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 KnightUpgrades.AttackDamageBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Knight-damage");
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
+        }
+
+        public void StartResearch()
+        {
+            bool bought = UpgradesManager.Buy(researchCost);
+            if (bought)
+            {
+                KnightUpgrades.KnightResearchStartTime = DateTime.Now;
+                startResearchTime = DateTime.Now;
+                UpgradesManager.SaveUpgrades();
+                isResearching = true;
+                UpgradesManager.SendDataToAnalytics("Knight-researched");
+                researchButtonGameObject.SetActive(false);
+                StartCoroutine(UpdateTimer());
+            }
+        }
+
+        public IEnumerator UpdateTimer()
+        {
+            Debug.Log("Timer");
+            researchBar.gameObject.SetActive(true);
+            while (isResearching)
+            {
+                double timePassed = (DateTime.Now - startResearchTime).TotalSeconds;
+                double remainingTime = researchTime.TotalSeconds - timePassed;
+                if (remainingTime <= 0)
+                {
+                    isResearching = false;
+                    KnightUpgrades.KnightResearched = true;
+                    unitUpgradesLockGameObject.SetActive(false);
+                }
+                else
+                {
+                    float percentage = (float)(timePassed / researchTime.TotalSeconds);
+                    researchBar.FillProgressBar(percentage);
+                }
+                yield return new WaitForSeconds(1);
+            }
         }
     }
 }

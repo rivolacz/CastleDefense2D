@@ -34,7 +34,7 @@ namespace Project
             if (targetToMove == null) return;
         }
 
-        public void SetPath(List<Transform> path)
+        public void SetPath(List<Transform> path, Transform castle)
         {
             List<Vector3> pathPositions = new List<Vector3>();
             foreach(var node in path)
@@ -42,9 +42,7 @@ namespace Project
                 pathPositions.Add(node.position);
             }
             pathPositions.RemoveAt(0);
-            Castle castle = path.Last().GetComponent<Castle>();
-            Transform castleTransform = castle.transform;
-            StateMachine.ChangeState(new MoveState(pathPositions, StateMachine, castleTransform));
+            StateMachine.ChangeState(new MoveState(pathPositions, StateMachine, castle));
         }
 
         public void SetStraightPath(Transform castle, float offsetY)

@@ -48,7 +48,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (PoisonAbilityUpgrades == null) return;
             UpdateMoneyText();
 
@@ -63,6 +63,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PoisonAbilityUpgrades.DamagePerSecondBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Poison-dps");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -74,6 +75,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PoisonAbilityUpgrades.EffectDurationBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Pikeman-effectDuration");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();
@@ -85,6 +87,7 @@ namespace Project.Upgrades.UI
             if (bought)
             {
                 PoisonAbilityUpgrades.EffectRangeBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("Pikeman-effectRange");
                 UpgradesManager.SaveUpgrades();
             }
             CheckBoughtUpgrades();

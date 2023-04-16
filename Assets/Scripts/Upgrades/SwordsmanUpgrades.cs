@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace Project.Assets.Scripts.Upgrades
+namespace Project.Upgrades
 {
     [Serializable]
     public class SwordsmanUpgrades
     {
-        public bool SwordsmanResearched = false;
+        public bool Researched = false;
+        public DateTime ResearchStartTime = DateTime.MinValue;
         public float MovementSpeedBonus = .5f;
         public bool MovementSpeedBonusBought = false;
         public float AttackSpeedBonus = .5f;

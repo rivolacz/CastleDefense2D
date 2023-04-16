@@ -62,6 +62,7 @@ namespace Project
             if (Settings.CameraMoving || Settings.PlayerIsBuilding || Settings.PlayerIsCasting) {
                 return;
             }
+            Debug.Log("Selecting");
             selecting = true;
             Vector2 value = input.UnitSelection.FirstTouchInformation.ReadValue<Vector2>();
             selectionArea.gameObject.SetActive(true);
@@ -98,7 +99,7 @@ namespace Project
             selectedCountText.text = selectables.Count.ToString();
         }
 
-        private void DeselectUnit(ISelectable unit)
+        public void DeselectUnit(ISelectable unit)
         {
             unit.Deselect();
             selectables.Remove(unit);

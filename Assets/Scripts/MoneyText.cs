@@ -26,7 +26,7 @@ namespace Project
         {
             if (moneyText != null)
             {
-                moneyText.text = UpgradesManager.Upgrades.Money.ToString();
+                moneyText.text = UpgradesManager.Upgrades.Coins.ToString();
             }
         }
     }

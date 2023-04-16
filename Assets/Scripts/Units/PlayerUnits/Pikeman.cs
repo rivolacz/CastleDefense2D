@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pikeman : AttackUnit
+public class Pikeman : PlayerUnit
 {
     private PikemanUpgrades upgrades;
     private void OnEnable()

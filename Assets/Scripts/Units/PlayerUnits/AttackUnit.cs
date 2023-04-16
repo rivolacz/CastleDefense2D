@@ -13,10 +13,12 @@ namespace Project
         protected float damageBonus = 0;
         public virtual void Attack()
         {
+            Debug.Log("Attacking");
             var allColliders = new List<Collider2D>();
             weaponCollider.Overlap(contactFilter2D, allColliders);
             foreach (Collider2D collider in allColliders)
             {
+                Debug.Log("Hitting");
                 IDamageable damagable = collider.GetComponent<IDamageable>();
                 damagable?.Damage(unitStats.AttackDamage + damageBonus);
             }

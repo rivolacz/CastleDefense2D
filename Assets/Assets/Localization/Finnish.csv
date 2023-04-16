@@ -66,15 +66,15 @@ timeWarpEffectLength,Aikavääristymäkykyä voidaan parantaa laajentamaan sen a
 turretsBonusHealthUpgradeDescription,"Tämä päivitys vahvistaa torniasi, parantaa sen terveyttä ja tekee siitä vastustuskykyisemmän vihollisen hyökkäyksiä vastaan. Ylimääräisen panssaripinnoituksen ja vahvemman materiaalin ansiosta linnoitettu tornisi voi kestää enemmän rangaistusta ja pysyä taistelussa pidempään. Tämä päivitys on täydellinen suojaamaan kriittisiä paikkoja tai pitämään linjaa suuria vihollisjoukkoja vastaan."
 turretsAttackSpeedUpgradeDescription,"Tämä päivitys lisää tornin laukaisunopeutta. Parannetun koneiston ja paremman koulutuksen ansiosta torni pystyy vapauttamaan nopeamman ja tappavamman padon vihollisen yksiköitä vastaan. Tämä päivitys on välttämätön pelaajille, jotka haluavat torjua suurempia vihollisia ja puolustaa linnaansa suuremmalla tulivoimalla."
 selectedUnits,Valitut yksiköt
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
+researchUnit,Tutki yksikköä
+day,PÄIVÄ
+gameOver,Peli ohi
+tutorialInfo,"Tervetuloa Knights keep kingdomiin, jännittävään peliin, jossa pelaat urhoollisena linnan puolustajana! Sinun tehtäväsi on suojata linnaasi saapuvilta vihollisilta 50 päivää putkeen. Onko sinulla tarvittavat välineet pidätellä säälimättömät hyökkääjät ja selvitä voittajana? <br>Aluksi käydään läpi perusasiat. Linnasi sijaitsee peliruudun keskellä, ja viholliset lähestyvät joka puolelta. Sinun tehtäväsi on värvätä armeija ja rakentaa puolustavia torneja pitääksesi ne loitolla ja estääksesi niitä rikkomasta seiniäsi. <br>Voit sijoittaa nämä rakenteet napsauttamalla niiden kuvakkeita näytön vasemman reunan rakentamisvalikossa ja vetämällä ne sitten haluamaasi paikkaan. Sitten sinun on määrättävä rakentaja rakentamaan torni.<br>Kun edistyt päivien aikana, ansaitset kultaa vihollisten voittamisesta ja tasojen suorittamisesta. Voit käyttää tätä kultaa palkkaamaan lisää joukkoja ja torneja taistelemaan rinnallasi. Pidä silmällä kultavarantoasi ja kuluta viisaasti, sillä sinun on tasapainotettava hyökkäys ja puolustus selviytyäksesi.<br>Staattisen puolustuksesi lisäksi sinulla on käytettävissäsi myös erikoiskykyjä ja loitsuja, jotka voivat kääntää vuoroveden taistelusta. Jos selviät kaikki 50 päivää, sinusta tulee todellinen sankari ja valtakunnan puolustaja. Mutta varoita, tie edessä on pitkä ja vaarallinen. Oletko valmis haasteeseen? Otetaan selvää!"
+holdingFinger,"Kun alat pitää sormea ja alat sitten liikkua sormella, luot yksiköillesi valintaalueen. Ja kun vapautat sormesi, kaikki yksikkösi valitaan."
+zoomIn,Zoomaa näkymää
+zoomOut,Loitonna näkymää
+askForTutorial,"Näyttää siltä, että olet täällä ensimmäistä kertaa! Haluatko nähdä opetusohjelman?"
+moveCamera,Voit liikkua kartalla kahdella sormella
  ,
  ,
  ,

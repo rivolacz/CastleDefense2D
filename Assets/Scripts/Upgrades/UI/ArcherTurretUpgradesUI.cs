@@ -42,7 +42,7 @@ namespace Project
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (ArcherTurretUpgrades == null) return;
             UpdateMoneyText();
 
@@ -57,8 +57,9 @@ namespace Project
             if (bought)
             {
                 ArcherTurretUpgrades.AttackSpeedBonusBought = true;
+                UpgradesManager.SendDataToAnalytics("ArcherTurret-attackSpeed");
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
 
@@ -68,8 +69,10 @@ namespace Project
             if (bought)
             {
                 ArcherTurretUpgrades.HealthBonusBought = true;
+                UpgradesManager.SaveUpgrades();
+                UpgradesManager.SendDataToAnalytics("ArcherTurret-health");
+
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
 
@@ -79,8 +82,10 @@ namespace Project
             if (bought)
             {
                 ArcherTurretUpgrades.AttackRangeBonusBought = true;
-            }
             UpgradesManager.SaveUpgrades();
+                UpgradesManager.SendDataToAnalytics("ArcherTurret-attackRange");
+
+            }
             CheckBoughtUpgrades();
         }
     }

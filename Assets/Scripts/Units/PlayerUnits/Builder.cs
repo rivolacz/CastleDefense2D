@@ -10,7 +10,7 @@ namespace Project
         public void BuildBuilding(ConstructionSite building, Vector3 position)
         {
             Debug.Log("Builder starting build");
-            StateMachine.ChangeState(new MoveState(position,StateMachine, 4f, new BuildingState(building, position, StateMachine)));
+            StateMachine.ChangeState(new MoveState(position,StateMachine, 0f, new BuildingState(building, position, StateMachine)));
         }
     }
 }

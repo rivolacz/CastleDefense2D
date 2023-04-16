@@ -8,7 +8,7 @@ namespace Project
 {
     public static class EnemyFinder
     {
-        private const float pointRange = 50f;
+        private const float pointRange = 4f;
         public static Transform GetEnemyTransform(LayerMask enemyLayerMask, Vector2 position, float range)
         {
             Collider2D[] colliders = GetEnemiesInRange(enemyLayerMask,position, range);
@@ -27,8 +27,7 @@ namespace Project
 
         private static Collider2D[] GetEnemiesInRange(LayerMask enemyLayerMask, Vector2 position, float range)
         {
-            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(position);
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(worldPosition, range, enemyLayerMask);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, range, enemyLayerMask);
             return colliders;
         }
 

@@ -37,7 +37,7 @@ namespace Project.Upgrades.UI
 
         private void CheckBoughtUpgrades()
         {
-            float currentMoney = UpgradesManager.Upgrades.Money;
+            float currentMoney = UpgradesManager.Upgrades.Coins;
             if (FireballAbilityUpgrades == null) return;
             UpdateMoneyText();
 
@@ -62,9 +62,10 @@ namespace Project.Upgrades.UI
             bool bought = UpgradesManager.Buy(manaUsageReductionCost);
             if (bought)
             {
+                UpgradesManager.SendDataToAnalytics("Fireball-manaReduction");
                 FireballAbilityUpgrades.ManaUsageReductionBought = true;
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
 
@@ -73,9 +74,10 @@ namespace Project.Upgrades.UI
             bool bought = UpgradesManager.Buy(instantlyKillAllUnitsCost);
             if (bought)
             {
+                UpgradesManager.SendDataToAnalytics("Fireball-killInstantly");
                 FireballAbilityUpgrades.InstantlyKillAllUnitsBought = true;
+                UpgradesManager.SaveUpgrades();
             }
-            UpgradesManager.SaveUpgrades();
             CheckBoughtUpgrades();
         }
     }

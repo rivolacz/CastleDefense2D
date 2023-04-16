@@ -52,13 +52,13 @@ namespace Project.StateMachines.States
 
         private bool CanShootAtCastle()
         {
+            if (castleTransform == null) return false;
             float distance = Vector3.Distance(unitTransform.position, castleTransform.position);
             return distance < unitStats.AttackRange;
         }
 
         private void StartShooting(Transform target)
         {
-            Debug.Log("Can shoot " + target.name);
             stateMachine.SetTarget(target);
             stateMachine.unitAnimatorValuesSetter.SetAttackTrigger();
             Vector2 direction = target.position - unitTransform.position;

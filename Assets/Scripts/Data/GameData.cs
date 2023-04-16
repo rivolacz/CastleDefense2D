@@ -13,6 +13,7 @@ public class GameData : MonoBehaviour
     public static TMP_Text MoneyText;
     public static Transform CastleTransform { get; private set; }
     public static float Coins { get; private set; }
+    public static int CurrentWave { get; set; }
 
     private void Awake()
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class UpgradesManager : MonoBehaviour
@@ -29,10 +30,6 @@ public class UpgradesManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Upgrades.Money == 0)
-        {
-            Upgrades.Money = 999;
-        }
         Upgrades = LoadUpgrades();
     }
 
@@ -48,7 +45,7 @@ public class UpgradesManager : MonoBehaviour
             string filePath = Path.Combine(directoryPath, upgradesFilename);
             string data = File.ReadAllText(filePath);
             Debug.Log(data);
-            UpgradesHolder upgrades = JsonUtility.FromJson<UpgradesHolder>(data);
+            UpgradesHolder upgrades = Newtonsoft.Json.JsonConvert.DeserializeObject<UpgradesHolder>(data);
             return upgrades;
         }
         catch(Exception ex)
@@ -56,7 +53,6 @@ public class UpgradesManager : MonoBehaviour
             Debug.Log(ex.Message);
             UpgradesHolder upgrades = new UpgradesHolder();
             Upgrades = upgrades;
-            Debug.Log(upgrades.KnightUpgrades.AttackSpeedBonusBought);
             SaveUpgrades();
             return upgrades;
         }
@@ -71,18 +67,30 @@ public class UpgradesManager : MonoBehaviour
         }
         string filePath = Path.Combine(directoryPath, upgradesFilename);
         UpgradesHolder upgradesHolder = Upgrades;
-        var data = JsonUtility.ToJson(upgradesHolder);
+        var data = Newtonsoft.Json.JsonConvert.SerializeObject(upgradesHolder);
         Debug.Log($"Saving to {filePath} {data}");
         File.WriteAllText(filePath,data);
     }
 
     public static bool Buy(float price)
     {
-        if(Upgrades.Money >= price)
+        if(Upgrades.Coins >= price)
         {
-            Upgrades.Money -= price;
+            Upgrades.Coins -= price;
             return true;
         }
         return false;
+    }
+
+
+    public static void SendDataToAnalytics(string upgradeName)
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "UpgradeName", upgradeName },
+            { "Retries", Upgrades.Retries },
+            {"CoinsLeft", Upgrades.Coins },
+        };
+        AnalyticsService.Instance.CustomData("UpgradeBought", parameters);
     }
 }

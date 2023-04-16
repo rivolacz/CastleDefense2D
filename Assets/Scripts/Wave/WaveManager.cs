@@ -1,7 +1,9 @@
 using FunkyCode;
+using Project.Localization;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Project.Waves.WaveManager;
@@ -22,7 +24,14 @@ namespace Project.Waves
 
         [SerializeField]
         private LightCycle lightCycle;
-
+        [SerializeField]
+        private TMP_Text dayCounter;
+        [SerializeField]
+        private TMP_Text bigDayCounter;
+        [SerializeField]
+        private Animator bigDayCounterAnimator;
+        [SerializeField]
+        private Canvas winGameCanvas;
         private WaveTimes currentWaveTime;
         private int waveNumber = 1;
         private int waveTimesIndex = 1;
@@ -30,17 +39,30 @@ namespace Project.Waves
 
         private void Start()
         {
+            var font = WordsDictionary.GetCurrentFont();
+            if(font != null)
+            {
+                bigDayCounter.font = font;
+            }
             currentWaveTime = WaveTimes.First();
             StartCoroutine(nameof(NextWave));
         }
 
         private void StartWave()
         {
+            if(waveNumber == 51)
+            {
+                GameWined();
+            }
+            dayCounter.text = waveNumber.ToString();
+            bigDayCounter.text = $"{WordsDictionary.GetLocalizedText("day").Trim()} {waveNumber}";
+            bigDayCounterAnimator.SetTrigger("ShowDay");
             CheckWaveUpdates();
             foreach (var spawnPoint in SpawnPointManagers) {
                 spawnPoint.SpawnWave(waveNumber);
             }
             waveNumber++;
+            GameData.CurrentWave = waveNumber;
         }
 
         private void CheckWaveUpdates()
@@ -74,6 +96,15 @@ namespace Project.Waves
                     renderer.enabled = true;
                 }
             }
+        }
+
+        private void GameWined()
+        {
+            winGameCanvas.enabled = true;
+            Time.timeScale = 0;
+            UpgradesManager.Upgrades.Coins += 1000;
+            UpgradesManager.Upgrades.Retries += 1;
+            UpgradesManager.SaveUpgrades();
         }
 
         public IEnumerator NextWave()
