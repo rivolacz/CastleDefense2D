@@ -75,11 +75,11 @@ zoomIn,Přiblíží zobrazení
 zoomOut,Oddálí zobrazení
 askForTutorial,"Vypadá to, že jste tu poprvé! Přejete si vidět tutoriál?"
 moveCamera,Po mapě se můžete pohybovat dvěma prsty
- ,
- ,
- ,
- ,
- ,
+tutorialMainPanel,"Na hlavním panelu máte 4 možnosti co dělat: stavět věže, sesílat schopnosti, rekrutovat jednotky a dávat jednotkám rozkazy."
+tutorialBuilding,Po výběru věže je potřeba ji umístit kam chcete a poté potvrdit. Pak musíte vybrat stavitele a přikázat mu postavit tu věž.
+tutorialCastAbilities,"Schopnosti můžete sesílat za svou manu, pokud má schopnost plošný efekt, musíte nejprve vybrat místo a poté jej potvrdit."
+tutorialRecruitUnits,"Můžete si koupit jednotky, které jste již vyzkoumali, zakoupené jednotky se objeví v okolí hradu. Těmto jednotkám můžete dát konkrétní rozkazy."
+tutorialGiveOrder,
  ,
  ,
  ,

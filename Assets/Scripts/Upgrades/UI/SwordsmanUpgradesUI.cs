@@ -76,6 +76,8 @@ namespace Project.Upgrades.UI
             CheckForUpgrade(currentMoney, swordsmanUpgrades.AttackSpeedBonusBought, attackSpeedCost, attackSpeedCostText, attackSpeedButtonGameObject);
             CheckForUpgrade(currentMoney, swordsmanUpgrades.AttackDamageBonusBought, attackDamageCost, attackDamageCostText, attackDamageButtonGameObject);
             CheckForUpgrade(currentMoney, swordsmanUpgrades.HealthBonusBought, healthCost, healthCostText, healthButtonGameObject);
+            CheckForUpgrade(currentMoney, swordsmanUpgrades.Researched, researchCost, researchCostText, researchButtonGameObject);
+
         }
 
         public void BuyMovementSpeedBonus()

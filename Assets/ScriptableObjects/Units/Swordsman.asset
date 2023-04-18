@@ -17,5 +17,5 @@ MonoBehaviour:
   MaxHealth: 200
   AttackDamage: 20
   AttackRange: 1
-  BuyCost: 10
+  BuyCost: 15
   RewardForKilling: 0

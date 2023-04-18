@@ -2400,7 +2400,7 @@ MonoBehaviour:
   - Name: English
     Flag: {fileID: 938470346616453969, guid: 359f9eb5852bd8b4a9c9fcd077430cb7, type: 3}
     CSVFile: {fileID: 4900000, guid: d6c18c07705c31246990c21df351c20a, type: 3}
-    Font: {fileID: 11400000, guid: c2f483e550a99de4e94ee53f48e1fc28, type: 2}
+    Font: {fileID: 11400000, guid: eb449e37cb08a2242bcd822cbf8b82e7, type: 2}
   - Name: Czech
     Flag: {fileID: -2888992248504340896, guid: d1309a4c64880964e9f4e70fa2b3deb0, type: 3}
     CSVFile: {fileID: 4900000, guid: f0a802e1603883b4fb6774e839a91011, type: 3}
@@ -2414,7 +2414,7 @@ MonoBehaviour:
     CSVFile: {fileID: 4900000, guid: ddda76c0e095dd440a5797ab70bca03e, type: 3}
     Font: {fileID: 11400000, guid: eb449e37cb08a2242bcd822cbf8b82e7, type: 2}
   - Name: Hindi
-    Flag: {fileID: -8219533562038950456, guid: b1261a02fe883b04d9b685d06097e7ed, type: 3}
+    Flag: {fileID: -8254932462476682504, guid: 981252e6669dba145bad7c8adcc7124b, type: 3}
     CSVFile: {fileID: 4900000, guid: 6c288d89c84df024f820a5906a8007de, type: 3}
     Font: {fileID: 11400000, guid: d90598ed6d0a53f4fb8c58eaeefab9ce, type: 2}
   LanguageNameText: {fileID: 281290583}

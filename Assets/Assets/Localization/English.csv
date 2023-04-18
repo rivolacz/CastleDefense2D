@@ -23,7 +23,7 @@ selectGame,Select game
 automaticallyLoadGame,Load selected slot automatically next time
 mainMenu,Main menu
 upgrades,Upgrades
-information,Information
+information,Tutorial
 play,Play
 fireballAbilityName,Astro Strike
 fireballAbilityDescription,The Astro strike ability is a powerful attack that damages units on specified part of ground
@@ -75,3 +75,8 @@ zoomIn,Zoom in view
 zoomOut,Zoom out view
 askForTutorial,Looks like you are here for the first time! Do you wish to see tutorial?
 moveCamera,You can move around map with two fingers
+tutorialMainPanel,"In the main panel you have 4 options to do, build turrets, cast abilities, recruit units, and give orders to units."
+tutorialBuilding,"After selecting turret, then you need to place it where you want and then confirm it. Then you need to select builder and order him to build that turret."
+tutorialCastAbilities,"You can cast abilities for your mana, if the ability is area effect, first you need to select place and then confirm it."
+tutorialRecruitUnits,"You can buy units that you already researched, bought units will appear around the castle. You can give these units a specific orders."
+tutorialGiveOrder,

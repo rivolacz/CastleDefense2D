@@ -21,6 +21,7 @@ namespace Project
             {
             { "Time", readingTime },
             };
+            Debug.Log("Time finished" + readingTime);
             AnalyticsService.Instance.CustomData("TutorialFinished", parameters);
         }
     }

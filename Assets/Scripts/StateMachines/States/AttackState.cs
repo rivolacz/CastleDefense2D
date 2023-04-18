@@ -55,7 +55,7 @@ namespace Project.StateMachines
             if (directionToCollider.magnitude < unitStats.AttackRange)
             {
                 stateMachine.unitAnimatorValuesSetter.SetAttackTrigger();
-                if (directionToCollider.magnitude < unitStats.AttackRange / 2)
+                if (directionToCollider.magnitude < unitStats.AttackRange /2)
                 {
                     stateMachine.Look(directionToCollider);
                     return;

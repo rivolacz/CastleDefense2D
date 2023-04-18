@@ -25,12 +25,19 @@ namespace Project
 
         public void SendLostDataToAnalytics()
         {
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            try
+            {
+                Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
             { "Retry", UpgradesManager.Upgrades.Retries },
             { "Wave",GameData.CurrentWave }
             };
-            AnalyticsService.Instance.CustomData("TutorialFinished", parameters);
+                AnalyticsService.Instance.CustomData("TutorialFinished", parameters);
+            }
+            catch(System.Exception e)
+            {
+                Debug.Log(e.Message);
+            }
         }
     }
 }

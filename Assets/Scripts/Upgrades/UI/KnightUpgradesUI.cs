@@ -69,6 +69,7 @@ namespace Project.Upgrades.UI
             CheckForUpgrade(currentMoney, KnightUpgrades.AttackDamageBonusBought, attackDamageCost, attackDamageCostText, attackDamageButtonGameObject);
             CheckForUpgrade(currentMoney, KnightUpgrades.MovementSpeedBonusBought, movementSpeedCost, movementSpeedCostText, movementSpeedButtonGameObject);
             CheckForUpgrade(currentMoney, KnightUpgrades.AttackSpeedBonusBought, attackSpeedCost, attackSpeedCostText, attackSpeedButtonGameObject);
+            CheckForUpgrade(currentMoney, KnightUpgrades.KnightResearched, researchCost, researchCostText, researchButtonGameObject);
         }
 
         public void BuyMovementSpeedBonus()

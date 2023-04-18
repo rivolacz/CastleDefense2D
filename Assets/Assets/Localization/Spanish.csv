@@ -23,7 +23,7 @@ selectGame,Selecciona un juego
 automaticallyLoadGame,Cargar ranura seleccionada automáticamente la próxima vez
 mainMenu,Menú principal
 upgrades,Actualizaciones
-information,Información
+information,Tutorial
 play,Jugar
 fireballAbilityName,Explosión pirotécnica
 fireballAbilityDescription,La habilidad Piroblasto es un poderoso ataque que desata una abrasadora bola de llamas que incinera a los enemigos a su paso.
@@ -75,11 +75,11 @@ zoomIn,Acercar la vista
 zoomOut,Alejar vista
 askForTutorial,¡Parece que estás aquí por primera vez! ¿Quieres ver el tutorial?
 moveCamera,Puedes moverte por el mapa con dos dedos
- ,
- ,
- ,
- ,
- ,
+tutorialMainPanel,"En el panel principal tienes 4 opciones para hacer, construir torretas, lanzar habilidades, reclutar unidades y dar órdenes a las unidades."
+tutorialBuilding,"Después de seleccionar la torreta, debe colocarla donde desee y luego confirmarla. Luego, debe seleccionar el constructor y ordenarle que construya esa torreta."
+tutorialCastAbilities,"Puedes lanzar habilidades para tu maná, si la habilidad es un efecto de área, primero debes seleccionar el lugar y luego confirmarlo."
+tutorialRecruitUnits,"Puedes comprar unidades que ya investigaste, las unidades compradas aparecerán alrededor del castillo. Puedes dar a estas unidades unas órdenes específicas."
+tutorialGiveOrder,
  ,
  ,
  ,

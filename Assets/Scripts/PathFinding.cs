@@ -45,6 +45,10 @@ namespace Project
                     Vector3Int tilePosition = new Vector3Int(x, y, 0);
                     var collider = Physics2D.OverlapBox(new Vector2(tilePosition.x, tilePosition.y), tilemap.cellSize, 0, obstacleMask);
                     bool isObstacle = collider != null;
+                    if (isObstacle)
+                    {
+                        Debug.Log(tilePosition);
+                    }
                     pathNodes.Add(new Vector2Int(x, y), new Node(tilePosition, isObstacle));
                 }
             }
@@ -58,7 +62,10 @@ namespace Project
                 for (int y = bounds.yMin; y < bounds.yMax; y++)
                 {
                     var position = new Vector2Int(x, y);
-                    pathNodes[position].neighbors = GetNeighbors(x, y);
+                    if (!pathNodes[position].isObstacle)
+                    {
+                        pathNodes[position].neighbors = GetNeighbors(x, y);
+                    }
                 }
             }
         }
@@ -66,27 +73,35 @@ namespace Project
         static List<Node> GetNeighbors(int x, int y)
         {
             List<Node> neighbors = new List<Node>();
-            AddNeighbour(neighbors, x - 1, y);
-            AddNeighbour(neighbors, x + 1, y);
-            AddNeighbour(neighbors, x, y - 1);
-            AddNeighbour(neighbors, x, y + 1);
+
+            bool topObstacle = AddNeighbour(neighbors, x, y + 1);
+            bool bottomObstacle = AddNeighbour(neighbors, x, y - 1);
+            bool leftObstacle = AddNeighbour(neighbors, x - 1, y);
+            bool rightObstacle = AddNeighbour(neighbors, x + 1, y);
+
             //Add diagonal 
-            AddNeighbour(neighbors, x - 1, y - 1);
-            AddNeighbour(neighbors, x - 1, y + 1);
-            AddNeighbour(neighbors, x + 1, y - 1);
-            AddNeighbour(neighbors, x + 1, y + 1);
+            if (!topObstacle && !rightObstacle)
+                AddNeighbour(neighbors, x + 1, y + 1);
+            if (!topObstacle && !leftObstacle)
+                AddNeighbour(neighbors, x - 1, y + 1);
+            if (!bottomObstacle && !rightObstacle)
+                AddNeighbour(neighbors, x + 1, y - 1);
+            if (!bottomObstacle && !leftObstacle)
+                AddNeighbour(neighbors, x - 1, y - 1);
             return neighbors;
         }
 
-        private static void AddNeighbour(List<Node> neighbors, int x, int y)
+        private static bool AddNeighbour(List<Node> neighbors, int x, int y)
         {
             var position = new Vector2Int(x, y);
-            if (!pathNodes.ContainsKey(position)) return;
+            if (!pathNodes.ContainsKey(position)) return false;
             var node = pathNodes[position];
-            if (node != null)
+            if (node != null && !node.isObstacle)
             {
                 neighbors.Add(node);
+                return true;
             }
+            return false;
         }
         public static List<Node> FindPath(Vector3 start, Vector3 end)
         {
@@ -119,11 +134,7 @@ namespace Project
             if (endNode.isObstacle)
             {
                 Debug.LogWarning("End node is obstacle");
-                Node nearestNode = FindNearestUnobstructedNode(endNode);
-                if (nearestNode == null)
-                {
-                    return new List<Node>();
-                }       
+                return new List<Node>();   
             }
             openList.Add(startNode);
 
@@ -226,33 +237,6 @@ namespace Project
         public static void RefreshTiles()
         {
             BuildNodes();
-        }
-
-        public static Node FindNearestUnobstructedNode(Node startNode)
-        {
-            Queue<Node> queue = new Queue<Node>();
-            HashSet<Node> visited = new HashSet<Node>();
-            queue.Enqueue(startNode);
-            visited.Add(startNode);
-            while (queue.Count > 0)
-            {
-                Node currentNode = queue.Dequeue();
-
-                if (!currentNode.isObstacle)
-                {
-                    return currentNode;
-                }
-                foreach (Node neighbor in currentNode.neighbors)
-                {
-                    if (!visited.Contains(neighbor))
-                    {
-                        queue.Enqueue(neighbor);
-                        visited.Add(neighbor);
-                    }
-                }
-            }
-            // No unobstructed nodes found
-            return null;
         }
     }
 }

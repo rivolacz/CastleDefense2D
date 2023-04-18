@@ -16,6 +16,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        PlayerPrefs.DeleteKey("AutomaticallyLoadSlot");
         SceneManager.LoadScene(0);
     }
 

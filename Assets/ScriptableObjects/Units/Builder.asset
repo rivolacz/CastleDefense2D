@@ -17,5 +17,5 @@ MonoBehaviour:
   MaxHealth: 100
   AttackDamage: 0
   AttackRange: 0
-  BuyCost: 20
-  FoodUpkeep: 0
+  BuyCost: 5
+  RewardForKilling: 0

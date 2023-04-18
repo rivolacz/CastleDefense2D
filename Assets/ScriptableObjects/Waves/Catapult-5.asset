@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Count: 5
   TimeBetweenUnitSpawns: 2
-  UnitPrefab: {fileID: 0}
+  UnitPrefab: {fileID: 1463746091349888639, guid: 22453ac72d8e2f24da63a28b98082927, type: 3}

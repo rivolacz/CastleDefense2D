@@ -32,7 +32,7 @@ namespace Project
         private PlayerInput input;
         private Camera cam;
         private Vector2 worldTapPosition;
-        private bool assigningAction = false;
+        private string lastPressed = "";
         private void Awake()
         {
             input = new PlayerInput();
@@ -52,7 +52,13 @@ namespace Project
 
         public void AttackButton()
         {
+            if (lastPressed == nameof(AttackButton)) {
+                ResetAllButtons();
+                lastPressed = "";
+                return;
+            }
             ResetAllButtons();
+            lastPressed = nameof(AttackButton);
             attackButton.transform.localScale = Vector3.one;
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
@@ -61,7 +67,14 @@ namespace Project
 
         public void MoveButton()
         {
+            if (lastPressed == nameof(MoveButton))
+            {
+                ResetAllButtons();
+                lastPressed = "";
+                return;
+            }
             ResetAllButtons();
+            lastPressed = nameof(MoveButton);
             moveButton.transform.localScale = Vector3.one;
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
@@ -71,7 +84,14 @@ namespace Project
 
         public void BuildButton()
         {
+            if (lastPressed == nameof(BuildButton))
+            {
+                ResetAllButtons();
+                lastPressed = "";
+                return;
+            }
             ResetAllButtons();
+            lastPressed = nameof(BuildButton);
             constructionButton.transform.localScale = Vector3.one;
             unitSelection.CanDeselectAllUnits = false;
             input.Tap.Enable();
@@ -80,11 +100,6 @@ namespace Project
 
         public void Attack()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-            Debug.Log("ATTACK");
             var attackPosition = WorldPosition();
             Transform attackTarget = EnemyFinder.GetEnemyTransform(enemyLayerMask, attackPosition);
             Debug.Log("Attack position" + attackPosition);
@@ -98,10 +113,6 @@ namespace Project
 
         public void Move()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
             Debug.Log("MOVE");
             Vector2 movePosition = WorldPosition();
             SetMoveStateToUnits(movePosition);
@@ -109,10 +120,6 @@ namespace Project
 
         public void Build()
         {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
             Vector2 buildPosition = WorldPosition();
             var colliders = Physics2D.OverlapCircleAll(buildPosition,2, playerBuildingLayerMask);
             Debug.Log(buildPosition + " has " + colliders.Length);
@@ -140,7 +147,7 @@ namespace Project
                 if(unit == null || unit is Builder)  continue;
                 StateMachine stateMachine = unit.GetComponent<StateMachine>();
                 AttackState attackState = new AttackState(attackTarget, stateMachine);
-                MoveState moveState = new MoveState(attackTarget.position, stateMachine, 0, attackState);
+                MoveState moveState = new MoveState(attackTarget.position, stateMachine, 4, attackState);
                 stateMachine.ChangeState(moveState);
             }
         }
@@ -165,6 +172,7 @@ namespace Project
                 Debug.Log(selectable.GetType());
                 if (unit == null || unit is not Builder) continue;
                 unit.BuildBuilding(building, position);
+                unitSelection.DeselectUnit(selectable);
             }
         }
 

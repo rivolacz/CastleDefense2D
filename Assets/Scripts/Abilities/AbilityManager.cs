@@ -62,7 +62,7 @@ namespace Project.Abilities
                 }
             }
         }
-        private float ManaPerSecond = 20;
+        private float ManaPerSecond = 1;
         Ability abilityToCast = null;
         private PlayerInput input;
         private Vector2 castingPosition = Vector2.zero;

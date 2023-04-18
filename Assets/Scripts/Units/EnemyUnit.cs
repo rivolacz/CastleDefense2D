@@ -27,6 +27,7 @@ namespace Project
         {
             unitMovement = GetComponent<UnitMovement>();
             StateMachine = GetComponent<EnemyStateMachine>();
+            currentHealth = unitStats.MaxHealth;
         }
 
         private void Update()
@@ -56,6 +57,7 @@ namespace Project
             if (healthBar != null)
             {
                 healthBar.gameObject.SetActive(true);
+                Debug.Log($"{currentHealth}:{ unitStats.MaxHealth}");
                 healthBar.FillProgressBar(currentHealth / unitStats.MaxHealth);
             }
             if (currentHealth < 0)

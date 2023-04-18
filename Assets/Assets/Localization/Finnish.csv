@@ -23,7 +23,7 @@ selectGame,Valitse peli
 automaticallyLoadGame,Lataa valittu paikka automaattisesti seuraavan kerran
 mainMenu,Päävalikko
 upgrades,Päivitykset
-information,Tiedot
+information,Opetusohjelma
 play,pelata
 fireballAbilityName,Pyroblasti
 fireballAbilityDescription,"Pyroblastikyky on voimakas hyökkäys, joka laukaisee palavan liekkipallon polttaen tiellään olevat viholliset."
@@ -75,11 +75,11 @@ zoomIn,Zoomaa näkymää
 zoomOut,Loitonna näkymää
 askForTutorial,"Näyttää siltä, että olet täällä ensimmäistä kertaa! Haluatko nähdä opetusohjelman?"
 moveCamera,Voit liikkua kartalla kahdella sormella
- ,
- ,
- ,
- ,
- ,
+tutorialMainPanel,"Pääpaneelissa sinulla on 4 vaihtoehtoa: rakentaa torneja, heittää kykyjä, värvätä yksiköitä ja antaa käskyjä yksiköille."
+tutorialBuilding,"Kun olet valinnut tornin, sinun on asetettava se haluamaasi paikkaan ja vahvistettava se. Sitten sinun on valittava rakentaja ja määrättävä hänet rakentamaan tuo torni."
+tutorialCastAbilities,"Voit heittää manaan kykyjä, jos kyky on alueefekti, sinun tulee ensin valita paikka ja sitten vahvistaa se."
+tutorialRecruitUnits,"Voit ostaa yksiköitä, joita olet jo tutkinut, ostetut yksiköt ilmestyvät linnan ympärille. Voit antaa näille yksiköille erityisiä tilauksia."
+tutorialGiveOrder,
  ,
  ,
  ,

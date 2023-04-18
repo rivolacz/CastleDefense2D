@@ -34,7 +34,7 @@ namespace Project
             if (target == null ||impacted) return;
             transform.Translate(Vector3.Normalize((Vector3)target - transform.position) * speed* Time.deltaTime);
             float distance = Vector3.Distance(transform.position, target);
-            if(distance < .3f)
+            if(distance < 1f)
             {
                 Impact();
             }

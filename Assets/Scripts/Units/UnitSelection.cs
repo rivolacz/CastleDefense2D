@@ -42,6 +42,15 @@ namespace Project
             input.UnitSelection.DoubleTap.performed += _ => DeselectAllUnits();
         }
 
+        private void OnDestroy()
+        {
+            input.UnitSelection.Tap.performed -= _ => Tap();
+            input.UnitSelection.HoldFinger.performed -= ctx => StartHolding(ctx);
+            input.UnitSelection.HoldFinger.canceled -= ctx => SelectUnits(ctx);
+            input.UnitSelection.DoubleTap.performed -= _ => DeselectAllUnits();
+            input.Disable();
+        }
+
         private void Update()
         {
             if (selecting)
@@ -139,5 +148,12 @@ namespace Project
             selectables.ForEach(selectable => selectable.Deselect());
             selectables.Clear();
         }
+
+        public void DeselectAllUnitsOnBackButton()
+        {
+            selectables.ForEach(selectable => selectable.Deselect());
+            selectables.Clear();
+        }
     }
+
 }

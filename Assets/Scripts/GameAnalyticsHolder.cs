@@ -18,7 +18,10 @@ namespace Project
                 List<string> consentIdentifiers = await AnalyticsService.Instance.CheckForRequiredConsents();
                 foreach (string consentIdentifier in consentIdentifiers)
                 {
-                    AnalyticsService.Instance.ProvideOptInConsent(consentIdentifier, false);
+                    if (consentIdentifier == "pipl")
+                    {
+                        AnalyticsService.Instance.ProvideOptInConsent(consentIdentifier, false);
+                    }
                 }
             }
             catch (ConsentCheckException e)

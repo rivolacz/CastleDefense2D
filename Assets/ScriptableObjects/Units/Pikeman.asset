@@ -16,6 +16,6 @@ MonoBehaviour:
   BaseMovementSpeed: 1
   MaxHealth: 60
   AttackDamage: 6
-  AttackRange: 3
+  AttackRange: 2
   BuyCost: 10
   RewardForKilling: 3

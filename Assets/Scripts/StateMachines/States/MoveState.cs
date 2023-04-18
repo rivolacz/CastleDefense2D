@@ -1,3 +1,4 @@
+using FunkyCode.SuperTilemapEditorSupport.Light.Shadow;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,7 @@ namespace Project.StateMachines.States
             TargetPosition = movePartTarget;
             unitTransform = stateMachine.transform;
             this.stateAfterMovingToTarget = stateAfterMovingToTarget;
+            this.offsetToTarget = offsetToTarget;
         }
 
         public MoveState(Vector3 movePosition, StateMachine stateMachine, Transform attackTarget) : base(stateMachine)
@@ -104,6 +106,7 @@ namespace Project.StateMachines.States
         public override void StateUpdate()
         {
             Vector2 directionToTarget = GetDirectionToTarget();
+            Debug.DrawLine(stateMachine.transform.position, stateMachine.transform.position + (Vector3)directionToTarget, UnityEngine.Color.green, 0.1f);
             if (directionToTarget.magnitude < .5f + offsetToTarget)
             {
                 if (IsAtEndOfPath())

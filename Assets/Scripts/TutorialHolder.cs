@@ -10,27 +10,16 @@ namespace Project
     {
         private const string firstTimeKey = "PlayerPlayingFirstTime";
         [SerializeField]
-        private Canvas tutorialCanvas;
+        private GameObject tutorialCanvas;
 
         private void Awake()
         {
-            bool askForTutorial = !PlayerPrefs.HasKey(firstTimeKey);
-        }
-
-        
-        public void CancelTutorial()
-        {
-            PlayerPrefs.SetInt(firstTimeKey, Convert.ToInt32(1));
-            SendDataToAnalytics();
-        }
-
-        public void SendDataToAnalytics()
-        {
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            bool showTutorial = !PlayerPrefs.HasKey(firstTimeKey);
+            if (showTutorial)
             {
-            { "Time", 0 },
-            };
-            AnalyticsService.Instance.CustomData("TutorialFinished", parameters);
+                tutorialCanvas.SetActive(true);
+                PlayerPrefs.SetInt(firstTimeKey, Convert.ToInt32(1));
+            }
         }
     }
 }

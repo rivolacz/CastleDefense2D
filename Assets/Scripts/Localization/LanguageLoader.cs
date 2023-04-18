@@ -30,9 +30,9 @@ namespace Project.Localization
                 {
                     try
                     {
-                        if (value[value.Length-1] == '\"')
+                        if (value.Length > 3 && value[value.Length-2] == '"')
                         {
-                            value = value.Remove(value.Length-1);
+                            value = value.Remove(value.Length-2,2);
                         }
                         languageData.Add(key, value);
                     }catch(Exception e)
